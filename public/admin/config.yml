@@ -1,0 +1,62 @@
+# Admin Cabinet des Curiosités — Decap CMS
+# En local : lancer `npm run cms` puis ouvrir http://localhost:4321/admin/
+# En production (Netlify) : activer Identity + Git Gateway, Stéphanie se connecte par email.
+
+local_backend: true
+
+backend:
+  name: git-gateway
+  branch: main
+  commit_messages:
+    create: "Nouveau produit : {{slug}}"
+    update: "Mise à jour produit : {{slug}}"
+    delete: "Suppression produit : {{slug}}"
+    uploadMedia: "Ajout photo : {{path}}"
+    deleteMedia: "Suppression photo : {{path}}"
+
+locale: fr
+
+media_folder: "public/assets/produits"
+public_folder: "/assets/produits"
+
+editor:
+  preview: false
+
+collections:
+  - name: "produits"
+    label: "Mes Trouvailles"
+    label_singular: "Trouvaille"
+    folder: "src/content/produits"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    summary: "{{titre}} — {{prix}} € · {{statut}}"
+    sortable_fields: ["date", "titre", "prix"]
+    view_groups:
+      - label: "Statut"
+        field: statut
+    fields:
+      - { label: "Nom de l'objet", name: "titre", widget: "string", hint: "Ex. : Vase à glaçure craquelée" }
+      - { label: "Prix (en euros)", name: "prix", widget: "number", value_type: "int", min: 0 }
+      - label: "Catégorie"
+        name: "categorie"
+        widget: "select"
+        options: ["Céramique", "Verrerie", "Mobilier", "Luminaire", "Curiosité"]
+      - label: "Statut"
+        name: "statut"
+        widget: "select"
+        options: ["Disponible", "Réservé", "Vendu"]
+        default: "Disponible"
+        hint: "Passez en « Vendu » quand la pièce est partie — elle restera visible, barrée, dans la galerie."
+      - label: "Photos"
+        name: "photos"
+        widget: "list"
+        min: 1
+        hint: "La première photo est celle affichée dans la galerie."
+        field: { label: "Photo", name: "photo", widget: "image" }
+      - { label: "Description", name: "body", widget: "markdown", hint: "Quelques phrases pour raconter l'objet, son charme, son histoire." }
+      - { label: "État", name: "etat", widget: "string", required: false, hint: "Ex. : Très bon état, légère usure d'usage." }
+      - { label: "Dimensions", name: "dimensions", widget: "string", required: false, hint: "Ex. : H. 24 cm × Ø 14 cm" }
+      - { label: "Époque", name: "epoque", widget: "string", required: false, hint: "Ex. : Milieu XXᵉ siècle" }
+      - { label: "Livraison", name: "livraison", widget: "string", default: "Emballage soigné · France 8–12 € · Retrait Lyon possible" }
+      - { label: "Date d'ajout", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD", hint: "Sert à trier : les plus récentes apparaissent en premier." }

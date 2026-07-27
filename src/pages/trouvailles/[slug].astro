@@ -1,0 +1,71 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const produits = await getCollection("produits");
+  return produits.map((p) => ({ params: { slug: p.slug }, props: { produit: p, all: produits } }));
+}
+
+const { produit, all } = Astro.props;
+const { Content } = await produit.render();
+const d = produit.data;
+const badgeMod = { "Réservé": "r", "Vendu": "v" };
+
+const similaires = all
+  .filter((p) => p.slug !== produit.slug && p.data.statut !== "Vendu")
+  .sort((a, b) => (b.data.categorie === d.categorie ? 1 : 0) - (a.data.categorie === d.categorie ? 1 : 0))
+  .slice(0, 3);
+---
+<Layout title={`${d.titre} — Cabinet des Curiosités`} active="trouvailles" inner={true}>
+  <div class="wrap"><nav class="breadcrumb"><a href="/">Accueil</a> — <a href="/trouvailles">Les Trouvailles</a> — <span>{d.titre}</span></nav></div>
+
+  <section class="section" style="padding-top:36px">
+    <div class="wrap split">
+      <div class="split__media">
+        <img src={d.photos[0]} alt={d.titre} />
+        <span class="cap">Pièce unique</span>
+        {d.photos.length > 1 && (
+          <div class="pd-thumbs">
+            {d.photos.map((ph) => (<img src={ph} alt="" loading="lazy" />))}
+          </div>
+        )}
+      </div>
+      <div class="split__body">
+        <span class="eyebrow">{d.categorie} · {d.statut}</span>
+        <h1 style="font-size:clamp(2rem,3.4vw,2.8rem);margin:.2em 0;font-family:var(--serif);font-weight:400">{d.titre}</h1>
+        <div class={`pdprice${d.statut === "Vendu" ? " sold" : ""}`}>{d.prix}&nbsp;€</div>
+        <Content />
+        <dl class="specs">
+          {d.etat && <div><dt>État</dt><dd>{d.etat}</dd></div>}
+          {d.dimensions && <div><dt>Dimensions</dt><dd>{d.dimensions}</dd></div>}
+          {d.epoque && <div><dt>Époque</dt><dd>{d.epoque}</dd></div>}
+          <div><dt>Livraison</dt><dd>{d.livraison}</dd></div>
+        </dl>
+        <div class="buybox">
+          {d.statut === "Disponible" && <a href="#" class="btn btn--solid" data-demo="Redirection vers le paiement sécurisé…">Acheter — paiement sécurisé</a>}
+          {d.statut === "Réservé" && <span class="btn" style="pointer-events:none;opacity:.6">Pièce réservée</span>}
+          {d.statut === "Vendu" && <span class="btn" style="pointer-events:none;opacity:.6">Pièce vendue</span>}
+          <a href="/contact" class="btn">Réserver / poser une question</a>
+          <div class="reassure"><span>✦ Paiement Stripe</span><span>✦ Pièce unique</span><span>✦ Envoi soigné</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {similaires.length > 0 && (
+    <section class="section section--tint">
+      <div class="wrap">
+        <div class="grid-head"><span class="eyebrow">Dans le même esprit</span><h2>Produits similaires</h2></div>
+        <div class="shop">
+          {similaires.map((p) => (
+            <a href={`/trouvailles/${p.slug}`} class="pcard reveal">
+              <div class="pcard__media"><span class={`pcard__badge${badgeMod[p.data.statut] ? ` pcard__badge--${badgeMod[p.data.statut]}` : ""}`}>{p.data.statut}</span><img src={p.data.photos[0]} alt={p.data.titre} loading="lazy" /></div>
+              <div class="pcard__name">{p.data.titre}</div><div class="pcard__cat">{p.data.categorie}</div><div class="pcard__price">{p.data.prix}&nbsp;€</div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+</Layout>

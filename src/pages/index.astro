@@ -1,0 +1,160 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const produits = (await getCollection("produits"))
+  .filter((p) => p.data.statut !== "Vendu")
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+const cats = [
+  { l: "Céramique", img: "ceramique.jpg" },
+  { l: "Verrerie", img: "verrerie.jpg" },
+  { l: "Mobilier", img: "mobilier.jpg" },
+];
+---
+<Layout title="Cabinet des Curiosités — L'objet rare mérite un regard juste" active="home">
+
+  <!-- HERO — BANNIÈRE ÉDITORIALE -->
+  <section class="home-hero">
+    <div class="home-hero__image">
+      <img src="/assets/van-open.jpg" alt="Le van du Cabinet des Curiosités installé au cœur de la nature" />
+    </div>
+    <div class="home-hero__veil"></div>
+    <div class="home-hero__content reveal">
+      <span class="eyebrow">Objets chinés · Pièces uniques · Lyon</span>
+      <h1>Des objets choisis pour les histoires qu’ils racontent.</h1>
+      <p>Une sélection singulière de céramiques, verreries, luminaires et curiosités, choisies une à une par Stéphanie.</p>
+      <div class="home-hero__actions">
+        <a href="/trouvailles" class="btn btn--light">Voir les trouvailles</a>
+        <a href="#nouveautes" class="home-hero__link">Découvrir la sélection</a>
+      </div>
+    </div>
+    <div class="home-hero__card reveal">
+      <span>La sélection du Cabinet</span>
+      <strong>Objets rares<br />& coups de cœur</strong>
+      <small>Nouvelles pièces disponibles</small>
+    </div>
+    <a href="#manifeste" class="home-hero__scroll" aria-label="Découvrir la suite de la page"><span></span>Défiler</a>
+  </section>
+
+  <nav class="home-quicknav" aria-label="Explorer la page d'accueil">
+    <span>Explorer le Cabinet</span>
+    <div>
+      <a href="#nouveautes">Nouveautés</a>
+      <a href="#univers">Les univers</a>
+      <a href="#stephanie">Stéphanie</a>
+      <a href="#journal">L’univers du Cabinet</a>
+    </div>
+  </nav>
+
+  <!-- MANIFESTE EN GRAND FORMAT -->
+  <section class="home-manifesto" id="manifeste">
+    <div class="home-manifesto__image reveal">
+      <img src="/assets/still-2.jpg" alt="Détails d'une sélection d'objets chinés" />
+    </div>
+    <div class="home-manifesto__copy reveal">
+      <span class="eyebrow">Le regard juste</span>
+      <h2>Déjà vécus.<br />Prêts à vivre encore.</h2>
+      <p>Céramiques, verreries, luminaires et curiosités sont choisis un à un. Pas de collection figée : seulement de belles matières, des traces du temps et des objets qui donnent une âme à la maison.</p>
+      <a href="/a-propos" class="tlink">Découvrir notre histoire</a>
+      <img class="home-manifesto__sprig" src="/assets/il-sprig.png" alt="" />
+      <span class="home-manifesto__index">CDC — Lyon, France</span>
+    </div>
+  </section>
+
+  <!-- TROUVAILLES GRAND FORMAT -->
+  <section class="home-finds" id="nouveautes">
+    <div class="wrap">
+      <div class="home-finds__head reveal">
+        <div>
+          <span class="eyebrow">Fraîchement chinées</span>
+          <h2>Les pièces du moment</h2>
+        </div>
+        <div class="home-finds__intro">
+          <img src="/assets/il-sprig.png" alt="" />
+          <p>Une sélection courte, vivante et toujours renouvelée.</p>
+        </div>
+      </div>
+      <div class="home-finds__grid">
+        {produits.map((p, i) => (
+          <a href={`/trouvailles/${p.slug}`} class={`home-find home-find--${i + 1} reveal`}>
+            <div class="home-find__media">
+              <img src={p.data.photos[0]} alt={p.data.titre} />
+              <span class={`home-find__badge${p.data.statut === "Réservé" ? " home-find__badge--reserved" : ""}`}>{p.data.statut}</span>
+            </div>
+            <div class="home-find__meta">
+              <span>{String(i + 1).padStart(2, "0")} · {p.data.categorie}</span>
+              <h3>{p.data.titre}</h3>
+              <strong>{p.data.prix}&nbsp;€</strong>
+            </div>
+          </a>
+        ))}
+      </div>
+      <div class="home-finds__all reveal"><a href="/trouvailles" class="btn">Voir toute la collection</a></div>
+    </div>
+  </section>
+
+  <!-- CATÉGORIES LARGES -->
+  <section class="home-categories" id="univers">
+    <div class="wrap">
+      <div class="home-categories__head reveal">
+        <span class="eyebrow">Explorer</span>
+        <h2>Une maison pleine de caractère.</h2>
+      </div>
+    </div>
+    <div class="home-categories__grid reveal">
+      {cats.map((c) => (
+        <a class="home-category" href="/trouvailles">
+          <img src={`/assets/${c.img}`} alt={c.l} loading="lazy" />
+          <span class="home-category__label"><span>{c.l}</span><em>Découvrir</em></span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- PORTRAIT -->
+  <section class="home-founder" id="stephanie">
+    <div class="home-founder__portrait reveal">
+      <img src="/assets/fondatrice-3.jpg" alt="Stéphanie, fondatrice du Cabinet des Curiosités" />
+    </div>
+    <div class="home-founder__story reveal">
+      <span class="home-founder__monogram" aria-hidden="true">C<em>D</em>C</span>
+      <span class="eyebrow">Le Cabinet, c’est elle</span>
+      <h2>Le goût des objets.<br />Le plaisir de les transmettre.</h2>
+      <p>Stéphanie chine comme on compose un intérieur : avec instinct, patience et beaucoup de cœur. Chaque pièce est choisie pour sa présence, sa patine et l’émotion qu’elle provoque.</p>
+      <blockquote>« Je cherche moins la perfection que le supplément d’âme. »</blockquote>
+      <a href="/a-propos" class="tlink">Rencontrer Stéphanie</a>
+    </div>
+  </section>
+
+  <!-- JOURNAL DE ROUTE -->
+  <section class="home-road" id="journal">
+    <div class="home-road__photo reveal">
+      <img src="/assets/van-field.jpg" alt="Le van, décor emblématique du Cabinet des Curiosités" />
+    </div>
+    <div class="home-road__copy reveal">
+      <span class="eyebrow">L’univers du Cabinet</span>
+      <h2>Le van,<br />écrin des trouvailles.</h2>
+      <p>Plus qu’un décor, ce camion d’époque traduit l’esprit du Cabinet : du caractère, une belle patine et le goût des objets qui ont déjà vécu. Il met en scène les pièces et donne à chaque sélection une atmosphère unique.</p>
+      <div class="home-road__details">
+        <div><small>La sélection</small><strong>Pièces uniques</strong></div>
+        <div><small>Le regard</small><strong>Choisi par Stéphanie</strong></div>
+      </div>
+      <img class="cvn__draw" src="/assets/il-caravan.png" alt="Illustration de la caravane" />
+      <a href="/trouvailles" class="btn btn--light">Voir les objets disponibles</a>
+    </div>
+  </section>
+
+  <section class="home-promise">
+    <div class="wrap home-promise__inner reveal">
+      <span class="eyebrow">Notre promesse</span>
+      <h2>Une pièce singulière,<br />un envoi préparé avec soin.</h2>
+      <div class="home-promise__items">
+        <span>01 · Pièces uniques</span>
+        <span>02 · Emballage protecteur</span>
+        <span>03 · Expédition sous 48 h</span>
+      </div>
+    </div>
+  </section>
+
+</Layout>

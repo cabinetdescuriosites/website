@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" fill="none">
+  <defs>
+    <path id="arcTop" d="M150,150 m-116,0 a116,116 0 0 1 232,0" />
+    <path id="arcBot" d="M150,150 m-116,0 a116,116 0 0 0 232,0" />
+  </defs>
+  <circle cx="150" cy="150" r="132" stroke="#AE884C" stroke-width="1.2" />
+  <circle cx="150" cy="150" r="126" stroke="#AE884C" stroke-width="0.6" opacity=".55" />
+  <text font-family="Cormorant Garamond, Georgia, serif" font-size="17" letter-spacing="4.2" fill="#3B3025">
+    <textPath href="#arcTop" startOffset="50%" text-anchor="middle">CABINET DES CURIOSITÉS</textPath>
+  </text>
+  <text font-family="Cormorant Garamond, Georgia, serif" font-size="14" letter-spacing="3.6" fill="#AE884C">
+    <textPath href="#arcBot" startOffset="50%" text-anchor="middle">COLLECTION D'OBJETS RARES</textPath>
+  </text>
+  <circle cx="30" cy="150" r="2.4" fill="#AE884C" />
+  <circle cx="270" cy="150" r="2.4" fill="#AE884C" />
+  <text x="150" y="163" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="62" letter-spacing="4" fill="#3B3025">C<tspan fill="#AE884C">D</tspan>C</text>
+  <line x1="112" y1="182" x2="188" y2="182" stroke="#AE884C" stroke-width="0.9" />
+  <text x="150" y="203" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="13" letter-spacing="3.4" fill="#8B7D6A">LYON · FRANCE</text>
+</svg>
