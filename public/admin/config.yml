@@ -29,6 +29,7 @@ collections:
     folder: "src/content/produits"
     create: true
     delete: true
+    identifier_field: "titre"
     slug: "{{slug}}"
     summary: "{{titre}} — {{prix}} € · {{statut}}"
     sortable_fields: ["date", "titre", "prix"]

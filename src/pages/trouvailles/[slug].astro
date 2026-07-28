@@ -11,6 +11,9 @@ const { produit, all } = Astro.props;
 const { Content } = await produit.render();
 const d = produit.data;
 const badgeMod = { "Réservé": "r", "Vendu": "v" };
+const PLACEHOLDER = "/assets/placeholder.svg";
+const photos = d.photos.length ? d.photos : [PLACEHOLDER];
+const cover = (p) => p.data.photos[0] ?? PLACEHOLDER;
 
 const similaires = all
   .filter((p) => p.slug !== produit.slug && p.data.statut !== "Vendu")
@@ -23,11 +26,11 @@ const similaires = all
   <section class="section" style="padding-top:36px">
     <div class="wrap split">
       <div class="split__media">
-        <img src={d.photos[0]} alt={d.titre} />
+        <img src={photos[0]} alt={d.titre} />
         <span class="cap">Pièce unique</span>
-        {d.photos.length > 1 && (
+        {photos.length > 1 && (
           <div class="pd-thumbs">
-            {d.photos.map((ph) => (<img src={ph} alt="" loading="lazy" />))}
+            {photos.map((ph) => (<img src={ph} alt="" loading="lazy" />))}
           </div>
         )}
       </div>
@@ -60,7 +63,7 @@ const similaires = all
         <div class="shop">
           {similaires.map((p) => (
             <a href={`/trouvailles/${p.slug}`} class="pcard reveal">
-              <div class="pcard__media"><span class={`pcard__badge${badgeMod[p.data.statut] ? ` pcard__badge--${badgeMod[p.data.statut]}` : ""}`}>{p.data.statut}</span><img src={p.data.photos[0]} alt={p.data.titre} loading="lazy" /></div>
+              <div class="pcard__media"><span class={`pcard__badge${badgeMod[p.data.statut] ? ` pcard__badge--${badgeMod[p.data.statut]}` : ""}`}>{p.data.statut}</span><img src={cover(p)} alt={p.data.titre} loading="lazy" /></div>
               <div class="pcard__name">{p.data.titre}</div><div class="pcard__cat">{p.data.categorie}</div><div class="pcard__price">{p.data.prix}&nbsp;€</div>
             </a>
           ))}
