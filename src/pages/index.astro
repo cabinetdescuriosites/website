@@ -6,6 +6,7 @@ const produits = (await getCollection("produits"))
   .filter((p) => p.data.statut !== "Vendu")
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 3);
+const cover = (p) => p.data.photos[0] ?? "/assets/placeholder.svg";
 const cats = [
   { l: "Céramique", img: "ceramique.jpg" },
   { l: "Verrerie", img: "verrerie.jpg" },
@@ -79,7 +80,7 @@ const cats = [
         {produits.map((p, i) => (
           <a href={`/trouvailles/${p.slug}`} class={`home-find home-find--${i + 1} reveal`}>
             <div class="home-find__media">
-              <img src={p.data.photos[0]} alt={p.data.titre} />
+              <img src={cover(p)} alt={p.data.titre} />
               <span class={`home-find__badge${p.data.statut === "Réservé" ? " home-find__badge--reserved" : ""}`}>{p.data.statut}</span>
             </div>
             <div class="home-find__meta">
