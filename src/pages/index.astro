@@ -21,21 +21,11 @@ const cats = [
       <img src="/assets/van-open.jpg" alt="Le van du Cabinet des Curiosités installé au cœur de la nature" />
     </div>
     <div class="home-hero__veil"></div>
-    <div class="home-hero__content reveal">
-      <span class="eyebrow">Objets chinés · Pièces uniques · Lyon</span>
-      <h1>Des objets choisis pour les histoires qu’ils racontent.</h1>
-      <p>Une sélection singulière de céramiques, verreries, luminaires et curiosités, choisies une à une par Stéphanie.</p>
-      <div class="home-hero__actions">
-        <a href="/trouvailles" class="btn btn--light">Voir les trouvailles</a>
-        <a href="#nouveautes" class="home-hero__link">Découvrir la sélection</a>
-      </div>
-    </div>
-    <div class="home-hero__card reveal">
-      <span>La sélection du Cabinet</span>
-      <strong>Objets rares<br />& coups de cœur</strong>
-      <small>Nouvelles pièces disponibles</small>
-    </div>
-    <a href="#manifeste" class="home-hero__scroll" aria-label="Découvrir la suite de la page"><span></span>Défiler</a>
+    <h1 class="visually-hidden">Cabinet des Curiosités — objets chinés et pièces uniques</h1>
+    <a href="#manifeste" class="home-hero__discover" aria-label="Découvrir le Cabinet des Curiosités">
+      <span>Découvrir</span>
+      <i aria-hidden="true"></i>
+    </a>
   </section>
 
   <nav class="home-quicknav" aria-label="Explorer la page d'accueil">
@@ -43,8 +33,8 @@ const cats = [
     <div>
       <a href="#nouveautes">Nouveautés</a>
       <a href="#univers">Les univers</a>
-      <a href="#stephanie">Stéphanie</a>
-      <a href="#journal">L’univers du Cabinet</a>
+      <a href="#stephanie">Le regard</a>
+      <a href="#soin">Le soin</a>
     </div>
   </nav>
 
@@ -120,40 +110,60 @@ const cats = [
     </div>
     <div class="home-founder__story reveal">
       <span class="home-founder__monogram" aria-hidden="true">C<em>D</em>C</span>
-      <span class="eyebrow">Le Cabinet, c’est elle</span>
-      <h2>Le goût des objets.<br />Le plaisir de les transmettre.</h2>
-      <p>Stéphanie chine comme on compose un intérieur : avec instinct, patience et beaucoup de cœur. Chaque pièce est choisie pour sa présence, sa patine et l’émotion qu’elle provoque.</p>
-      <blockquote>« Je cherche moins la perfection que le supplément d’âme. »</blockquote>
+      <span class="eyebrow">Le regard de Stéphanie</span>
+      <h2>Reconnaître la pièce<br />qui a quelque chose à dire.</h2>
+      <p>Depuis près de quarante ans, Stéphanie regarde, touche et compare. Elle choisit des objets du XXᵉ siècle — souvent entre 1900 et 1980 — pour une courbe, une matière, une patine ou ce détail que l’on ne retrouve plus.</p>
+      <blockquote>« Je ne cherche pas l’objet parfait. Je cherche celui qui donne immédiatement envie de lui faire une place. »</blockquote>
       <a href="/a-propos" class="tlink">Rencontrer Stéphanie</a>
     </div>
   </section>
 
-  <!-- JOURNAL DE ROUTE -->
-  <section class="home-road" id="journal">
-    <div class="home-road__photo reveal">
-      <img src="/assets/van-field.jpg" alt="Le van, décor emblématique du Cabinet des Curiosités" />
+  <!-- REGARD & HISTOIRE -->
+  <section class="home-eye" aria-labelledby="home-eye-title">
+    <div class="home-eye__copy reveal">
+      <span class="eyebrow">Quarante ans à chiner</span>
+      <h2 id="home-eye-title">Une mémoire des formes,<br />des matières et des époques.</h2>
+      <p class="home-eye__lead">Au fil des années, l’œil apprend à reconnaître ce qui résistera au temps : un grès bien tourné, un verre soufflé irrégulier, une menuiserie solide, une couleur devenue plus belle avec l’âge.</p>
+      <p>Le Cabinet réunit surtout des pièces françaises et européennes du XXᵉ siècle. Elles ne sont pas choisies pour suivre une tendance, mais pour leur capacité à dialoguer avec une maison d’aujourd’hui.</p>
+      <a href="/a-propos" class="btn btn--light">Lire son histoire</a>
     </div>
-    <div class="home-road__copy reveal">
-      <span class="eyebrow">L’univers du Cabinet</span>
-      <h2>Le van,<br />écrin des trouvailles.</h2>
-      <p>Plus qu’un décor, ce camion d’époque traduit l’esprit du Cabinet : du caractère, une belle patine et le goût des objets qui ont déjà vécu. Il met en scène les pièces et donne à chaque sélection une atmosphère unique.</p>
-      <div class="home-road__details">
-        <div><small>La sélection</small><strong>Pièces uniques</strong></div>
-        <div><small>Le regard</small><strong>Choisi par Stéphanie</strong></div>
+    <div class="home-eye__visual reveal">
+      <img src="/assets/still-1.jpg" alt="Objets anciens choisis pour leurs matières et leur patine" />
+      <div class="home-eye__ledger" aria-label="Repères du Cabinet">
+        <div><strong>40</strong><span>ans de chine<br />et de curiosité</span></div>
+        <div><strong>1900—1980</strong><span>le cœur de<br />la sélection</span></div>
+        <div><strong>1 par 1</strong><span>chaque pièce<br />est regardée</span></div>
       </div>
-      <img class="cvn__draw" src="/assets/il-caravan.png" alt="Illustration de la caravane" />
-      <a href="/trouvailles" class="btn btn--light">Voir les objets disponibles</a>
+    </div>
+  </section>
+
+  <!-- SOIN DE LA COMMANDE -->
+  <section class="home-care" id="soin">
+    <div class="home-care__still reveal">
+      <img src="/assets/packaging-stephanie.jpg" alt="Stéphanie enveloppant avec soin une céramique ancienne" />
+      <span class="home-care__caption">Préparé à Lyon · avec attention</span>
+    </div>
+    <div class="home-care__copy reveal">
+      <span class="eyebrow">Le soin jusqu’au dernier pli</span>
+      <h2>Recevoir un objet<br />doit déjà être une émotion.</h2>
+      <p>Nettoyée avec douceur, contrôlée une dernière fois, puis enveloppée avec précision : chaque pièce est préparée par Stéphanie. Les protections sont adaptées à sa matière, son poids et sa fragilité.</p>
+      <div class="home-care__steps">
+        <div><span>01</span><strong>Contrôlé</strong><small>État et détails vérifiés</small></div>
+        <div><span>02</span><strong>Protégé</strong><small>Emballage sur mesure</small></div>
+        <div><span>03</span><strong>Présenté</strong><small>Une attention dans chaque colis</small></div>
+      </div>
+      <a href="/contact" class="tlink">Une question sur la livraison ?</a>
     </div>
   </section>
 
   <section class="home-promise">
     <div class="wrap home-promise__inner reveal">
-      <span class="eyebrow">Notre promesse</span>
-      <h2>Une pièce singulière,<br />un envoi préparé avec soin.</h2>
+      <span class="eyebrow">La promesse du Cabinet</span>
+      <h2>Choisi avec l’œil.<br />Transmis avec soin.</h2>
       <div class="home-promise__items">
         <span>01 · Pièces uniques</span>
-        <span>02 · Emballage protecteur</span>
-        <span>03 · Expédition sous 48 h</span>
+        <span>02 · Description sincère</span>
+        <span>03 · Envoi préparé à la main</span>
       </div>
     </div>
   </section>

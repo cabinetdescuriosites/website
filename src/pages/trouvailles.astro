@@ -25,6 +25,11 @@ const cover = (p) => p.data.photos[0] ?? "/assets/placeholder.svg";
 
   <section class="section" style="padding-top:clamp(56px,7vw,96px)">
     <div class="wrap">
+      <div class="collection-intro reveal">
+        <span class="eyebrow">Sélection actuelle</span>
+        <p>Une collection courte et mouvante. Chaque objet est photographié, décrit et préparé à Lyon par Stéphanie.</p>
+        <span class="collection-intro__count">{produits.length.toString().padStart(2, "0")} pièces en ligne</span>
+      </div>
       <div class="filters">
         {filters.map((f, i) => (
           <button data-filter={f.k} class={i === 0 ? "on" : undefined}>{f.l}</button>
@@ -44,6 +49,15 @@ const cover = (p) => p.data.photos[0] ?? "/assets/placeholder.svg";
           </a>
         ))}
       </div>
+    </div>
+  </section>
+
+  <section class="collection-note">
+    <div class="wrap collection-note__inner reveal">
+      <span class="eyebrow">Vous cherchez une pièce précise ?</span>
+      <h2>Décrivez-nous l’objet<br />que vous avez en tête.</h2>
+      <p>Stéphanie garde l’œil ouvert au fil de ses prochaines chines et peut vous prévenir lorsqu’une pièce correspond à votre recherche.</p>
+      <a href="/contact" class="btn btn--light">Confier une recherche</a>
     </div>
   </section>
 </Layout>
