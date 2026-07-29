@@ -1,9 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
 const values = [
-  { n: "01", t: "Chiner avec l'œil", p: "Chaque pièce est choisie à la main, pour sa qualité, sa patine et son caractère. Jamais en série." },
-  { n: "02", t: "Transmettre avec soin", p: "Restauration douce, emballage soigné, conseils sincères. L'objet arrive prêt à être aimé." },
-  { n: "03", t: "Échanger en confiance", p: "Une relation simple et honnête, de la première question à la livraison." },
+  { n: "01", t: "Regarder longtemps", p: "Une forme juste, une matière honnête, une patine qui raconte sans tricher : l’œil se construit avec le temps." },
+  { n: "02", t: "Choisir peu", p: "Chaque objet entre seul dans la collection. Il doit avoir une présence propre et pouvoir vivre dans un intérieur actuel." },
+  { n: "03", t: "Transmettre avec soin", p: "Description sincère, conseils disponibles et emballage adapté : l’attention continue après la chine." },
 ];
 ---
 <Layout title="À propos — Cabinet des Curiosités" active="apropos" inner={true}>
@@ -11,8 +11,8 @@ const values = [
     <div class="pagehero__bg"><img src="/assets/vignette-2.jpg" alt="" /></div>
     <div class="pagehero__in">
       <span class="eyebrow">Notre histoire</span>
-      <h1>La passion de la chine</h1>
-      <p>Il était une fois une envie : dénicher des pépites, des perles rares et des objets de curiosité.</p>
+      <h1>Une histoire de regard</h1>
+      <p>Quarante ans à observer les objets, leurs usages, leurs matières — et à reconnaître ceux qui méritent une nouvelle histoire.</p>
     </div>
   </section>
 
@@ -23,9 +23,9 @@ const values = [
       <div class="founder__portrait"><img src="/assets/fondatrice-3.jpg" alt="Stéphanie, fondatrice" /></div>
       <div class="founder__txt">
         <span class="eyebrow">La fondatrice</span>
-        <h2>Chiner, mon passe-temps<br>favori devenu métier.</h2>
-        <p>De brocante en vide-grenier, la recherche du bel objet est devenue une passion, puis une vocation. Choisir, restaurer et transmettre des pièces qui ont une âme.</p>
-        <p>Chaque échange se construit comme une recette de cuisine — avec « amour », dans une relation de confiance, d'écoute et de partage.</p>
+        <h2>Des décennies à former<br>un regard personnel.</h2>
+        <p>Stéphanie chine depuis près de quarante ans. D’abord pour elle, pour ses proches et pour le plaisir de composer des maisons vivantes ; puis avec l’envie de partager cette sélection plus largement.</p>
+        <p>Son terrain de prédilection va de 1900 aux années 1980 : grès, verre, mobilier, objets d’usage et curiosités dont la qualité se révèle dans les détails.</p>
       </div>
     </div>
     <div class="founder__photo reveal"><img src="/assets/still-1.jpg" alt="L'atelier" /></div>
@@ -36,8 +36,8 @@ const values = [
     <img class="quote__leaf" src="/assets/il-bouquet.png" alt="" />
     <div class="wrap reveal">
       <span class="quote__mark">“</span>
-      <blockquote>L'objet rare mérite un regard juste.</blockquote>
-      <div class="quote__by">Notre devise</div>
+      <blockquote>Je choisis ce que j’aimerais garder — jamais ce qu’il faudrait simplement vendre.</blockquote>
+      <div class="quote__by">Stéphanie · Fondatrice</div>
     </div>
   </section>
 
@@ -52,15 +52,27 @@ const values = [
     </div>
   </section>
 
-  <!-- CARAVANE — photo + panneau dessin -->
-  <section class="cvn">
-    <div class="cvn__photo reveal"><img src="/assets/van-field.jpg" alt="La caravane vintage" /></div>
-    <div class="cvn__panel reveal">
-      <div class="cvn__label">La caravane</div>
-      <h2>Au gré<br>des brocantes</h2>
-      <img class="cvn__draw" src="/assets/il-caravan.png" alt="Illustration de la caravane" />
-      <p>Retrouvez la caravane sur les marchés et salons de la région lyonnaise, et venez chiner en vrai.</p>
-      <a href="/contact" class="tlink">Nous écrire</a>
+  <section class="about-years">
+    <div class="wrap about-years__grid">
+      <div class="about-years__intro reveal">
+        <span class="eyebrow">Les repères</span>
+        <h2>Une histoire qui se compte moins en dates qu’en objets rencontrés.</h2>
+      </div>
+      <div class="about-years__list">
+        <article class="reveal"><span>Depuis près de</span><strong>40 ans</strong><p>de marchés, brocantes, maisons vidées et rencontres avec celles et ceux qui transmettent.</p></article>
+        <article class="reveal"><span>Une préférence pour</span><strong>1900—1980</strong><p>une période riche en matières, savoir-faire et formes pensées pour durer.</p></article>
+        <article class="reveal"><span>Pour chaque pièce</span><strong>1 choix</strong><p>regarder, documenter, nettoyer, photographier et décrire avec sincérité.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-care">
+    <div class="about-care__image reveal"><img src="/assets/packaging-stephanie.jpg" alt="Stéphanie préparant soigneusement une céramique pour son envoi" /></div>
+    <div class="about-care__copy reveal">
+      <span class="eyebrow">Avant de vous parvenir</span>
+      <h2>Le soin fait partie de l’objet.</h2>
+      <p>Stéphanie prépare elle-même chaque commande. Elle adapte les protections à la matière et à la fragilité de la pièce, soigne la présentation et ajoute cette attention qui transforme un colis en véritable réception.</p>
+      <a href="/contact" class="tlink">Échanger avec Stéphanie</a>
     </div>
   </section>
 </Layout>
