@@ -5,12 +5,13 @@ import { getCollection } from 'astro:content';
 const produits = (await getCollection("produits"))
   .filter((p) => p.data.statut !== "Vendu")
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, 3);
+  .slice(0, 6);
 const cover = (p) => p.data.photos[0] ?? "/assets/placeholder.svg";
+const secondPhoto = (p) => p.data.photos[1];
 const cats = [
-  { l: "Céramique", img: "ceramique.jpg" },
-  { l: "Verrerie", img: "verrerie.jpg" },
-  { l: "Mobilier", img: "mobilier.jpg" },
+  { l: "Arts de la table", img: "cdc-arts-table-original.jpg", pos: "center" },
+  { l: "Petits trésors", img: "cdc-petits-tresors-original.jpg", pos: "center" },
+  { l: "Mobilier", img: "heritage-fauteuil-stefani.png", pos: "center 58%" },
 ];
 ---
 <Layout title="Cabinet des Curiosités — L'objet rare mérite un regard juste" active="home">
@@ -18,14 +19,24 @@ const cats = [
   <!-- HERO — BANNIÈRE ÉDITORIALE -->
   <section class="home-hero">
     <div class="home-hero__image">
-      <img src="/assets/van-open.jpg" alt="Le van du Cabinet des Curiosités installé au cœur de la nature" />
+      <img src="/assets/contact-tiroir-stefani-v1.webp" alt="Les mains tatouées de Stéfani ouvrant un tiroir ancien rempli d’objets choisis" />
     </div>
     <div class="home-hero__veil"></div>
-    <h1 class="visually-hidden">Cabinet des Curiosités — objets chinés et pièces uniques</h1>
-    <a href="#manifeste" class="home-hero__discover" aria-label="Découvrir le Cabinet des Curiosités">
-      <span>Découvrir</span>
-      <i aria-hidden="true"></i>
-    </a>
+    <div class="home-hero__content reveal">
+      <span class="eyebrow">Objets chinés · Pièces uniques · Lyon</span>
+      <h1>Je choisis les objets qui ont une histoire à raconter.</h1>
+      <p>Je retiens une à une les pièces qui m’arrêtent par leur ligne, leur matière ou leur patine.</p>
+      <div class="home-hero__actions">
+        <a href="/trouvailles" class="btn btn--light">Voir les trouvailles</a>
+        <a href="#manifeste" class="home-hero__link">Découvrir le Cabinet</a>
+      </div>
+    </div>
+    <aside class="home-hero__card reveal" aria-label="L’esprit de la sélection">
+      <span>La sélection du Cabinet</span>
+      <strong>Mes objets rares<br />& coups de cœur</strong>
+      <small>Choisis par Stéfani</small>
+    </aside>
+    <a href="#manifeste" class="home-hero__scroll" aria-label="Découvrir la suite de la page"><span></span>Défiler</a>
   </section>
 
   <nav class="home-quicknav" aria-label="Explorer la page d'accueil">
@@ -33,23 +44,30 @@ const cats = [
     <div>
       <a href="#nouveautes">Nouveautés</a>
       <a href="#univers">Les univers</a>
-      <a href="#stephanie">Le regard</a>
-      <a href="#soin">Le soin</a>
+      <a href="#stefani">Le regard</a>
+      <a href="#transmettre">Transmettre</a>
     </div>
   </nav>
 
-  <!-- MANIFESTE EN GRAND FORMAT -->
-  <section class="home-manifesto" id="manifeste">
-    <div class="home-manifesto__image reveal">
-      <img src="/assets/still-2.jpg" alt="Détails d'une sélection d'objets chinés" />
+  <!-- INTRODUCTION DE MARQUE -->
+  <section class="home-intro" id="manifeste">
+    <div class="home-intro__media reveal">
+      <img src="/assets/intro-studio-stefani-perles-chic-v8.webp" alt="Stéfani installant des objets anciens dans son atelier chaleureux au rideau de perles" />
+      <span class="home-intro__caption">Chez soi · autrement</span>
     </div>
-    <div class="home-manifesto__copy reveal">
-      <span class="eyebrow">Le regard juste</span>
-      <h2>Déjà vécus.<br />Prêts à vivre encore.</h2>
-      <p>Céramiques, verreries, luminaires et curiosités sont choisis un à un. Pas de collection figée : seulement de belles matières, des traces du temps et des objets qui donnent une âme à la maison.</p>
-      <a href="/a-propos" class="tlink">Découvrir notre histoire</a>
-      <img class="home-manifesto__sprig" src="/assets/il-sprig.png" alt="" />
-      <span class="home-manifesto__index">CDC — Lyon, France</span>
+    <figure class="home-intro__detail reveal">
+      <img src="/assets/intro-studio-detail-stefani-v3.webp" alt="Cygnes en laiton patiné, livre ancien et verre fumé" />
+    </figure>
+    <div class="home-intro__panel reveal">
+      <div class="home-intro__copy">
+        <span class="eyebrow">Une sélection très personnelle</span>
+        <h2>Je choisis comme si<br /><em>c’était pour chez moi.</em></h2>
+        <p>Je regarde l’histoire, la matière et la patine. Puis j’attends ce petit quelque chose que l’on ne retrouve nulle part ailleurs — celui qui donne immédiatement envie de lui faire une place.</p>
+        <a href="/a-propos" class="tlink">Découvrir mon histoire</a>
+      </div>
+      <div class="home-intro__facts" aria-label="Repères de la collection">
+        <span>Objets du XXᵉ</span><span>Pièces uniques</span><span>Choisis à Lyon</span>
+      </div>
     </div>
   </section>
 
@@ -59,11 +77,10 @@ const cats = [
       <div class="home-finds__head reveal">
         <div>
           <span class="eyebrow">Fraîchement chinées</span>
-          <h2>Les pièces du moment</h2>
+          <h2>Mes pièces du moment</h2>
         </div>
         <div class="home-finds__intro">
-          <img src="/assets/il-sprig.png" alt="" />
-          <p>Une sélection courte, vivante et toujours renouvelée.</p>
+          <p>Voici les six pièces qui m’ont arrêtée dernièrement.<br />Elles sont là aujourd’hui — demain, peut-être plus.</p>
         </div>
       </div>
       <div class="home-finds__grid">
@@ -71,7 +88,9 @@ const cats = [
           <a href={`/trouvailles/${p.slug}`} class={`home-find home-find--${i + 1} reveal`}>
             <div class="home-find__media">
               <img src={cover(p)} alt={p.data.titre} />
+              {secondPhoto(p) && <img class="home-find__alt" src={secondPhoto(p)} alt="" loading="lazy" />}
               <span class={`home-find__badge${p.data.statut === "Réservé" ? " home-find__badge--reserved" : ""}`}>{p.data.statut}</span>
+              <span class="home-find__view">Voir la pièce <i>↗</i></span>
             </div>
             <div class="home-find__meta">
               <span>{String(i + 1).padStart(2, "0")} · {p.data.categorie}</span>
@@ -89,14 +108,14 @@ const cats = [
   <section class="home-categories" id="univers">
     <div class="wrap">
       <div class="home-categories__head reveal">
-        <span class="eyebrow">Explorer</span>
-        <h2>Une maison pleine de caractère.</h2>
+        <h2>J’aime les maisons qui ne ressemblent qu’à elles-mêmes.</h2>
+        <p>J’imagine chaque objet dans une maison d’aujourd’hui : posé près d’un livre, au centre d’une table ou dans ce coin qui n’appartient qu’à vous. Trois univers, une même envie — faire entrer des pièces qui ont de la présence.</p>
       </div>
     </div>
     <div class="home-categories__grid reveal">
       {cats.map((c) => (
         <a class="home-category" href="/trouvailles">
-          <img src={`/assets/${c.img}`} alt={c.l} loading="lazy" />
+          <img src={`/assets/${c.img}`} alt={c.l} loading="lazy" style={`object-position:${c.pos}`} />
           <span class="home-category__label"><span>{c.l}</span><em>Découvrir</em></span>
         </a>
       ))}
@@ -104,49 +123,45 @@ const cats = [
   </section>
 
   <!-- PORTRAIT -->
-  <section class="home-founder" id="stephanie">
+  <section class="home-founder" id="stefani">
     <div class="home-founder__portrait reveal">
-      <img src="/assets/fondatrice-3.jpg" alt="Stéphanie, fondatrice du Cabinet des Curiosités" />
+      <img src="/assets/fondatrice-stefani-blonde-brocante-v3.webp" alt="Stéfani, blonde et tatouée, examinant un objet ancien dans une brocante" />
     </div>
     <div class="home-founder__story reveal">
-      <span class="home-founder__monogram" aria-hidden="true">C<em>D</em>C</span>
-      <span class="eyebrow">Le regard de Stéphanie</span>
-      <h2>Reconnaître la pièce<br />qui a quelque chose à dire.</h2>
-      <p>Depuis près de quarante ans, Stéphanie regarde, touche et compare. Elle choisit des objets du XXᵉ siècle — souvent entre 1900 et 1980 — pour une courbe, une matière, une patine ou ce détail que l’on ne retrouve plus.</p>
+      <span class="eyebrow">Le regard de Stéfani</span>
+      <h2>Quarante ans à apprendre<br />ce que le temps rend plus beau.</h2>
+      <p>Depuis quarante ans, j’observe les courbes, les assemblages et les matières. Cette mémoire me permet de reconnaître une pièce juste — souvent avant même de savoir précisément pourquoi elle m’arrête.</p>
       <blockquote>« Je ne cherche pas l’objet parfait. Je cherche celui qui donne immédiatement envie de lui faire une place. »</blockquote>
-      <a href="/a-propos" class="tlink">Rencontrer Stéphanie</a>
+      <a href="/a-propos" class="tlink">Découvrir mon parcours</a>
     </div>
   </section>
 
-  <!-- REGARD & HISTOIRE -->
-  <section class="home-eye" aria-labelledby="home-eye-title">
-    <div class="home-eye__copy reveal">
-      <span class="eyebrow">Quarante ans à chiner</span>
-      <h2 id="home-eye-title">Une mémoire des formes,<br />des matières et des époques.</h2>
-      <p class="home-eye__lead">Au fil des années, l’œil apprend à reconnaître ce qui résistera au temps : un grès bien tourné, un verre soufflé irrégulier, une menuiserie solide, une couleur devenue plus belle avec l’âge.</p>
-      <p>Le Cabinet réunit surtout des pièces françaises et européennes du XXᵉ siècle. Elles ne sont pas choisies pour suivre une tendance, mais pour leur capacité à dialoguer avec une maison d’aujourd’hui.</p>
-      <a href="/a-propos" class="btn btn--light">Lire son histoire</a>
+  <!-- SIGNATURE DE STÉFANI -->
+  <section class="home-signature" id="heritage" aria-labelledby="signature-title">
+    <div class="home-signature__image">
+      <img src="/assets/banniere-signature-stefani.png" alt="Les mains tatouées de Stéfani composant une sélection généreuse d’objets anciens" />
     </div>
-    <div class="home-eye__visual reveal">
-      <img src="/assets/still-1.jpg" alt="Objets anciens choisis pour leurs matières et leur patine" />
-      <div class="home-eye__ledger" aria-label="Repères du Cabinet">
-        <div><strong>40</strong><span>ans de chine<br />et de curiosité</span></div>
-        <div><strong>1900—1980</strong><span>le cœur de<br />la sélection</span></div>
-        <div><strong>1 par 1</strong><span>chaque pièce<br />est regardée</span></div>
-      </div>
+    <div class="home-signature__veil"></div>
+    <div class="home-signature__card reveal">
+      <span class="eyebrow">Le geste de Stéfani</span>
+      <h2 id="signature-title">Je me fie à mon regard,<br /><em>puis à mon instinct.</em></h2>
+      <p>Je ne compose pas une collection. Je rassemble des objets qui ont de la présence et du tempérament.</p>
+      <a href="/a-propos" class="tlink">Découvrir mon histoire</a>
+      <small>40 ans de chine · Lyon</small>
     </div>
+    <span class="home-signature__side">Objets choisis · histoires à poursuivre</span>
   </section>
 
   <!-- SOIN DE LA COMMANDE -->
   <section class="home-care" id="soin">
     <div class="home-care__still reveal">
-      <img src="/assets/packaging-stephanie.jpg" alt="Stéphanie enveloppant avec soin une céramique ancienne" />
+      <img src="/assets/soin-stefani-premium-v2.png" alt="Stéfani enveloppant avec soin une céramique ancienne" />
       <span class="home-care__caption">Préparé à Lyon · avec attention</span>
     </div>
     <div class="home-care__copy reveal">
       <span class="eyebrow">Le soin jusqu’au dernier pli</span>
-      <h2>Recevoir un objet<br />doit déjà être une émotion.</h2>
-      <p>Nettoyée avec douceur, contrôlée une dernière fois, puis enveloppée avec précision : chaque pièce est préparée par Stéphanie. Les protections sont adaptées à sa matière, son poids et sa fragilité.</p>
+      <h2>Je veux que recevoir un objet<br />soit déjà une émotion.</h2>
+      <p>Je nettoie chaque pièce avec douceur, je la contrôle une dernière fois, puis je l’enveloppe avec précision. J’adapte les protections à sa matière, son poids et sa fragilité.</p>
       <div class="home-care__steps">
         <div><span>01</span><strong>Contrôlé</strong><small>État et détails vérifiés</small></div>
         <div><span>02</span><strong>Protégé</strong><small>Emballage sur mesure</small></div>
@@ -156,10 +171,27 @@ const cats = [
     </div>
   </section>
 
+  <!-- CONFIER UN OBJET — après le soin -->
+  <section class="home-resale" id="transmettre" aria-labelledby="resale-title">
+    <div class="home-resale__image">
+      <img src="/assets/transmission-objet-stefani.webp" alt="Un objet ancien confié délicatement de main en main" loading="lazy" />
+    </div>
+    <div class="home-resale__veil"></div>
+    <div class="wrap home-resale__inner">
+      <div class="home-resale__card reveal">
+        <span class="eyebrow">Vous avez un objet à transmettre ?</span>
+        <h2 id="resale-title">Je peux lui trouver<br />sa prochaine histoire.</h2>
+        <p>J’aime aussi découvrir les objets qui vivent déjà chez vous. Envoyez-moi quelques photos, leurs dimensions et ce que vous connaissez de leur histoire. Si je ressens ce déclic, je les accueillerai au Cabinet avec la même attention que mes propres trouvailles.</p>
+        <a href="https://wa.me/33625371757?text=Bonjour%20St%C3%A9fani%2C%20je%20souhaite%20vous%20proposer%20un%20objet%20%C3%A0%20la%20vente." class="btn btn--solid" target="_blank" rel="noopener noreferrer">Me confier un objet</a>
+        <small>Photos · dimensions · histoire de l’objet</small>
+      </div>
+    </div>
+  </section>
+
   <section class="home-promise">
     <div class="wrap home-promise__inner reveal">
       <span class="eyebrow">La promesse du Cabinet</span>
-      <h2>Choisi avec l’œil.<br />Transmis avec soin.</h2>
+      <h2>Chaque pièce arrive prête<br />à poursuivre son histoire.</h2>
       <div class="home-promise__items">
         <span>01 · Pièces uniques</span>
         <span>02 · Description sincère</span>
