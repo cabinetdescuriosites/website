@@ -12,27 +12,27 @@ const badgeMod = { "Réservé": "r", "Vendu": "v" };
 const produits = (await getCollection("produits"))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 const cover = (p) => p.data.photos[0] ?? "/assets/placeholder.svg";
+const secondPhoto = (p) => p.data.photos[1];
 ---
 <Layout title="Les Trouvailles — Cabinet des Curiosités" active="trouvailles" inner={true}>
-  <section class="pagehero">
-    <div class="pagehero__bg"><img src="/assets/still-1.jpg" alt="" /></div>
-    <div class="pagehero__in">
-      <span class="eyebrow">La collection</span>
-      <h1>Les Trouvailles</h1>
-      <p>Des pièces uniques, chinées une à une. Lorsqu'un objet est parti, il l'est pour de bon.</p>
+  <section class="catalog-intro">
+    <div class="wrap catalog-intro__inner">
+      <div class="catalog-intro__top">
+        <span class="eyebrow">Ma sélection actuelle</span>
+        <small>{produits.length.toString().padStart(2, "0")} pièces en ligne</small>
+      </div>
+      <div class="catalog-intro__title">
+        <h1>Les Trouvailles</h1>
+        <p>Voici les pièces que j’ai choisies, une à une. Chacune m’a arrêtée pour une ligne, une matière, une patine — ou pour cette émotion que je ne cherche jamais à expliquer.</p>
+      </div>
     </div>
   </section>
 
   <section class="section" style="padding-top:clamp(56px,7vw,96px)">
     <div class="wrap">
-      <div class="collection-intro reveal">
-        <span class="eyebrow">Sélection actuelle</span>
-        <p>Une collection courte et mouvante. Chaque objet est photographié, décrit et préparé à Lyon par Stéphanie.</p>
-        <span class="collection-intro__count">{produits.length.toString().padStart(2, "0")} pièces en ligne</span>
-      </div>
-      <div class="filters">
+      <div class="filters" aria-label="Filtrer les trouvailles">
         {filters.map((f, i) => (
-          <button data-filter={f.k} class={i === 0 ? "on" : undefined}>{f.l}</button>
+          <button data-filter={f.k} class={i === 0 ? "on" : undefined} aria-pressed={i === 0 ? "true" : "false"}>{f.l}</button>
         ))}
       </div>
       <div class="shop">
@@ -41,11 +41,14 @@ const cover = (p) => p.data.photos[0] ?? "/assets/placeholder.svg";
             <div class="pcard__media">
               <span class="pcard__idx">{String(i + 1).padStart(2, "0")}</span>
               <span class={`pcard__badge${badgeMod[p.data.statut] ? ` pcard__badge--${badgeMod[p.data.statut]}` : ""}`}>{p.data.statut}</span>
-              <img src={cover(p)} alt={p.data.titre} loading="lazy" />
+              <img class="pcard__primary" src={cover(p)} alt={p.data.titre} loading="lazy" />
+              {secondPhoto(p) && <img class="pcard__secondary" src={secondPhoto(p)} alt="" loading="lazy" />}
+              <span class="pcard__view">Voir la pièce <i>↗</i></span>
             </div>
-            <div class="pcard__name">{p.data.titre}</div>
-            <div class="pcard__cat">{p.data.categorie}</div>
-            <div class={`pcard__price${p.data.statut === "Vendu" ? " sold" : ""}`}>{p.data.prix}&nbsp;€</div>
+            <div class="pcard__body">
+              <div><div class="pcard__name">{p.data.titre}</div><div class="pcard__cat">{p.data.categorie}</div></div>
+              <div class={`pcard__price${p.data.statut === "Vendu" ? " sold" : ""}`}>{p.data.prix}&nbsp;€</div>
+            </div>
           </a>
         ))}
       </div>
@@ -53,11 +56,17 @@ const cover = (p) => p.data.photos[0] ?? "/assets/placeholder.svg";
   </section>
 
   <section class="collection-note">
-    <div class="wrap collection-note__inner reveal">
-      <span class="eyebrow">Vous cherchez une pièce précise ?</span>
-      <h2>Décrivez-nous l’objet<br />que vous avez en tête.</h2>
-      <p>Stéphanie garde l’œil ouvert au fil de ses prochaines chines et peut vous prévenir lorsqu’une pièce correspond à votre recherche.</p>
-      <a href="/contact" class="btn btn--light">Confier une recherche</a>
+    <div class="wrap collection-note__inner">
+      <figure class="collection-note__media reveal">
+        <img src="/assets/transmission-objet-stefani.webp" alt="Des mains confient délicatement un objet ancien en laiton" loading="lazy" />
+        <figcaption>Une nouvelle histoire pour chaque objet</figcaption>
+      </figure>
+      <div class="collection-note__copy reveal">
+        <span class="eyebrow">Vous souhaitez vendre un objet ?</span>
+        <h2>Confiez-moi la pièce<br />que vous souhaitez transmettre.</h2>
+        <p>Envoyez-moi quelques photos, ses dimensions et ce que vous connaissez de son histoire. Je vous répondrai directement.</p>
+        <a href="https://wa.me/33625371757?text=Bonjour%20St%C3%A9fani%2C%20je%20souhaite%20vous%20proposer%20un%20objet%20%C3%A0%20la%20vente." class="btn btn--solid" target="_blank" rel="noopener noreferrer">Écrire sur WhatsApp</a>
+      </div>
     </div>
   </section>
 </Layout>

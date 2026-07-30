@@ -1,49 +1,43 @@
 ---
 import Layout from '../layouts/Layout.astro';
 const values = [
-  { n: "01", t: "Regarder longtemps", p: "Une forme juste, une matière honnête, une patine qui raconte sans tricher : l’œil se construit avec le temps." },
-  { n: "02", t: "Choisir peu", p: "Chaque objet entre seul dans la collection. Il doit avoir une présence propre et pouvoir vivre dans un intérieur actuel." },
-  { n: "03", t: "Transmettre avec soin", p: "Description sincère, conseils disponibles et emballage adapté : l’attention continue après la chine." },
+  { n: "01", t: "Écouter ce que l’objet raconte", p: "Une forme, une matière, une trace laissée par le temps : je cherche la présence avant la perfection." },
+  { n: "02", t: "Choisir avec conviction", p: "Je préfère une pièce qui remue quelque chose à dix objets simplement jolis. Chaque choix doit pouvoir être défendu et raconté." },
+  { n: "03", t: "Transmettre vraiment", p: "Je décris chaque objet avec sincérité, je partage ce que j’en sais et je le prépare comme si je le confiais en main propre." },
 ];
 ---
 <Layout title="À propos — Cabinet des Curiosités" active="apropos" inner={true}>
-  <section class="pagehero">
-    <div class="pagehero__bg"><img src="/assets/vignette-2.jpg" alt="" /></div>
-    <div class="pagehero__in">
-      <span class="eyebrow">Notre histoire</span>
-      <h1>Une histoire de regard</h1>
-      <p>Quarante ans à observer les objets, leurs usages, leurs matières — et à reconnaître ceux qui méritent une nouvelle histoire.</p>
+  <section class="inner-intro inner-intro--about">
+    <div class="wrap inner-intro__inner">
+      <span class="eyebrow">Mon histoire · le regard de Stéfani</span>
+      <div class="inner-intro__grid">
+        <h1>Quarante ans à regarder<br /><em>autrement.</em></h1>
+        <p>Avec le temps, j’ai appris à reconnaître ce que l’on ne fabrique plus : une matière honnête, une ligne juste et cette patine que seule une vie peut déposer.</p>
+      </div>
+      <div class="inner-intro__foot" aria-label="Repères">
+        <span>Objets de 1900 aux années 1980</span>
+        <span>Choisis un à un, à Lyon</span>
+      </div>
     </div>
   </section>
 
   <!-- FONDATRICE — panneau + monogramme gravé -->
   <section class="founder">
     <div class="founder__panel reveal">
-      <span class="founder__seal" aria-hidden="true">C<em>D</em>C</span>
-      <div class="founder__portrait"><img src="/assets/fondatrice-3.jpg" alt="Stéphanie, fondatrice" /></div>
+      <div class="founder__portrait"><img src="/assets/fondatrice-stefani-blonde-brocante-v3.webp" alt="Stéfani, blonde et tatouée, examinant un objet ancien dans une brocante" /></div>
       <div class="founder__txt">
         <span class="eyebrow">La fondatrice</span>
-        <h2>Des décennies à former<br>un regard personnel.</h2>
-        <p>Stéphanie chine depuis près de quarante ans. D’abord pour elle, pour ses proches et pour le plaisir de composer des maisons vivantes ; puis avec l’envie de partager cette sélection plus largement.</p>
-        <p>Son terrain de prédilection va de 1900 aux années 1980 : grès, verre, mobilier, objets d’usage et curiosités dont la qualité se révèle dans les détails.</p>
+        <h2>Je ne cherche pas le parfait.<br>Je cherche la présence.</h2>
+        <p>Ce qui a commencé comme une passion intime est devenu une manière de regarder le monde : ralentir, toucher les matières, reconnaître un geste et sentir immédiatement lorsqu’une pièce mérite d’être défendue.</p>
+        <p>J’aime particulièrement les objets de 1900 aux années 1980 — grès, verre, mobilier, objets d’usage et curiosités — parce qu’ils portent les traces d’une époque sans cesser de parler à nos maisons d’aujourd’hui.</p>
       </div>
     </div>
     <div class="founder__photo reveal"><img src="/assets/still-1.jpg" alt="L'atelier" /></div>
   </section>
 
-  <!-- CITATION — ancre sombre -->
-  <section class="quote">
-    <img class="quote__leaf" src="/assets/il-bouquet.png" alt="" />
-    <div class="wrap reveal">
-      <span class="quote__mark">“</span>
-      <blockquote>Je choisis ce que j’aimerais garder — jamais ce qu’il faudrait simplement vendre.</blockquote>
-      <div class="quote__by">Stéphanie · Fondatrice</div>
-    </div>
-  </section>
-
   <section class="section">
     <div class="wrap">
-      <div class="grid-head reveal"><span class="eyebrow">Ce qui nous guide</span><h2>Nos valeurs</h2></div>
+      <div class="grid-head reveal"><span class="eyebrow">Ce qui me guide</span><h2>Mes engagements</h2></div>
       <div class="values">
         {values.map((v) => (
           <div class="value reveal"><div class="rule"></div><div class="num">{v.n}</div><h3>{v.t}</h3><p>{v.p}</p></div>
@@ -52,27 +46,18 @@ const values = [
     </div>
   </section>
 
-  <section class="about-years">
-    <div class="wrap about-years__grid">
-      <div class="about-years__intro reveal">
-        <span class="eyebrow">Les repères</span>
-        <h2>Une histoire qui se compte moins en dates qu’en objets rencontrés.</h2>
-      </div>
-      <div class="about-years__list">
-        <article class="reveal"><span>Depuis près de</span><strong>40 ans</strong><p>de marchés, brocantes, maisons vidées et rencontres avec celles et ceux qui transmettent.</p></article>
-        <article class="reveal"><span>Une préférence pour</span><strong>1900—1980</strong><p>une période riche en matières, savoir-faire et formes pensées pour durer.</p></article>
-        <article class="reveal"><span>Pour chaque pièce</span><strong>1 choix</strong><p>regarder, documenter, nettoyer, photographier et décrire avec sincérité.</p></article>
-      </div>
+  <section class="about-film" aria-labelledby="film-title">
+    <div class="about-film__image">
+      <img src="/assets/van-open.jpg" alt="Le van du Cabinet des Curiosités ouvert au milieu d’une sélection d’objets" loading="lazy" />
+    </div>
+    <div class="about-film__veil"></div>
+    <div class="about-film__content reveal">
+      <span class="about-film__play" aria-hidden="true">▶</span>
+      <span class="eyebrow">Le Cabinet en images</span>
+      <h2 id="film-title">Entrez dans<br />mon univers.</h2>
+      <p>Je veux vous montrer la chine telle que je la vis : les gestes, les rencontres et cette émotion qui décide de tout.</p>
+      <small>Film de présentation · bientôt</small>
     </div>
   </section>
 
-  <section class="about-care">
-    <div class="about-care__image reveal"><img src="/assets/packaging-stephanie.jpg" alt="Stéphanie préparant soigneusement une céramique pour son envoi" /></div>
-    <div class="about-care__copy reveal">
-      <span class="eyebrow">Avant de vous parvenir</span>
-      <h2>Le soin fait partie de l’objet.</h2>
-      <p>Stéphanie prépare elle-même chaque commande. Elle adapte les protections à la matière et à la fragilité de la pièce, soigne la présentation et ajoute cette attention qui transforme un colis en véritable réception.</p>
-      <a href="/contact" class="tlink">Échanger avec Stéphanie</a>
-    </div>
-  </section>
 </Layout>

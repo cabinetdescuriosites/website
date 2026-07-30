@@ -14,6 +14,7 @@ const badgeMod = { "Réservé": "r", "Vendu": "v" };
 const PLACEHOLDER = "/assets/placeholder.svg";
 const photos = d.photos.length ? d.photos : [PLACEHOLDER];
 const cover = (p) => p.data.photos[0] ?? PLACEHOLDER;
+const whatsappUrl = `https://wa.me/33625371757?text=${encodeURIComponent(`Bonjour Stéfani, je souhaiterais plus d’informations sur « ${d.titre} ».`)}`;
 
 const similaires = all
   .filter((p) => p.slug !== produit.slug && p.data.statut !== "Vendu")
@@ -25,12 +26,16 @@ const similaires = all
 
   <section class="product-page">
     <div class="wrap product-layout">
-      <div class="product-gallery">
-        <img src={photos[0]} alt={d.titre} />
-        <span class="product-gallery__cap">Pièce unique · sélectionnée par Stéphanie</span>
+      <div class="product-gallery" data-product-gallery>
+        <img class="product-gallery__main" src={photos[0]} alt={d.titre} data-product-main />
+        <span class="product-gallery__cap">Pièce unique · choisie par moi</span>
         {photos.length > 1 && (
           <div class="pd-thumbs">
-            {photos.map((ph) => (<img src={ph} alt="" loading="lazy" />))}
+            {photos.map((ph, i) => (
+              <button class={i === 0 ? "is-active" : undefined} data-product-thumb={ph} aria-label={`Voir la photo ${i + 1}`}>
+                <img src={ph} alt="" loading="lazy" />
+              </button>
+            ))}
           </div>
         )}
       </div>
@@ -46,11 +51,9 @@ const similaires = all
           <div><dt>Livraison</dt><dd>{d.livraison}</dd></div>
         </dl>
         <div class="buybox">
-          {d.statut === "Disponible" && <a href="#" class="btn btn--solid" data-demo="Redirection vers le paiement sécurisé…">Acheter — paiement sécurisé</a>}
-          {d.statut === "Réservé" && <span class="btn" style="pointer-events:none;opacity:.6">Pièce réservée</span>}
-          {d.statut === "Vendu" && <span class="btn" style="pointer-events:none;opacity:.6">Pièce vendue</span>}
-          <a href="/contact" class="btn">Réserver / poser une question</a>
-          <div class="reassure"><span>✦ Paiement sécurisé</span><span>✦ Pièce unique</span><span>✦ Préparé par Stéphanie</span></div>
+          <a href={whatsappUrl} class="btn btn--solid" target="_blank" rel="noopener noreferrer">Plus d’informations sur WhatsApp</a>
+          <small class="buybox__note">Une question, une photo de détail ou une vidéo ? Stéfani vous répond directement.</small>
+          <div class="reassure"><span>Réponse personnelle</span><span>Pièce unique</span><span>Emballage soigné</span></div>
         </div>
       </div>
     </div>
@@ -60,12 +63,12 @@ const similaires = all
     <div class="wrap product-care__grid">
       <div class="product-care__title reveal">
         <span class="eyebrow">Le soin du Cabinet</span>
-        <h2>Cette pièce voyagera<br />comme si elle était la nôtre.</h2>
+        <h2>Je préparerai cette pièce<br />comme si je la gardais.</h2>
       </div>
       <div class="product-care__items reveal">
         <div><span>01</span><strong>Vérifiée</strong><p>L’état et les détails sont contrôlés une dernière fois.</p></div>
         <div><span>02</span><strong>Protégée</strong><p>L’emballage est adapté à sa matière et à sa fragilité.</p></div>
-        <div><span>03</span><strong>Préparée à la main</strong><p>Chaque commande est mise en colis par Stéphanie.</p></div>
+        <div><span>03</span><strong>Préparée à la main</strong><p>Je mets moi-même chaque commande en colis.</p></div>
       </div>
     </div>
   </section>
@@ -77,8 +80,12 @@ const similaires = all
         <div class="shop">
           {similaires.map((p) => (
             <a href={`/trouvailles/${p.slug}`} class="pcard reveal">
-              <div class="pcard__media"><span class={`pcard__badge${badgeMod[p.data.statut] ? ` pcard__badge--${badgeMod[p.data.statut]}` : ""}`}>{p.data.statut}</span><img src={cover(p)} alt={p.data.titre} loading="lazy" /></div>
-              <div class="pcard__name">{p.data.titre}</div><div class="pcard__cat">{p.data.categorie}</div><div class="pcard__price">{p.data.prix}&nbsp;€</div>
+              <div class="pcard__media">
+                <span class={`pcard__badge${badgeMod[p.data.statut] ? ` pcard__badge--${badgeMod[p.data.statut]}` : ""}`}>{p.data.statut}</span>
+                <img class="pcard__primary" src={cover(p)} alt={p.data.titre} loading="lazy" />
+                <span class="pcard__view">Voir la pièce <i>↗</i></span>
+              </div>
+              <div class="pcard__body"><div><div class="pcard__name">{p.data.titre}</div><div class="pcard__cat">{p.data.categorie}</div></div><div class="pcard__price">{p.data.prix}&nbsp;€</div></div>
             </a>
           ))}
         </div>

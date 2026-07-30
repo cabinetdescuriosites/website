@@ -1,0 +1,50 @@
+<div class="opening-curtain" data-opening-curtain aria-hidden="true">
+  <div class="opening-curtain__panel opening-curtain__panel--left"></div>
+  <div class="opening-curtain__panel opening-curtain__panel--right"></div>
+  <div class="opening-curtain__signature">
+    <span class="opening-curtain__kicker">Cabinet des Curiosités · Lyon</span>
+    <div class="opening-curtain__seal">
+      <img src="/assets/logo-badge.svg" alt="" />
+    </div>
+    <span class="opening-curtain__rule"></span>
+    <p>Le soin jusqu’au dernier pli</p>
+  </div>
+</div>
+
+<noscript><style>.opening-curtain{display:none!important}</style></noscript>
+
+<script is:inline>
+  (() => {
+    const curtain = document.querySelector('[data-opening-curtain]');
+    if (!curtain) return;
+
+    const forcePreview = new URLSearchParams(window.location.search).has('intro');
+    let alreadySeen = false;
+    try {
+      alreadySeen = sessionStorage.getItem('cdc-home-opening-v3') === '1';
+    } catch {}
+    if (alreadySeen && !forcePreview) {
+      curtain.remove();
+      return;
+    }
+
+    try {
+      sessionStorage.setItem('cdc-home-opening-v3', '1');
+    } catch {}
+    document.body.classList.add('intro-playing');
+
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reducedMotion) {
+      curtain.remove();
+      document.body.classList.remove('intro-playing');
+      return;
+    }
+
+    requestAnimationFrame(() => curtain.classList.add('is-writing'));
+    window.setTimeout(() => curtain.classList.add('is-opening'), 1900);
+    window.setTimeout(() => {
+      curtain.remove();
+      document.body.classList.remove('intro-playing');
+    }, 3050);
+  })();
+</script>

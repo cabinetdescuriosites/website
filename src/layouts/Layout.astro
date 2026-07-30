@@ -4,6 +4,7 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Instagram from '../components/Instagram.astro';
 import Footer from '../components/Footer.astro';
+import OpeningCurtain from '../components/OpeningCurtain.astro';
 
 interface Props {
   title: string;
@@ -32,6 +33,7 @@ const {
   <ViewTransitions />
 </head>
 <body class={inner ? "inner" : ""}>
+  {!inner && <OpeningCurtain />}
   <div class="site">
     <Header active={active} />
     <slot />
@@ -68,12 +70,24 @@ const {
       const b = t.closest('.filters button') as HTMLElement | null;
       if (b) {
         b.closest('.filters')!.querySelectorAll('button').forEach((x) => x.classList.remove('on'));
+        b.closest('.filters')!.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', 'false'));
         b.classList.add('on');
+        b.setAttribute('aria-pressed', 'true');
         const c = b.dataset.filter;
         document.querySelectorAll('[data-cat]').forEach((card) => {
           const el = card as HTMLElement;
           el.classList.toggle('is-hidden', !(c === 'all' || el.dataset.cat === c));
         });
+      }
+      const thumb = t.closest('[data-product-thumb]') as HTMLButtonElement | null;
+      if (thumb) {
+        const gallery = thumb.closest('[data-product-gallery]');
+        const main = gallery?.querySelector('[data-product-main]') as HTMLImageElement | null;
+        if (main && thumb.dataset.productThumb) {
+          main.src = thumb.dataset.productThumb;
+          gallery?.querySelectorAll('[data-product-thumb]').forEach((x) => x.classList.remove('is-active'));
+          thumb.classList.add('is-active');
+        }
       }
     });
     document.addEventListener('keydown', (e) => {
@@ -98,7 +112,7 @@ const {
     });
     const onScroll = () => {
       const h = document.querySelector('.site-header');
-      if (h && !document.body.classList.contains('inner')) h.classList.toggle('stuck', window.scrollY > 160);
+      if (h) h.classList.toggle('stuck', window.scrollY > 120);
     };
     window.addEventListener('scroll', onScroll, { passive: true });
 
