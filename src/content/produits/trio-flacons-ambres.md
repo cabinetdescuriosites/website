@@ -1,7 +1,7 @@
 ---
 titre: "Trio de flacons ambrés"
 prix: 64
-categorie: "Verrerie"
+categorie: "Décoration"
 statut: "Disponible"
 photos:
   - "/assets/verrerie.jpg"

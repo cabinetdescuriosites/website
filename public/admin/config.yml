@@ -42,7 +42,7 @@ collections:
       - label: "Catégorie"
         name: "categorie"
         widget: "select"
-        options: ["Céramique", "Verrerie", "Mobilier", "Luminaire", "Curiosité"]
+        options: ["Arts de la table", "Luminaires", "Petit mobilier", "Décoration", "Curiosités", "Pièces d’exception"]
       - label: "Statut"
         name: "statut"
         widget: "select"

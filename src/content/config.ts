@@ -5,7 +5,9 @@ const produits = defineCollection({
   schema: z.object({
     titre: z.string(),
     prix: z.number(),
-    categorie: z.enum(["Céramique", "Verrerie", "Mobilier", "Luminaire", "Curiosité"]),
+    // .catch : une catégorie inconnue (ancienne fiche, faute de frappe) ne casse
+    // jamais le build — l'objet bascule en « Curiosités ».
+    categorie: z.enum(["Arts de la table", "Luminaires", "Petit mobilier", "Décoration", "Curiosités", "Pièces d’exception"]).catch("Curiosités"),
     statut: z.enum(["Disponible", "Réservé", "Vendu"]).default("Disponible"),
     // L'admin exige au moins 1 photo, mais une fiche incomplète ne doit
     // jamais faire tomber le build : le site affiche alors un placeholder.

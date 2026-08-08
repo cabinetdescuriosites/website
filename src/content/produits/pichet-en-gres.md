@@ -1,7 +1,7 @@
 ---
 titre: "Pichet en grès"
 prix: 70
-categorie: "Céramique"
+categorie: "Arts de la table"
 statut: "Vendu"
 photos:
   - "/assets/ceramique.jpg"

@@ -1,7 +1,7 @@
 ---
 titre: "Bougeoirs en laiton"
 prix: 58
-categorie: "Curiosité"
+categorie: "Luminaires"
 statut: "Disponible"
 photos:
   - "/assets/vignette-1.jpg"

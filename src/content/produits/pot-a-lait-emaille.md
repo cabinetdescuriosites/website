@@ -1,7 +1,7 @@
 ---
 titre: "Pot à lait émaillé"
 prix: 42
-categorie: "Céramique"
+categorie: "Arts de la table"
 statut: "Disponible"
 photos:
   - "/assets/still-2.jpg"

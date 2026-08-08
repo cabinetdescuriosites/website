@@ -1,7 +1,7 @@
 ---
 titre: "Dame-jeanne & flacons"
 prix: 120
-categorie: "Verrerie"
+categorie: "Décoration"
 statut: "Disponible"
 photos:
   - "/assets/verrerie.jpg"

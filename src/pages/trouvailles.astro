@@ -3,10 +3,11 @@ import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
 const filters = [
-  { k: "all", l: "Tout" }, { k: "ceramique", l: "Céramique" }, { k: "verrerie", l: "Verrerie" },
-  { k: "mobilier", l: "Mobilier" }, { k: "luminaire", l: "Luminaires" }, { k: "curiosite", l: "Curiosités" },
+  { k: "all", l: "Tout" }, { k: "nouveautes", l: "Nouveautés" }, { k: "arts-table", l: "Arts de la table" },
+  { k: "luminaires", l: "Luminaires" }, { k: "petit-mobilier", l: "Petit mobilier" },
+  { k: "decoration", l: "Décoration" }, { k: "curiosites", l: "Curiosités" }, { k: "exception", l: "Pièces d’exception" },
 ];
-const catKey = { "Céramique": "ceramique", "Verrerie": "verrerie", "Mobilier": "mobilier", "Luminaire": "luminaire", "Curiosité": "curiosite" };
+const catKey = { "Arts de la table": "arts-table", "Luminaires": "luminaires", "Petit mobilier": "petit-mobilier", "Décoration": "decoration", "Curiosités": "curiosites", "Pièces d’exception": "exception" };
 const badgeMod = { "Réservé": "r", "Vendu": "v" };
 
 const produits = (await getCollection("produits"))
@@ -19,11 +20,11 @@ const secondPhoto = (p) => p.data.photos[1];
     <div class="wrap catalog-intro__inner">
       <div class="catalog-intro__top">
         <span class="eyebrow">Ma sélection actuelle</span>
-        <small>{produits.length.toString().padStart(2, "0")} pièces en ligne</small>
+        <small>{produits.length.toString().padStart(2, "0")} trouvailles en ligne</small>
       </div>
       <div class="catalog-intro__title">
         <h1>Les Trouvailles</h1>
-        <p>Voici les pièces choisies une à une. Chacune s’est imposée par une ligne, une matière, une patine — ou par cette émotion immédiate qui ne demande aucune explication.</p>
+        <p>Voici mes trouvailles, choisies une à une. Chacune s’est imposée par une ligne, une matière, une patine — ou par cette émotion immédiate qui ne demande aucune explication.</p>
       </div>
     </div>
   </section>
@@ -37,8 +38,8 @@ const secondPhoto = (p) => p.data.photos[1];
       </div>
       <div class="shop">
         {produits.map((p, i) => (
-          <a href={`/trouvailles/${p.slug}`} class="pcard reveal" data-cat={catKey[p.data.categorie]}>
-            <div class="pcard__media">
+          <a href={`/trouvailles/${p.slug}`} class="pcard reveal" data-cat={catKey[p.data.categorie]} data-new={i < 6 ? "true" : undefined}>
+            <div class="pcard__media photo-reveal">
               <span class="pcard__idx">{String(i + 1).padStart(2, "0")}</span>
               <span class={`pcard__badge${badgeMod[p.data.statut] ? ` pcard__badge--${badgeMod[p.data.statut]}` : ""}`}>{p.data.statut}</span>
               <img class="pcard__primary" src={cover(p)} alt={p.data.titre} loading="lazy" />
@@ -59,13 +60,14 @@ const secondPhoto = (p) => p.data.photos[1];
     <div class="wrap collection-note__inner">
       <figure class="collection-note__media reveal">
         <img src="/assets/transmission-objet-stefani.webp" alt="Des mains confient délicatement un objet ancien en laiton" loading="lazy" />
-        <figcaption>Une nouvelle histoire pour chaque objet</figcaption>
+        <figcaption>Une nouvelle histoire pour chaque pépite</figcaption>
       </figure>
       <div class="collection-note__copy reveal">
-        <span class="eyebrow">Vous souhaitez vendre un objet ?</span>
-        <h2>Confiez-moi la pièce<br />que vous souhaitez transmettre.</h2>
-        <p>Envoyez-moi quelques photos, ses dimensions et ce que vous connaissez de son histoire. Je vous répondrai directement.</p>
-        <a href="https://wa.me/33625371757?text=Bonjour%20St%C3%A9fani%2C%20je%20souhaite%20vous%20proposer%20un%20objet%20%C3%A0%20la%20vente." class="btn btn--solid" target="_blank" rel="noopener noreferrer">Écrire sur WhatsApp</a>
+        <span class="eyebrow">Votre Personal Chineur</span>
+        <h2>La merveille que vous cherchez<br />n’est pas encore ici ?</h2>
+        <p>Décrivez-moi la pépite que vous avez en tête — une photo d’inspiration suffit. Je pars la chiner pour vous et je vous préviens dès qu’une trouvaille lui ressemble.</p>
+        <a href="https://wa.me/33625371757?text=Bonjour%20St%C3%A9fani%2C%20j%27aimerais%20vous%20confier%20la%20recherche%20d%27un%20objet." class="btn btn--solid" target="_blank" rel="noopener noreferrer">Confier une recherche</a>
+        <small style="display:block;margin-top:14px"><a href="tel:0625371757">06 25 37 17 57</a> · <a href="mailto:contact@brocaddict.fr">contact@brocaddict.fr</a></small>
       </div>
     </div>
   </section>
