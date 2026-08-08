@@ -26,7 +26,7 @@ const similaires = all
 
   <section class="product-page">
     <div class="wrap product-layout">
-      <div class="product-gallery" data-product-gallery>
+      <div class="product-gallery product-gallery--develop" data-product-gallery>
         <img class="product-gallery__main" src={photos[0]} alt={d.titre} data-product-main />
         <span class="product-gallery__cap">Pièce unique · choisie par moi</span>
         {photos.length > 1 && (
@@ -80,7 +80,7 @@ const similaires = all
         <div class="shop">
           {similaires.map((p) => (
             <a href={`/trouvailles/${p.slug}`} class="pcard reveal">
-              <div class="pcard__media">
+              <div class="pcard__media photo-reveal">
                 <span class={`pcard__badge${badgeMod[p.data.statut] ? ` pcard__badge--${badgeMod[p.data.statut]}` : ""}`}>{p.data.statut}</span>
                 <img class="pcard__primary" src={cover(p)} alt={p.data.titre} loading="lazy" />
                 <span class="pcard__view">Voir la pièce <i>↗</i></span>

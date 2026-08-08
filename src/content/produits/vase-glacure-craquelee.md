@@ -1,7 +1,7 @@
 ---
 titre: "Vase à glaçure craquelée"
 prix: 85
-categorie: "Céramique"
+categorie: "Décoration"
 statut: "Disponible"
 photos:
   - "/assets/ceramique.jpg"

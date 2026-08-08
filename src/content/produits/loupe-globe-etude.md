@@ -1,7 +1,7 @@
 ---
 titre: "Loupe & globe d'étude"
 prix: 160
-categorie: "Curiosité"
+categorie: "Pièces d’exception"
 statut: "Réservé"
 photos:
   - "/assets/curiosite.jpg"

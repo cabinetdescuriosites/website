@@ -53,9 +53,16 @@ const {
         toggle.setAttribute('aria-label', opened ? 'Fermer le menu' : 'Ouvrir le menu');
         document.body.classList.toggle('menu-open', opened);
       }
+      if (t.closest('[data-menu-close]')) {
+        document.querySelector('.hdr__nav')?.classList.remove('open');
+        document.querySelector('.hdr__toggle')?.setAttribute('aria-expanded', 'false');
+        document.querySelector('.hdr__toggle')?.setAttribute('aria-label', 'Ouvrir le menu');
+        document.body.classList.remove('menu-open');
+      }
       if (t.closest('.hdr__nav a')) {
         document.querySelector('.hdr__nav')?.classList.remove('open');
         document.querySelector('.hdr__toggle')?.setAttribute('aria-expanded', 'false');
+        document.querySelector('.hdr__toggle')?.setAttribute('aria-label', 'Ouvrir le menu');
         document.body.classList.remove('menu-open');
       }
       // demo achat
@@ -76,7 +83,7 @@ const {
         const c = b.dataset.filter;
         document.querySelectorAll('[data-cat]').forEach((card) => {
           const el = card as HTMLElement;
-          el.classList.toggle('is-hidden', !(c === 'all' || el.dataset.cat === c));
+          el.classList.toggle('is-hidden', !(c === 'all' || (c === 'nouveautes' ? el.dataset.new === 'true' : el.dataset.cat === c)));
         });
       }
       const thumb = t.closest('[data-product-thumb]') as HTMLButtonElement | null;
@@ -94,7 +101,22 @@ const {
       if (e.key !== 'Escape') return;
       document.querySelector('.hdr__nav')?.classList.remove('open');
       document.querySelector('.hdr__toggle')?.setAttribute('aria-expanded', 'false');
+      document.querySelector('.hdr__toggle')?.setAttribute('aria-label', 'Ouvrir le menu');
       document.body.classList.remove('menu-open');
+    });
+    document.addEventListener('astro:page-load', () => {
+      const requested = new URLSearchParams(window.location.search).get('categorie');
+      if (!requested) return;
+      const button = document.querySelector(`.filters button[data-filter="${CSS.escape(requested)}"]`) as HTMLButtonElement | null;
+      if (!button) return;
+      button.closest('.filters')?.querySelectorAll('button').forEach((x) => {
+        x.classList.toggle('on', x === button);
+        x.setAttribute('aria-pressed', String(x === button));
+      });
+      document.querySelectorAll('[data-cat]').forEach((card) => {
+        const el = card as HTMLElement;
+        el.classList.toggle('is-hidden', !(requested === 'nouveautes' ? el.dataset.new === 'true' : el.dataset.cat === requested));
+      });
     });
     document.addEventListener('submit', (e) => {
       const f = (e.target as HTMLElement).closest('form[data-demo-form]') as HTMLFormElement | null;
@@ -113,6 +135,12 @@ const {
     const onScroll = () => {
       const h = document.querySelector('.site-header');
       if (h) h.classList.toggle('stuck', window.scrollY > 120);
+      const portrait = document.querySelector('[data-portrait-parallax]') as HTMLElement | null;
+      if (portrait && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const rect = portrait.getBoundingClientRect();
+        const progress = Math.max(0, Math.min(1, (window.innerHeight - rect.top) / (window.innerHeight + rect.height)));
+        portrait.style.setProperty('--portrait-shift', `${(progress - .5) * 12}px`);
+      }
     };
     window.addEventListener('scroll', onScroll, { passive: true });
 

@@ -1,7 +1,7 @@
 ---
 titre: "Chaise cannée bistrot"
 prix: 95
-categorie: "Mobilier"
+categorie: "Petit mobilier"
 statut: "Disponible"
 photos:
   - "/assets/mobilier.jpg"

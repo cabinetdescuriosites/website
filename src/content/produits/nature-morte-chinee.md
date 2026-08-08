@@ -1,7 +1,7 @@
 ---
 titre: "Nature morte chinée"
 prix: 48
-categorie: "Céramique"
+categorie: "Curiosités"
 statut: "Disponible"
 photos:
   - "/assets/still-1.jpg"
