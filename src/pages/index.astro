@@ -14,8 +14,7 @@ const secondPhoto = (p) => p.data.photos[1];
   <!-- HERO — BANNIÈRE ÉDITORIALE -->
   <section class="home-hero">
     <div class="home-hero__image">
-      <img class="home-hero__fallback" src="/assets/hero-tiroir-lumineux-v2.webp" alt="Les mains tatouées de Stéfani découvrant des trésors dans un tiroir ancien baigné de lumière" />
-      <img class="home-hero__motion" src="/assets/hero-tiroir-cinema-v3.webp" alt="" aria-hidden="true" fetchpriority="high" />
+      <img class="home-hero__fallback" src="/assets/hero-tiroir-objets-v5.webp" alt="Les mains tatouées de Stéfani ouvrant un tiroir ancien rempli de trésors des années 1920 à 1970" fetchpriority="high" />
     </div>
     <div class="home-hero__veil"></div>
     <div class="home-hero__content reveal">
@@ -40,14 +39,14 @@ const secondPhoto = (p) => p.data.photos[1];
     <div>
       <a href="#nouveautes">Nouveautés</a>
       <a href="#heritage">Le geste</a>
-      <a href="#transmettre">Transmettre</a>
+      <a href="#services">Les services</a>
     </div>
   </nav>
 
   <!-- INTRODUCTION DE MARQUE -->
   <section class="home-intro" id="manifeste">
     <div class="home-intro__media reveal photo-reveal">
-      <img src="/assets/interieur-dame-jeanne-v1.jpg" alt="Table basse vintage et lampe dame-jeanne dans un intérieur chaleureux" />
+      <img src="/assets/interieur-dame-jeanne-v2.webp" alt="Table basse vintage, lampe Dame-Jeanne et verrerie ancienne dans un intérieur chaleureux" />
       <span class="home-intro__caption">Chez soi · autrement</span>
     </div>
     <figure class="home-intro__detail reveal">
@@ -85,7 +84,7 @@ const secondPhoto = (p) => p.data.photos[1];
               <img src={cover(p)} alt={p.data.titre} />
               {secondPhoto(p) && <img class="home-find__alt" src={secondPhoto(p)} alt="" loading="lazy" />}
               <span class={`home-find__badge${p.data.statut === "Réservé" ? " home-find__badge--reserved" : ""}`}>{p.data.statut}</span>
-              <span class="home-find__view">Voir la pièce <i>↗</i></span>
+              <span class="home-find__view">Voir la trouvaille <i>↗</i></span>
             </div>
             <div class="home-find__meta">
               <span>{String(i + 1).padStart(2, "0")} · {p.data.categorie}</span>
@@ -109,12 +108,12 @@ const secondPhoto = (p) => p.data.photos[1];
       <ol class="home-signature__rituals" aria-label="Le rituel de la chine">
         <li><span>01</span><strong>Aux aurores</strong><small>les allées encore calmes</small></li>
         <li><span>02</span><strong>Le premier regard</strong><small>l’émotion décide</small></li>
-        <li><span>03</span><strong>La pièce rapportée</strong><small>nettoyée, puis racontée</small></li>
+        <li><span>03</span><strong>Le trésor rapporté</strong><small>nettoyé, puis raconté</small></li>
       </ol>
       <div class="home-signature__copy">
         <span class="eyebrow">Les coulisses de la chine</span>
         <h2 id="signature-title">Dénicher est un art.<br /><em>Il se pratique à l’aube.</em></h2>
-        <p>Les plus belles trouvailles se gagnent tôt : les allées encore silencieuses, les tiroirs que l’on ouvre en premier — et ce battement de cœur quand une merveille attend son regard.</p>
+        <p>Les plus belles trouvailles se gagnent tôt : les allées encore silencieuses, les tiroirs que l’on ouvre en premier — et ce battement de cœur quand une merveille attend d’être découverte.</p>
         <a href="/a-propos" class="tlink">Rencontrer Stéfani</a>
         <small>Marchés &amp; brocantes de la région lyonnaise · chaque semaine</small>
       </div>
@@ -122,10 +121,27 @@ const secondPhoto = (p) => p.data.photos[1];
     <span class="home-signature__side">La chine · un rituel du dimanche</span>
   </section>
 
+  <!-- L'ENFANCE — souvenir intime -->
+  <section class="home-memoir" aria-labelledby="memoir-title">
+    <div class="wrap home-memoir__inner">
+      <figure class="home-memoir__photo reveal photo-reveal">
+        <img src="/assets/stefani-enfant-archive-v1.webp" alt="Stéfani, enfant" loading="lazy" />
+        <figcaption>Stéfani · une curiosité déjà bien éveillée</figcaption>
+      </figure>
+      <div class="home-memoir__txt reveal">
+        <span class="eyebrow">Une passion transmise</span>
+        <h2 id="memoir-title">Petite, je chinais déjà<br /><em>aux côtés de ma grand-mère.</em></h2>
+        <p>Je l’accompagnais parmi les stands, les boîtes et les tiroirs. Elle m’a appris à regarder au-delà de la poussière : une matière, une forme ou une patine pouvait déjà contenir toute une histoire.</p>
+        <p>Cette curiosité ne m’a jamais quittée. Chaque merveille choisie aujourd’hui porte un peu de ce regard d’enfant — et l’envie de lui offrir une nouvelle maison.</p>
+        <span class="home-memoir__sign" aria-hidden="true">Stéfani</span>
+      </div>
+    </div>
+  </section>
+
   <!-- SOIN DE LA COMMANDE -->
   <section class="home-care" id="soin">
     <div class="home-care__still reveal photo-reveal">
-      <img src="/assets/soin-colis-chaleureux-v3.jpg" alt="Une jolie pépite emballée avec soin : papier de soie, ficelle et brin de fleurs séchées" />
+      <img src="/assets/soin-colis-cygne-v4.webp" alt="Une curiosité en laiton soigneusement enveloppée dans du papier de soie et nouée d’un ruban" />
       <span class="home-care__caption">Préparé à Lyon · avec attention</span>
     </div>
     <div class="home-care__copy reveal">
@@ -141,20 +157,44 @@ const secondPhoto = (p) => p.data.photos[1];
     </div>
   </section>
 
-  <!-- PERSONAL CHINEUR — la recherche sur demande -->
-  <section class="home-resale" id="transmettre" aria-labelledby="resale-title">
-    <div class="home-resale__image">
-      <img src="/assets/transmission-objet-stefani.webp" alt="Une pépite ancienne confiée délicatement de main en main" loading="lazy" />
-    </div>
-    <div class="home-resale__veil"></div>
-    <div class="wrap home-resale__inner">
-      <div class="home-resale__card reveal">
-        <span class="eyebrow">Votre Personal Chineur</span>
-        <h2 id="resale-title">La pépite dont vous rêvez ?<br />Je pars la chiner pour vous.</h2>
-        <p>Chiner… mon passe-temps favori, sans l’ombre d’un doute. Si un trésor vous fait envie depuis longtemps — par manque de temps ou de piste — décrivez-le-moi : je me languis de découvrir les merveilles que vous convoitez, et je garde l’œil ouvert jusqu’à la dénicher.</p>
-        <a href="tel:0625371757" class="btn btn--solid">06 25 37 17 57 — parlons-en</a>
-        <a href="mailto:contact@brocaddict.fr" class="home-resale__mail">ou par écrit : contact@brocaddict.fr</a>
-        <small>Une description · une photo d’inspiration · votre plus belle envie</small>
+  <!-- SERVICES — recherche sur demande et transmission -->
+  <section class="home-services" id="services" aria-labelledby="services-title">
+    <div class="wrap">
+      <div class="home-services__head reveal">
+        <span class="eyebrow">Deux histoires à commencer</span>
+        <h2 id="services-title">Chercher une merveille.<br /><em>Ou transmettre la vôtre.</em></h2>
+        <p>Une envie précise ou un trésor auquel offrir une suite : chaque demande commence par un échange simple avec Stéfani.</p>
+      </div>
+      <div class="home-services__grid">
+        <article class="home-service reveal">
+          <figure class="home-service__media photo-reveal">
+            <img src="/assets/signature-stefani-brocante-blonde-v4.webp" alt="Stéfani à la recherche d’une trouvaille sur une brocante" loading="lazy" />
+            <figcaption>01 · La recherche sur mesure</figcaption>
+          </figure>
+          <div class="home-service__copy">
+            <span class="eyebrow">Votre Personal Chineur</span>
+            <h3>La pépite dont vous rêvez,<br />je pars la chercher pour vous.</h3>
+            <p>Décrivez-moi cette mignonnerie qui vous émoustille encore : une époque, une matière, une photo d’inspiration. Je garde l’œil ouvert au fil de mes prochaines chines jusqu’à trouver la bonne.</p>
+            <a href="https://wa.me/33625371757?text=Bonjour%20St%C3%A9fani%2C%20j%27aimerais%20vous%20confier%20la%20recherche%20d%27un%20objet." class="tlink" target="_blank" rel="noopener noreferrer">Confier une recherche</a>
+          </div>
+        </article>
+        <article class="home-service home-service--reverse reveal">
+          <figure class="home-service__media photo-reveal">
+            <img src="/assets/transmission-objet-stefani.webp" alt="Une curiosité ancienne confiée délicatement de main en main" loading="lazy" />
+            <figcaption>02 · La transmission</figcaption>
+          </figure>
+          <div class="home-service__copy">
+            <span class="eyebrow">Une histoire à poursuivre</span>
+            <h3>Vous avez un objet rare<br />à transmettre ?</h3>
+            <p>Envoyez-moi quelques photos, ses dimensions et ce que vous connaissez de son histoire. S’il correspond à l’univers du Cabinet, nous imaginons ensemble la suite.</p>
+            <a href="https://wa.me/33625371757?text=Bonjour%20St%C3%A9fani%2C%20je%20souhaite%20vous%20proposer%20un%20objet%20%C3%A0%20la%20vente." class="tlink" target="_blank" rel="noopener noreferrer">Présenter votre trésor</a>
+          </div>
+        </article>
+      </div>
+      <div class="home-services__contact reveal">
+        <span>Un échange direct</span>
+        <a href="tel:0625371757">06 25 37 17 57</a>
+        <a href="mailto:contact@brocaddict.fr">contact@brocaddict.fr</a>
       </div>
     </div>
   </section>
@@ -164,7 +204,7 @@ const secondPhoto = (p) => p.data.photos[1];
       <span class="eyebrow">La promesse du Cabinet</span>
       <h2>Chaque trouvaille arrive prête<br />à poursuivre son histoire.</h2>
       <div class="home-promise__items">
-        <span>01 · Pièces d’exception</span>
+        <span>01 · Curiosités &amp; pièces d’exception</span>
         <span>02 · Description sincère</span>
         <span>03 · Envoi préparé à la main</span>
       </div>
