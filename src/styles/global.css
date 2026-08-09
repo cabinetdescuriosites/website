@@ -663,6 +663,24 @@ body.inner .site-header{position:sticky;background:var(--cream);border-bottom:1p
 .home-signature__card small{display:block;margin-top:3.2em;padding-top:1.2em;border-top:1px solid var(--line);font-size:.52rem;letter-spacing:.23em;text-transform:uppercase;color:var(--tobacco)}
 .home-signature__side{position:absolute;z-index:2;right:24px;top:50%;transform:translateY(-50%);writing-mode:vertical-rl;color:rgba(255,248,237,.62);font-size:.5rem;letter-spacing:.28em;text-transform:uppercase}
 
+/* chapitre d'enfance — une archive intime, légère et lumineuse */
+.home-memoir{position:relative;overflow:hidden;padding:clamp(96px,12vw,180px) 0;background:
+  radial-gradient(circle at 12% 18%,rgba(207,160,128,.2),transparent 28%),
+  linear-gradient(135deg,#fff9ef 0%,#f2e4d1 100%)}
+.home-memoir::before{content:"";position:absolute;right:-7%;top:50%;width:min(47vw,690px);aspect-ratio:1;background:url("/assets/logo-badge.svg") center/contain no-repeat;opacity:.035;transform:translateY(-50%);pointer-events:none}
+.home-memoir__inner{position:relative;z-index:1;display:grid;grid-template-columns:minmax(280px,.78fr) minmax(420px,1.22fr);gap:clamp(64px,10vw,160px);align-items:center}
+.home-memoir__photo{position:relative;margin:0;padding:clamp(14px,1.6vw,22px) clamp(14px,1.6vw,22px) clamp(46px,4vw,62px);background:#f7ecdc;box-shadow:0 30px 85px rgba(70,43,26,.16);transform:rotate(-1deg)}
+.home-memoir__photo::before{content:"Depuis toujours";position:absolute;z-index:2;right:12px;top:18px;padding:.8em 1.25em;background:var(--wine);color:var(--cream);font-size:.52rem;letter-spacing:.24em;text-transform:uppercase;transform:rotate(2deg)}
+.home-memoir__photo img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 28%;filter:grayscale(1) sepia(.12) contrast(1.03)!important}
+.home-memoir__photo figcaption{position:absolute;left:clamp(16px,1.7vw,24px);bottom:18px;font-family:var(--serif);font-size:.9rem;font-style:italic;color:var(--muted)}
+.home-memoir__txt{max-width:680px}
+.home-memoir__txt .eyebrow{display:block;margin-bottom:clamp(24px,3vw,42px);color:var(--wine)}
+.home-memoir__txt h2{font-size:clamp(3rem,5.3vw,6rem);line-height:.93;max-width:12ch;margin:0 0 .58em}
+.home-memoir__txt h2 em{font-weight:400;color:var(--wine)}
+.home-memoir__txt p{max-width:50ch;color:var(--muted);font-size:clamp(.98rem,1.15vw,1.08rem)}
+.home-memoir__txt p+p{margin-top:1.25em}
+.home-memoir__sign{display:block;margin-top:.6em;font-family:var(--serif);font-size:clamp(3.4rem,6vw,6.3rem);font-style:italic;color:rgba(107,48,56,.15);line-height:1;transform:rotate(-3deg);transform-origin:left center}
+
 
 .home-care{display:grid;grid-template-columns:1.08fr .92fr;background:linear-gradient(145deg,#EEDCC5 0%,#E5CBA8 70%,#DDBDA1 100%);min-height:740px}
 .home-care__still{position:relative;min-height:640px;padding:clamp(36px,6vw,90px);display:flex;align-items:center;justify-content:center}
@@ -677,6 +695,34 @@ body.inner .site-header{position:sticky;background:var(--cream);border-bottom:1p
 .home-care__steps strong{font-family:var(--serif);font-size:1.2rem;font-weight:400}
 .home-care__steps small{color:var(--muted)}
 
+/* deux services complémentaires, présentés comme deux pages d'un même récit */
+.home-services{position:relative;padding:clamp(100px,12vw,180px) 0;background:linear-gradient(180deg,#f8efe2 0%,#efe0ca 100%);overflow:hidden}
+.home-services::before{content:"";position:absolute;left:0;top:0;width:32%;height:9px;background:url("/assets/texture-jacquard-zebre-v1.webp") center 42%/240px auto repeat-x;opacity:.35}
+.home-services__head{display:grid;grid-template-columns:1.1fr .9fr;grid-template-areas:"eyebrow text" "title text";column-gap:clamp(50px,9vw,140px);align-items:end;margin-bottom:clamp(58px,8vw,110px)}
+.home-services__head .eyebrow{grid-area:eyebrow;align-self:start;margin-bottom:1.8em;color:var(--wine)}
+.home-services__head h2{grid-area:title;font-size:clamp(3rem,5.7vw,6.2rem);line-height:.92;max-width:12ch}
+.home-services__head h2 em{font-weight:400;color:var(--wine)}
+.home-services__head>p{grid-area:text;max-width:38ch;color:var(--muted);padding:0 0 1.1em clamp(28px,4vw,58px);border-left:1px solid var(--gold)}
+.home-services__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,3.4vw,54px);align-items:start}
+.home-service{display:grid;grid-template-rows:minmax(390px,34vw) auto;background:rgba(255,250,241,.94);box-shadow:0 24px 66px rgba(69,43,25,.11);transition:transform .65s var(--ease),box-shadow .65s var(--ease)}
+.home-service:hover{transform:translateY(-7px);box-shadow:0 32px 82px rgba(69,43,25,.16)}
+.home-service__media{position:relative;margin:0;overflow:hidden}
+.home-service__media img{width:100%;height:100%;object-fit:cover;object-position:center;transition:transform 1.4s var(--ease)}
+.home-service:hover .home-service__media img{transform:scale(1.025)}
+.home-service__media figcaption{position:absolute;left:0;bottom:0;padding:1em 1.5em;background:rgba(255,249,238,.94);font-size:.53rem;letter-spacing:.2em;text-transform:uppercase;color:var(--tobacco)}
+.home-service__copy{padding:clamp(38px,5vw,70px);min-height:430px;display:flex;flex-direction:column;align-items:flex-start}
+.home-service__copy .eyebrow{color:var(--wine)}
+.home-service__copy h3{font-size:clamp(2.25rem,3.55vw,4rem);line-height:.96;margin:.45em 0 .55em;max-width:13ch}
+.home-service__copy p{color:var(--muted);max-width:43ch;margin-bottom:2.2em}
+.home-service__copy .tlink{margin-top:auto}
+.home-service--reverse .home-service__media{grid-row:2}
+.home-service--reverse .home-service__copy{grid-row:1}
+.home-services__contact{display:flex;align-items:center;justify-content:center;gap:clamp(22px,4vw,64px);margin-top:clamp(50px,6vw,84px);padding-top:24px;border-top:1px solid var(--line);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase}
+.home-services__contact span{color:var(--muted)}
+.home-services__contact a{position:relative;color:var(--tobacco)}
+.home-services__contact a::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.home-services__contact a:hover::after{transform:scaleX(1)}
+
 .home-promise{background:linear-gradient(135deg,#F2E7D7 0%,#E8D7BE 100%);padding:clamp(68px,8vw,112px) 0}
 .home-promise__inner{text-align:center}
 .home-promise h2{font-size:clamp(2.8rem,5vw,4.9rem);line-height:.98;margin:.25em auto .58em;max-width:16ch}
@@ -684,6 +730,12 @@ body.inner .site-header{position:sticky;background:var(--cream);border-bottom:1p
 
 @media(max-width:900px){
   .home-care{grid-template-columns:1fr}
+  .home-memoir__inner{grid-template-columns:.8fr 1.2fr;gap:clamp(44px,7vw,80px)}
+  .home-memoir__photo::before{right:-18px}
+  .home-services__head{grid-template-columns:1fr;grid-template-areas:"eyebrow" "title" "text"}
+  .home-services__head>p{margin-top:2.2em;max-width:50ch}
+  .home-service{grid-template-rows:minmax(320px,50vw) auto}
+  .home-service__copy{min-height:410px}
   .home-intro{grid-template-columns:1.08fr .92fr;grid-template-rows:auto 1fr;padding:80px var(--gutter) 110px}
   .home-intro__media{grid-column:1;grid-row:1/3}
   .home-intro__media img{min-height:680px}
@@ -729,6 +781,23 @@ body.inner .site-header{position:sticky;background:var(--cream);border-bottom:1p
   .home-finds__head{display:block}.home-finds__intro{margin-top:1.5em}.home-finds__head p{text-align:left}
   .home-finds__grid{grid-template-columns:1fr;gap:70px}
   .home-find__view{display:none}
+  .home-memoir{padding:78px 0 88px}
+  .home-memoir::before{width:115vw;right:-55%;top:64%}
+  .home-memoir__inner{grid-template-columns:1fr;gap:72px;padding-inline:24px}
+  .home-memoir__photo{width:86%;justify-self:center}
+  .home-memoir__photo::before{right:-22px;top:24px}
+  .home-memoir__txt h2{font-size:3.05rem}
+  .home-services{padding:82px 0}
+  .home-services__head{margin-bottom:50px}
+  .home-services__head h2{font-size:3.2rem}
+  .home-services__head>p{padding-left:20px}
+  .home-services__grid{grid-template-columns:1fr;gap:30px}
+  .home-service{grid-template-rows:340px auto}
+  .home-service--reverse .home-service__media{grid-row:1}
+  .home-service--reverse .home-service__copy{grid-row:2}
+  .home-service__copy{min-height:0;padding:38px 28px 44px}
+  .home-service__copy h3{font-size:2.65rem}
+  .home-services__contact{flex-direction:column;gap:13px;text-align:center}
   .home-care__copy{padding-inline:24px}
   .home-resale{min-height:0;display:block;padding-bottom:34px}
   .home-resale__image{position:relative;height:390px}
@@ -943,8 +1012,10 @@ body.inner .site-header{position:sticky;background:var(--cream);border-bottom:1p
    futures photos ajoutées par Stéfani dans l'admin) : voile chaud, légère
    désaturation — un seul et même univers. Les dessins/logos sont exclus. */
 .site img:not([src$=".svg"]):not([src*="/assets/il-"]){
-  filter:sepia(.1) saturate(.9) contrast(1.03) brightness(1.01);
+  filter:sepia(.045) saturate(.96) contrast(1.015) brightness(1.035);
 }
+.home-hero__image img,.home-signature__image img,.home-care__still>img,.home-service__media img{filter:sepia(.055) saturate(.92) contrast(1.02) brightness(1.045)!important}
+.home-intro__media img{filter:sepia(.025) saturate(.96) contrast(.99) brightness(1.1)!important}
 
 /* lien mail sous le bouton du bloc Personal Chineur */
 .home-resale__mail{display:inline-block;margin-top:1.1em;font-size:.78rem;letter-spacing:.08em;color:var(--tobacco);border-bottom:1px solid var(--gold-2);padding-bottom:.3em;transition:color .35s}
@@ -957,3 +1028,4 @@ body.inner .site-header{position:sticky;background:var(--cream);border-bottom:1p
 .home-signature__rituals strong{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(1.05rem,1.4vw,1.3rem);color:var(--ink);line-height:1.2;margin-top:2px}
 .home-signature__rituals small{display:block;font-size:.72rem;color:var(--muted);margin-top:3px;line-height:1.5}
 @media(max-width:900px){.home-signature__rituals{flex-direction:row;gap:14px}.home-signature__rituals li{flex:1;border-left-width:1px;padding-left:10px}}
+
