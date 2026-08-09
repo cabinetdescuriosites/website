@@ -13,7 +13,6 @@ const badgeMod = { "Réservé": "r", "Vendu": "v" };
 const produits = (await getCollection("produits"))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 const cover = (p) => p.data.photos[0] ?? "/assets/placeholder.svg";
-const secondPhoto = (p) => p.data.photos[1];
 ---
 <Layout title="Les Trouvailles — Cabinet des Curiosités" active="trouvailles" inner={true}>
   <section class="catalog-intro">
@@ -39,12 +38,10 @@ const secondPhoto = (p) => p.data.photos[1];
       <div class="shop">
         {produits.map((p, i) => (
           <a href={`/trouvailles/${p.slug}`} class="pcard reveal" data-cat={catKey[p.data.categorie]} data-new={i < 6 ? "true" : undefined}>
-            <div class="pcard__media photo-reveal">
+            <div class="pcard__media">
               <span class="pcard__idx">{String(i + 1).padStart(2, "0")}</span>
               <span class={`pcard__badge${badgeMod[p.data.statut] ? ` pcard__badge--${badgeMod[p.data.statut]}` : ""}`}>{p.data.statut}</span>
               <img class="pcard__primary" src={cover(p)} alt={p.data.titre} loading="lazy" />
-              {secondPhoto(p) && <img class="pcard__secondary" src={secondPhoto(p)} alt="" loading="lazy" />}
-              <span class="pcard__view">Voir la pièce <i>↗</i></span>
             </div>
             <div class="pcard__body">
               <div><div class="pcard__name">{p.data.titre}</div><div class="pcard__cat">{p.data.categorie}</div></div>

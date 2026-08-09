@@ -151,7 +151,7 @@ const {
         es.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
       }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
       document.querySelectorAll('.reveal:not(.in)').forEach((el, i) => {
-        (el as HTMLElement).style.transitionDelay = (Math.min(i % 3, 2) * 90) + 'ms';
+        (el as HTMLElement).style.transitionDelay = (Math.min(i % 3, 2) * 60) + 'ms';
         io.observe(el);
       });
     });
