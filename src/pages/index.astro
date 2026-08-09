@@ -7,7 +7,6 @@ const produits = (await getCollection("produits"))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 6);
 const cover = (p) => p.data.photos[0] ?? "/assets/placeholder.svg";
-const secondPhoto = (p) => p.data.photos[1];
 ---
 <Layout title="Cabinet des Curiosités — L'objet rare mérite un regard juste" active="home">
 
@@ -80,11 +79,9 @@ const secondPhoto = (p) => p.data.photos[1];
       <div class="home-finds__grid">
         {produits.map((p, i) => (
           <a href={`/trouvailles/${p.slug}`} class={`home-find home-find--${i + 1} reveal`}>
-            <div class="home-find__media photo-reveal">
+            <div class="home-find__media">
               <img src={cover(p)} alt={p.data.titre} />
-              {secondPhoto(p) && <img class="home-find__alt" src={secondPhoto(p)} alt="" loading="lazy" />}
               <span class={`home-find__badge${p.data.statut === "Réservé" ? " home-find__badge--reserved" : ""}`}>{p.data.statut}</span>
-              <span class="home-find__view">Voir la trouvaille <i>↗</i></span>
             </div>
             <div class="home-find__meta">
               <span>{String(i + 1).padStart(2, "0")} · {p.data.categorie}</span>
