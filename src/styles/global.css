@@ -547,8 +547,8 @@ body.inner .site-header{position:sticky;background:var(--cream);border-bottom:1p
 .home-hero__motion{position:absolute;inset:0;z-index:1;background:transparent}
 @keyframes homeHeroDrift{from{transform:scale(1.045)}to{transform:scale(1)}}
 .home-hero__veil{position:absolute;inset:0;background:
-  linear-gradient(90deg,rgba(248,240,227,.34) 0%,rgba(248,240,227,.12) 25%,transparent 46%),
-  linear-gradient(0deg,rgba(72,46,27,.08),transparent 42%)}
+  linear-gradient(90deg,rgba(250,244,232,.88) 0%,rgba(250,244,232,.6) 28%,rgba(250,244,232,.18) 48%,transparent 62%),
+  linear-gradient(0deg,rgba(72,46,27,.06),transparent 40%)}
 .home-hero__content{position:relative;z-index:2;width:min(820px,72vw);padding:clamp(70px,8vw,130px) var(--gutter)}
 .home-hero__content .eyebrow{color:var(--tobacco)}
 .home-hero__content h1{font-size:clamp(3.5rem,7vw,7.8rem);line-height:.88;letter-spacing:-.035em;max-width:9.4ch;margin:.25em 0 .28em;text-wrap:balance}
@@ -1014,7 +1014,7 @@ body.inner .site-header{position:sticky;background:var(--cream);border-bottom:1p
 .site img:not([src$=".svg"]):not([src*="/assets/il-"]){
   filter:sepia(.045) saturate(.96) contrast(1.015) brightness(1.035);
 }
-.home-hero__image img,.home-signature__image img,.home-care__still>img,.home-service__media img{filter:sepia(.055) saturate(.92) contrast(1.02) brightness(1.045)!important}
+.home-hero__image img,.home-care__still>img{filter:sepia(.05) saturate(.93) contrast(1.01) brightness(1.09)!important}
 .home-intro__media img{filter:sepia(.025) saturate(.96) contrast(.99) brightness(1.1)!important}
 
 /* lien mail sous le bouton du bloc Personal Chineur */
