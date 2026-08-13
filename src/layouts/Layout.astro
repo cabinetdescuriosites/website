@@ -130,7 +130,7 @@ const {
     });
     const onScroll = () => {
       const h = document.querySelector('.site-header');
-      if (h) h.classList.toggle('stuck', window.scrollY > 120);
+      if (h) h.classList.toggle('stuck', window.scrollY > 48);
     };
     window.addEventListener('scroll', onScroll, { passive: true });
 

@@ -13,7 +13,7 @@ const cover = (p) => p.data.photos[0] ?? "/assets/placeholder.svg";
   <!-- HERO — BANNIÈRE ÉDITORIALE -->
   <section class="home-hero">
     <div class="home-hero__image">
-      <img class="home-hero__fallback" src="/assets/hero-tiroir-lumineux-v6.jpg" alt="Les mains tatouées de Stéfani ouvrant un tiroir ancien rempli de trésors des années 1920 à 1970" fetchpriority="high" />
+      <img class="home-hero__fallback" src="/assets/stefani-vase-lumiere-hero.webp" alt="Stéfani tient un vase en verre derrière une table de curiosités et d’objets anciens baignée de lumière dorée" fetchpriority="high" />
     </div>
     <div class="home-hero__veil"></div>
     <div class="home-hero__content reveal">
@@ -38,23 +38,23 @@ const cover = (p) => p.data.photos[0] ?? "/assets/placeholder.svg";
     <div>
       <a href="#nouveautes">Nouveautés</a>
       <a href="#heritage">Le geste</a>
-      <a href="#services">Les services</a>
+      <a href="#promesse">La promesse</a>
     </div>
   </nav>
 
   <!-- INTRODUCTION DE MARQUE -->
   <section class="home-intro" id="manifeste">
     <div class="home-intro__media reveal photo-reveal">
-      <img src="/assets/intro-stefani-maison-v9.webp" alt="Stéfani installant des objets anciens dans une maison lumineuse et chaleureuse" />
+      <img src="/assets/stefani-compose-bouquet.webp" alt="Stéfani compose un bouquet de fleurs séchées dans son intérieur chaleureux" />
       <span class="home-intro__caption">Chez soi · autrement</span>
     </div>
     <figure class="home-intro__detail reveal">
-      <img src="/assets/interieur-dame-jeanne-v2.webp" alt="Table basse vintage et lampe Dame-Jeanne dans un intérieur chaleureux" />
+      <img src="/assets/stefani-examine-reveil.webp" alt="Stéfani examine un réveil ancien à la loupe dans son atelier rempli de curiosités" />
     </figure>
     <div class="home-intro__panel reveal">
       <div class="home-intro__copy">
         <span class="eyebrow">Une sélection très personnelle</span>
-        <h2>Des merveilles qui donnent envie<br /><em>de vivre avec elles.</em></h2>
+        <h2>Des pièces qui donnent envie<br /><em>de vivre avec elles.</em></h2>
         <p>Une ligne, une matière, une patine. Et parfois cette présence rare qui transforme un objet en évidence.</p>
         <a href="/a-propos" class="tlink">Découvrir mon histoire</a>
       </div>
@@ -70,10 +70,11 @@ const cover = (p) => p.data.photos[0] ?? "/assets/placeholder.svg";
       <div class="home-finds__head reveal">
         <div>
           <span class="eyebrow">Fraîchement chinées</span>
-          <h2>Mes pépites du moment</h2>
+          <h2>La sélection du moment</h2>
         </div>
         <div class="home-finds__intro">
-          <p>Voici six trouvailles qui m’ont arrêtée dernièrement.<br />Elles sont là aujourd’hui — demain, peut-être plus.</p>
+          <p>Quelques pièces choisies récemment.<br />Elles sont là aujourd’hui — demain, peut-être plus.</p>
+          <a href="/trouvailles" class="home-finds__headlink">Voir toute la collection <span aria-hidden="true">↗</span></a>
         </div>
       </div>
       <div class="home-finds__grid">
@@ -96,60 +97,29 @@ const cover = (p) => p.data.photos[0] ?? "/assets/placeholder.svg";
   </section>
 
   <!-- L'ENFANCE — souvenir intime -->
-  <section class="home-memoir" aria-labelledby="memoir-title">
-    <div class="wrap home-memoir__inner">
-      <figure class="home-memoir__photo reveal photo-reveal">
-        <img src="/assets/stefani-enfant-archive-v1.webp" alt="Stéfani, enfant" loading="lazy" />
-        <figcaption>Stéfani · une curiosité déjà bien éveillée</figcaption>
-      </figure>
-      <div class="home-memoir__txt reveal">
-        <span class="eyebrow">Une passion transmise</span>
-        <h2 id="memoir-title">Petite, je chinais déjà<br /><em>aux côtés de ma grand-mère.</em></h2>
-        <p>Je l’accompagnais parmi les stands, les boîtes et les tiroirs. Elle m’a appris à regarder au-delà de la poussière : une matière, une forme ou une patine pouvait déjà contenir toute une histoire.</p>
-        <p>Cette curiosité ne m’a jamais quittée. Chaque merveille choisie aujourd’hui porte un peu de ce regard d’enfant — et l’envie de lui offrir une nouvelle maison.</p>
-        <span class="home-memoir__sign" aria-hidden="true">Stéfani</span>
+  <section class="home-memoir" id="heritage" aria-labelledby="memoir-title">
+    <div class="wrap home-memoir__editorial">
+      <div class="home-memoir__scene reveal photo-reveal">
+      <img class="home-memoir__home" src="/assets/stefani-photo-enfance.webp" alt="Stéfani tient une photographie d’enfance au-dessus d’une boîte remplie de souvenirs anciens" loading="lazy" />
+        <span class="home-memoir__note">De la curiosité à la collection</span>
+      </div>
+      <div class="home-memoir__story reveal">
+        <span class="eyebrow">Une passion depuis l’enfance</span>
+        <h2 id="memoir-title">Les objets racontaient déjà <em>des histoires.</em></h2>
+        <p>Enfant, je suivais ma grand-mère parmi les stands, les boîtes et les tiroirs. À ses côtés, j’ai appris à regarder au-delà de la poussière : une matière, une forme ou une patine pouvait déjà contenir toute une vie.</p>
+        <p>Ce regard ne m’a jamais quittée. Chaque pièce choisie aujourd’hui garde un peu de cette curiosité et l’envie très simple de faire durer les belles histoires.</p>
+        <div class="home-memoir__footer">
+          <a href="/a-propos" class="tlink">Découvrir mon histoire</a>
+          <figure class="home-memoir__keepsake" aria-label="Photo d’enfance de Stéfani">
+            <img src="/assets/stefani-enfant-archive-v1.webp" alt="Stéfani enfant, coiffée d’un bonnet rayé" loading="lazy" />
+            <figcaption>Stéfani · petite chineuse</figcaption>
+          </figure>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- SOIN DE LA COMMANDE -->
-  <section class="home-care" id="soin">
-    <div class="home-care__still reveal photo-reveal">
-      <img src="/assets/soin-colis-cygne-v4.webp" alt="Une curiosité en laiton soigneusement enveloppée dans du papier de soie et nouée d’un ruban" />
-      <span class="home-care__caption">Préparé à Lyon · avec attention</span>
-    </div>
-    <div class="home-care__copy reveal">
-      <span class="eyebrow">Le soin jusqu’au dernier pli</span>
-      <h2>L’émotion commence<br />dès l’ouverture du colis.</h2>
-      <p>Chaque trésor est nettoyé avec douceur, contrôlé une dernière fois, puis enveloppé avec précision. Les protections s’adaptent à sa matière, son poids et sa fragilité.</p>
-      <div class="home-care__steps">
-        <div><span>01</span><strong>Contrôlé</strong><small>État et détails vérifiés</small></div>
-        <div><span>02</span><strong>Protégé</strong><small>Emballage sur mesure</small></div>
-        <div><span>03</span><strong>Présenté</strong><small>Une attention dans chaque colis</small></div>
-      </div>
-      <a href="/contact" class="tlink">Une question sur la livraison ?</a>
-    </div>
-  </section>
-
-  <!-- PERSONAL CHINEUR — la recherche sur demande -->
-  <section class="home-resale" id="recherche" aria-labelledby="resale-title">
-    <div class="home-resale__image">
-      <img src="/assets/transmission-objet-stefani.webp" alt="Une pépite ancienne confiée délicatement de main en main" loading="lazy" />
-    </div>
-    <div class="home-resale__veil"></div>
-    <div class="wrap home-resale__inner">
-      <div class="home-resale__card reveal">
-        <span class="eyebrow">Votre Personal Chineur</span>
-        <h2 id="resale-title">La pépite dont vous rêvez ?<br />Je pars la chiner pour vous.</h2>
-        <p>Chiner… mon passe-temps favori, sans l’ombre d’un doute. Si un trésor vous fait envie depuis longtemps — par manque de temps ou de piste — décrivez-le-moi : je me languis de découvrir les merveilles que vous convoitez, et je garde l’œil ouvert jusqu’à la dénicher.</p>
-        <a href="tel:0625371757" class="btn btn--solid">06 25 37 17 57 — parlons-en</a>
-        <a href="mailto:contact@brocaddict.fr" class="home-resale__mail">ou par écrit : contact@brocaddict.fr</a>
-        <small>Une description · une photo d’inspiration · votre plus belle envie</small>
-      </div>
-    </div>
-  </section>
-
-  <section class="home-promise">
+  <section class="home-promise" id="promesse">
     <div class="wrap home-promise__inner reveal">
       <span class="eyebrow">La promesse du Cabinet</span>
       <h2>Chaque trouvaille arrive prête<br />à poursuivre son histoire.</h2>
@@ -158,6 +128,43 @@ const cover = (p) => p.data.photos[0] ?? "/assets/placeholder.svg";
         <span>02 · Description sincère</span>
         <span>03 · Envoi préparé à la main</span>
       </div>
+    </div>
+  </section>
+
+  <!-- SOIN DE LA COMMANDE -->
+  <section class="home-care" id="soin">
+    <div class="home-care__copy reveal">
+      <span class="eyebrow">Le soin jusqu’au dernier pli</span>
+      <h2>L’émotion commence<br />dès l’ouverture du colis.</h2>
+      <p>Chaque objet est nettoyé avec douceur, contrôlé une dernière fois, puis enveloppé avec précision. Les protections s’adaptent à sa matière, son poids et sa fragilité.</p>
+      <div class="home-care__steps">
+        <div><span>01</span><strong>Contrôlé</strong><small>État et détails vérifiés</small></div>
+        <div><span>02</span><strong>Protégé</strong><small>Emballage sur mesure</small></div>
+        <div><span>03</span><strong>Présenté</strong><small>Une attention dans chaque colis</small></div>
+      </div>
+      <a href="/contact" class="tlink">Une question sur la livraison ?</a>
+    </div>
+    <div class="home-care__still reveal photo-reveal">
+      <img src="/assets/emballage-assiette-fleurie.webp" alt="Stéfani noue un ruban autour d’une assiette fleurie soigneusement emballée dans du papier de soie" loading="lazy" />
+      <span class="home-care__caption">Préparé à Lyon · avec attention</span>
+    </div>
+  </section>
+
+  <!-- PERSONAL CHINEUR — invitation finale -->
+  <section class="home-chineur" id="personal-chineur" aria-labelledby="chineur-title">
+    <figure class="home-chineur__image reveal photo-reveal">
+      <img src="/assets/composition-personal-chineur.webp" alt="Composition de vases, fleurs séchées et objets anciens sur un meuble en bois" loading="lazy" />
+    </figure>
+    <div class="home-chineur__copy reveal">
+      <span class="eyebrow">Personal Chineur</span>
+      <h2 id="chineur-title">Vous l’imaginez déjà chez vous. <em>Je pars le chiner.</em></h2>
+      <p>Chiner… mon passe-temps favori, sans l’ombre d’un doute. Si un objet précis vous trotte dans la tête mais que le temps ou les occasions manquent, racontez-le-moi&nbsp;: je pars en quête pour vous.</p>
+    </div>
+    <div class="home-chineur__contact reveal" aria-label="Contacter Stéfani pour une recherche personnalisée">
+      <a class="home-chineur__cta" href="https://wa.me/33625371757?text=Bonjour%20St%C3%A9fani%2C%20je%20souhaite%20vous%20confier%20la%20recherche%20d%27un%20objet.">Me confier une recherche <span aria-hidden="true">↗</span></a>
+      <span>Ou échanger directement</span>
+      <a href="tel:+33625371757">06 25 37 17 57</a>
+      <a href="mailto:contact@brocaddict.fr">contact@brocaddict.fr</a>
     </div>
   </section>
 
