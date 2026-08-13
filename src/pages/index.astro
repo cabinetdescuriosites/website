@@ -2,10 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
-const produits = (await getCollection("produits"))
-  .filter((p) => p.data.statut !== "Vendu")
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, 6);
+import { varier } from '../utils/varier';
+
+const produits = varier(
+  (await getCollection("produits"))
+    .filter((p) => p.data.statut !== "Vendu")
+    .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+    .slice(0, 10)
+).slice(0, 6);
 const cover = (p) => p.data.photos[0] ?? "/assets/placeholder.svg";
 ---
 <Layout title="Cabinet des Curiosités — L'objet rare mérite un regard juste" active="home">
