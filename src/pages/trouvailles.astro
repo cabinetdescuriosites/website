@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import { varier } from '../utils/varier';
 
 const filters = [
   { k: "all", l: "Tout" }, { k: "nouveautes", l: "Nouveautés" }, { k: "arts-table", l: "Arts de la table" },
@@ -10,8 +11,10 @@ const filters = [
 const catKey = { "Arts de la table": "arts-table", "Luminaires": "luminaires", "Petit mobilier": "petit-mobilier", "Décoration": "decoration", "Curiosités": "curiosites", "Pièces d’exception": "exception" };
 const badgeMod = { "Réservé": "r", "Vendu": "v" };
 
-const produits = (await getCollection("produits"))
+const parDate = (await getCollection("produits"))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const nouveautes = new Set(parDate.slice(0, 6).map((p) => p.slug));
+const produits = varier(parDate);
 const cover = (p) => p.data.photos[0] ?? "/assets/placeholder.svg";
 ---
 <Layout title="Les Trouvailles — Cabinet des Curiosités" active="trouvailles" inner={true}>
@@ -37,7 +40,7 @@ const cover = (p) => p.data.photos[0] ?? "/assets/placeholder.svg";
       </div>
       <div class="shop">
         {produits.map((p, i) => (
-          <a href={`/trouvailles/${p.slug}`} class="pcard reveal" data-cat={catKey[p.data.categorie]} data-new={i < 6 ? "true" : undefined}>
+          <a href={`/trouvailles/${p.slug}`} class="pcard reveal" data-cat={catKey[p.data.categorie]} data-new={nouveautes.has(p.slug) ? "true" : undefined}>
             <div class="pcard__media">
               <span class="pcard__idx">{String(i + 1).padStart(2, "0")}</span>
               <span class={`pcard__badge${badgeMod[p.data.statut] ? ` pcard__badge--${badgeMod[p.data.statut]}` : ""}`}>{p.data.statut}</span>
