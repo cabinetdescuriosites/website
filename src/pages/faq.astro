@@ -1,0 +1,60 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const faqs = [
+  {
+    q: "Comment acheter une pièce ?",
+    a: "Chaque merveille étant unique, tout commence par un échange direct : écrivez-moi sur WhatsApp, appelez-moi au 06 25 37 17 57 ou envoyez un email à contact@brocaddict.fr. Nous convenons ensemble du paiement et du mode de remise — c'est simple et rapide.",
+  },
+  {
+    q: "Comment se passe la livraison ?",
+    a: "Chaque trouvaille est préparée à la main à Lyon : nettoyée, protégée selon sa matière et sa fragilité, puis expédiée sous 48 h après confirmation. Le tarif d'envoi dépend de la taille de l'objet — il est indiqué sur chaque fiche.",
+  },
+  {
+    q: "Puis-je retirer mon achat à Lyon ?",
+    a: "Bien sûr, et c'est gratuit ! Le retrait se fait sur rendez-vous au 107 rue Pierre Audry, Lyon 9ᵉ. L'occasion de découvrir la pièce en vrai avant de l'emporter.",
+  },
+  {
+    q: "Et si l'objet ne me convient pas ?",
+    a: "Chaque pièce est décrite avec sincérité — état détaillé, dimensions, photos fidèles — pour éviter toute surprise. Pour un achat à distance, vous disposez d'un délai de rétractation de 14 jours : contactez-moi et nous organiserons le retour ensemble.",
+  },
+  {
+    q: "Les objets sont-ils vraiment uniques ?",
+    a: "Oui. Chaque trouvaille existe en un seul exemplaire, chinée puis choisie une à une. Lorsqu'une pièce est partie, elle l'est pour de bon — d'où l'intérêt de ne pas trop réfléchir quand un trésor vous fait de l'œil.",
+  },
+  {
+    q: "Vous cherchez un objet précis ?",
+    a: "C'est mon service de Personal Chineur : décrivez-moi la pépite dont vous rêvez (une photo d'inspiration suffit) et je garde l'œil ouvert au fil de mes chines jusqu'à la dénicher pour vous.",
+  },
+];
+---
+<Layout
+  title="FAQ — Cabinet des Curiosités"
+  description="Achat, livraison soignée, retrait à Lyon, retours : les réponses aux questions les plus fréquentes du Cabinet des Curiosités."
+  active="faq"
+  inner={true}
+>
+  <section class="faq-page">
+    <div class="wrap faq-page__inner">
+      <header class="faq-page__head">
+        <span class="eyebrow">Questions fréquentes</span>
+        <h1>Tout ce que vous vous demandez,<br /><em>avant de craquer.</em></h1>
+      </header>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <details class="faq-item">
+            <summary>{f.q}<span aria-hidden="true">+</span></summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+      <aside class="faq-page__more">
+        <p>Une autre question ? Stéfani vous répond directement.</p>
+        <div class="faq-page__links">
+          <a href="tel:0625371757" class="btn btn--solid">06 25 37 17 57</a>
+          <a href="/contact" class="btn">Écrire un message</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+</Layout>
