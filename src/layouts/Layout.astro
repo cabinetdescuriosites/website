@@ -102,8 +102,16 @@ const ogImage = new URL(image, Astro.site);
       if (thumb) {
         const gallery = thumb.closest('[data-product-gallery]');
         const main = gallery?.querySelector('[data-product-main]') as HTMLImageElement | null;
-        if (main && thumb.dataset.productThumb) {
-          main.src = thumb.dataset.productThumb;
+        if (main && thumb.dataset.productThumb && main.src !== thumb.dataset.productThumb) {
+          const next = thumb.dataset.productThumb;
+          // Fondu : on masque, on remplace une fois la nouvelle image prête, on révèle.
+          const swap = new Image();
+          swap.onload = () => {
+            main.src = next;
+            requestAnimationFrame(() => main.classList.remove('is-swapping'));
+          };
+          main.classList.add('is-swapping');
+          swap.src = next;
           gallery?.querySelectorAll('[data-product-thumb]').forEach((x) => x.classList.remove('is-active'));
           thumb.classList.add('is-active');
         }
