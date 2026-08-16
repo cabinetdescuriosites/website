@@ -38,12 +38,18 @@ const faqs = [
   active="faq"
   inner={true}
 >
+  <section class="inner-intro inner-intro--faq">
+    <div class="wrap inner-intro__inner">
+      <span class="eyebrow">Questions fréquentes</span>
+      <div class="inner-intro__grid">
+        <h1>Tout ce que vous<br /><em>vous demandez.</em></h1>
+        <p>Achat, livraison, retrait à Lyon, retours : l'essentiel est ici. Pour le reste, je réponds moi-même — par téléphone ou par écrit.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="faq-page">
     <div class="wrap faq-page__inner">
-      <header class="faq-page__head">
-        <span class="eyebrow">Questions fréquentes</span>
-        <h1>Tout ce que vous vous demandez,<br /><em>avant de craquer.</em></h1>
-      </header>
       <div class="faq-list">
         {faqs.map((f) => (
           <details class="faq-item">
