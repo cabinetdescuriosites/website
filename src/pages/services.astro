@@ -1,0 +1,129 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const wa = (msg: string) => `https://wa.me/33625371757?text=${encodeURIComponent(msg)}`;
+
+const services = [
+  {
+    n: "01",
+    cle: "chiner",
+    eyebrow: "Chiner pour vous",
+    titre: "Je deviens votre<br /><em>Personal Chineur.</em>",
+    texte: [
+      "Chiner… mon passe-temps favori, sans l’ombre d’un doute. Alors si vous avez toujours voulu un objet mais que, par manque de temps, de moyen ou pour tout autre chose, il n’a toujours pas pris place dans votre intérieur : je pars le chercher pour vous.",
+      "Décrivez-moi la pépite que vous avez en tête — une époque, une matière, une photo d’inspiration suffit. Je garde l’œil ouvert au fil de mes chines jusqu’à la dénicher.",
+    ],
+    tarif: "Selon le prix de l’objet et le temps de recherche",
+    delai: "Variable — le temps qu’il faut pour trouver la bonne pièce",
+    image: "/assets/stefani-examine-reveil.webp",
+    alt: "Stéfani examine un réveil ancien à la loupe",
+    cta: "Confier une recherche",
+    msg: "Bonjour Stéfani, j’aimerais vous confier la recherche d’un objet.",
+  },
+  {
+    n: "02",
+    cle: "atelier",
+    eyebrow: "Atelier rénovation",
+    titre: "Redonner une seconde vie<br /><em>à ce qui vous tient à cœur.</em>",
+    texte: [
+      "Des ateliers intimistes de quelques heures, en tout petit groupe, pour apprendre à bichonner vos objets vous-même.",
+      "Et si vous préférez me le confier, je me ferai un plaisir de le pouponner de mes petites mains — du simple relooking à la restauration — afin qu’il redevienne le plus beau à vos yeux.",
+    ],
+    tarif: "Selon les travaux : du relooking à la restauration complète",
+    delai: "Atelier de quelques heures · restauration sur devis",
+    image: "/assets/stefani-compose-bouquet.webp",
+    alt: "Stéfani prend soin d’objets anciens dans son intérieur",
+    cta: "Participer à un atelier",
+    msg: "Bonjour Stéfani, je suis intéressé·e par un atelier rénovation.",
+  },
+  {
+    n: "03",
+    cle: "depot",
+    eyebrow: "Dépôt-vente",
+    titre: "Vos coups de cœur d’hier<br /><em>méritent un nouveau regard.</em>",
+    texte: [
+      "Vous avez accumulé pas mal de trucs, bidules, machins et autres objets que vous avez aimés — mais qui ne sont plus, aujourd’hui, vos chouchous.",
+      "Pas de panique : le Cabinet s’occupe de tout. Mise en valeur, photographie, mise en vente de vos objets et de votre mobilier des années 1920 à 1980.",
+    ],
+    tarif: "Commission de 30 % sur le prix de vente",
+    delai: "Contrat de dépôt établi ensemble · paiement après la vente",
+    image: "/assets/transmission-objet-stefani.webp",
+    alt: "Un objet ancien confié délicatement de main en main",
+    cta: "Proposer un objet",
+    msg: "Bonjour Stéfani, je souhaite vous proposer un objet en dépôt-vente.",
+  },
+  {
+    n: "04",
+    cle: "vide-maison",
+    eyebrow: "Vide-maison",
+    titre: "Un lieu à vider,<br /><em>des trésors à sauver.</em>",
+    texte: [
+      "J’assure le débarras de vos maisons, appartements, greniers, caves et granges — qu’il s’agisse de petit, moyen ou gros volume.",
+      "Je peux également venir récupérer les objets anciens qui dorment chez vous, à l’intérieur comme à l’extérieur, et dont vous n’avez plus l’utilité.",
+    ],
+    tarif: "Forfait établi après estimation des objets récupérés",
+    delai: "Date convenue ensemble · acompte de 30 % à la commande",
+    image: "/assets/still-1.jpg",
+    alt: "Objets anciens rassemblés avant tri",
+    cta: "Organiser un débarras",
+    msg: "Bonjour Stéfani, j’aimerais organiser un vide-maison.",
+  },
+];
+---
+<Layout
+  title="Mes services — Cabinet des Curiosités"
+  description="Personal Chineur, atelier rénovation, dépôt-vente et vide-maison : quatre façons de faire vivre les objets anciens, avec Stéfani, à Lyon."
+  active="services"
+  inner={true}
+>
+  <section class="inner-intro inner-intro--services">
+    <div class="wrap inner-intro__inner">
+      <span class="eyebrow">Mes services</span>
+      <div class="inner-intro__grid">
+        <h1>Chiner, restaurer,<br /><em>transmettre.</em></h1>
+        <p>Au-delà de la boutique, j’accompagne vos objets à chaque étape de leur histoire : les chercher pour vous, les remettre en beauté, les vendre à votre place ou venir les sauver d’un grenier.</p>
+      </div>
+      <nav class="inner-intro__foot" aria-label="Accès rapide aux services">
+        {services.map((s) => <a href={`#${s.cle}`}>{s.n} · {s.eyebrow}</a>)}
+      </nav>
+    </div>
+  </section>
+
+  {services.map((s, i) => (
+    <section class={`svc${i % 2 === 1 ? " svc--reverse" : ""}`} id={s.cle}>
+      <div class="svc__media">
+        <img src={s.image} alt={s.alt} loading="lazy" />
+      </div>
+      <div class="svc__panel">
+        <span class="svc__num" aria-hidden="true">{s.n}</span>
+        <span class="eyebrow">{s.eyebrow}</span>
+        <h2 set:html={s.titre} />
+        {s.texte.map((t) => <p>{t}</p>)}
+        <dl class="svc__facts">
+          <div><dt>Tarif</dt><dd>{s.tarif}</dd></div>
+          <div><dt>Déroulé</dt><dd>{s.delai}</dd></div>
+        </dl>
+        <a href={wa(s.msg)} class="btn btn--solid" target="_blank" rel="noopener noreferrer">{s.cta}</a>
+      </div>
+    </section>
+  ))}
+
+  <section class="svc-cafe">
+    <div class="wrap svc-cafe__inner">
+      <span class="eyebrow">Le projet qui me fait vibrer</span>
+      <h2>Un café brocante,<br /><em>où tout s’achète.</em></h2>
+      <p>Solliciter l’œil et les papilles : déguster une gourmandise au milieu d’un bric-à-brac, se raconter autour d’une orangeade, et craquer pour une pendulette — ou pour le fauteuil sur lequel vous êtes assis. Un lieu ouvert à tous, y compris à celles et ceux qui viendront simplement y travailler le temps d’un café.</p>
+      <span class="svc-cafe__soon">Bientôt à Lyon</span>
+    </div>
+  </section>
+
+  <section class="svc-contact">
+    <div class="wrap svc-contact__inner">
+      <h2>Un projet en tête ?<br />Parlons-en simplement.</h2>
+      <div class="svc-contact__links">
+        <a href="tel:0625371757" class="btn btn--solid">06 25 37 17 57</a>
+        <a href="mailto:contact@brocaddict.fr" class="btn">contact@brocaddict.fr</a>
+      </div>
+    </div>
+  </section>
+</Layout>
