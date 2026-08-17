@@ -1,74 +1,107 @@
 ---
 import Layout from '../layouts/Layout.astro';
-const values = [
+
+const valeurs = [
   { n: "01", t: "Écouter ce que l’objet raconte", p: "Une forme, une matière, une trace laissée par le temps : la présence passe toujours avant la perfection." },
   { n: "02", t: "Choisir avec conviction", p: "Une pièce qui remue quelque chose vaut mieux que dix objets simplement jolis. Chaque choix doit pouvoir être défendu et raconté." },
-  { n: "03", t: "Transmettre vraiment", p: "Chaque objet est décrit avec sincérité, raconté avec ce que l’on sait de lui, puis préparé comme s’il était confié en main propre." },
+  { n: "03", t: "Transmettre vraiment", p: "Chaque trouvaille est décrite avec sincérité, racontée avec ce que l’on sait d’elle, puis préparée comme si elle était confiée en main propre." },
 ];
 ---
-<Layout title="À propos — Cabinet des Curiosités" active="apropos" inner={true}>
+<Layout
+  title="À propos — Cabinet des Curiosités"
+  description="Une maman chineuse, vingt-trois ans de commerce, un déclic à New York : l’histoire du Cabinet des Curiosités, à Lyon."
+  image="/assets/apropos-maison-enfance.webp"
+  active="apropos"
+  inner={true}
+>
   <section class="inner-intro inner-intro--about">
     <div class="wrap inner-intro__inner">
-      <span class="eyebrow">Mon histoire · le regard de Stéfani</span>
+      <span class="eyebrow">Mon histoire</span>
       <div class="inner-intro__grid">
-        <h1>Une vie passée à regarder<br /><em>autrement.</em></h1>
-        <p>Baignée depuis l’enfance dans l’univers de la brocante, j’ai appris à reconnaître ce que l’on ne fabrique plus : une matière honnête, une ligne juste et cette patine que seule une vie peut déposer.</p>
+        <h1>Il était une fois<br /><em>une passion.</em></h1>
+        <p>Puis un rêve, devenu l’une des plus belles réalisations qu’il m’ait été donné de vivre. Quelle sensation incroyable, que de jolies vibrations — et quelle joie immense que de pouvoir la partager.</p>
       </div>
       <div class="inner-intro__foot" aria-label="Repères">
-        <span>Trésors des années 1920, 1950 et 1970</span>
+        <span>Trésors des années 1920 à 1980</span>
         <span>Choisis un à un, à Lyon</span>
       </div>
     </div>
   </section>
 
-  <!-- FONDATRICE — panneau + monogramme gravé -->
-  <section class="founder">
-    <div class="founder__panel reveal">
-      <div class="founder__portrait photo-reveal"><img src="/assets/stefani-examine-reveil.webp" alt="Stéfani examine un réveil ancien à la loupe, dans son atelier" data-portrait-parallax /></div>
-      <div class="founder__txt">
-        <span class="eyebrow">La fondatrice</span>
-        <h2>La perfection importe moins<br>que la présence.</h2>
-        <p>Tout vient d’une maman chineuse et collectionneuse, et d’une maison où l’âme des objets animait le quotidien : les siphons en haut de l’étagère, les épingles à chapeaux trônant sur le bahut, les tableaux posés à même le sol qui habillaient les murs.</p>
-        <p>Des Années folles aux seventies — les années 1920, 1950 et 1970 surtout — grès, verre, mobilier et curiosités portent les traces de leur époque sans cesser de parler à nos maisons d’aujourd’hui.</p>
-      </div>
+  <!-- CHAPITRE 01 — L'ENFANCE -->
+  <section class="story">
+    <div class="story__media">
+      <img src="/assets/apropos-maison-enfance.webp" alt="Intérieur des années 1970 : siphons alignés sur l’étagère, épingles à chapeaux sur le bahut, tableaux posés à même le sol" loading="lazy" />
     </div>
-    <div class="founder__photo reveal"><img src="/assets/still-1.jpg" alt="L'atelier" /></div>
-  </section>
-
-  <section class="section section--tint">
-    <div class="wrap">
-      <div class="grid-head reveal"><span class="eyebrow">Avant le Cabinet</span><h2>Le chemin jusqu’ici</h2></div>
-      <div class="values">
-        <div class="value reveal"><div class="rule"></div><div class="num">01</div><h3>Vingt-trois ans de terrain</h3><p>Une carrière dans le retail, dont vingt ans chez Somewhere — d’adjointe de magasin à responsable réseau. Une école exigeante, toujours tournée vers une seule chose : le client.</p></div>
-        <div class="value reveal"><div class="rule"></div><div class="num">02</div><h3>Le déclic, à New York</h3><p>Dans un café brocante de Broadway, à l’angle de la 19ᵉ rue : une opulence d’objets, tous les styles mêlés avec goût, et cette vibration immédiate. Il fallait créer ce frisson ici.</p></div>
-        <div class="value reveal"><div class="rule"></div><div class="num">03</div><h3>Lyon, mon petit Paris coloré</h3><p>Installée à Lyon depuis plus de dix ans, j’y fais vivre le Cabinet — avec un rêve qui grandit encore : ouvrir un jour un café brocante à mon image, où l’on chine une pendulette entre deux parts de cake.</p></div>
-      </div>
+    <div class="story__panel">
+      <span class="story__num" aria-hidden="true">01</span>
+      <span class="eyebrow">Le commencement</span>
+      <h2>Une maison où l’âme des objets<br /><em>animait le quotidien.</em></h2>
+      <p>Baignée très tôt dans l’univers de la brocante par une maman chineuse et collectionneuse, j’ai grandi entourée des trouvailles des marchés, des foires et des vide-greniers.</p>
+      <p>Partout, les collections se télescopaient à merveille, d’une manière complètement hétéroclite : les siphons en haut de l’étagère, les épingles à chapeaux trônant fièrement sur le bahut, les tableaux posés à même le sol — donnant à une vulgaire plinthe une échappatoire à pensées des plus efficaces.</p>
     </div>
   </section>
 
+  <!-- CITATION -->
+  <section class="story-quote">
+    <div class="wrap story-quote__inner">
+      <blockquote>Chiner, mon passe-temps favori<br /><em>sans l’ombre d’un doute.</em></blockquote>
+    </div>
+  </section>
+
+  <!-- CHAPITRE 02 — LE MÉTIER -->
+  <section class="story story--reverse">
+    <div class="story__media">
+      <img src="/assets/apropos-table-brocante.webp" alt="Table de brocante couverte d’objets anciens : pichets émaillés, bougeoirs, réveil, vaisselle" loading="lazy" />
+    </div>
+    <div class="story__panel">
+      <span class="story__num" aria-hidden="true">02</span>
+      <span class="eyebrow">Vingt-trois ans de commerce</span>
+      <h2>Une vie professionnelle<br /><em>trépidante et riche.</em></h2>
+      <p>Vingt-trois années dans le retail, dont vingt pour la marque de prêt-à-porter Somewhere, font ce que je suis aujourd’hui. Cette maison m’a nourrie, m’a fait grandir, m’a fait évoluer poste après poste — d’adjointe de magasin jusqu’à responsable réseau.</p>
+      <p>De chacune de ces missions j’ai gardé une même obsession : le client. Toutes mes actions de terrain étaient tournées vers sa satisfaction et celle de mes équipes de vente.</p>
+      <dl class="story__facts">
+        <div><dt>Le parcours</dt><dd>Adjointe de magasin · Responsable de magasin · Superviseur de zone · Responsable régionale · Responsable réseau</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- CHAPITRE 03 — NEW YORK -->
+  <section class="story-wide">
+    <div class="story-wide__image">
+      <img src="/assets/apropos-cafe-newyork.webp" alt="Intérieur new-yorkais baigné de lumière dorée, chaque espace habillé d’objets anciens" loading="lazy" />
+    </div>
+    <div class="story-wide__veil"></div>
+    <div class="wrap story-wide__inner">
+      <div class="story-wide__card">
+        <span class="story__num" aria-hidden="true">03</span>
+        <span class="eyebrow">New York · Broadway &amp; 19ᵉ rue</span>
+        <h2>Une vibration incroyable,<br /><em>dès les premiers pas.</em></h2>
+        <p>C’est là, avec ma meilleure amie, que tout s’est cristallisé. L’opulence d’objets, chaque espace habillé, tous les styles mélangés avec goût pour apporter une pincée de magie, de surprise et de nostalgie.</p>
+        <p>Un envoûtement chaleureux où mon œil était en alerte, de peur de passer à côté de l’objet coup de cœur tant convoité.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LYON -->
+  <section class="story-lyon">
+    <div class="wrap story-lyon__inner">
+      <span class="eyebrow">Aujourd’hui</span>
+      <h2>Lyon,<br /><em>mon petit Paris coloré.</em></h2>
+      <p>J’y ai posé mes bagages il y a plus de dix ans. Après une vie professionnelle trépidante, j’ai eu l’opportunité d’opérer un virage à cent quatre-vingts degrés et de réaliser enfin mon rêve : créer mon site à moi, et faire vivre le Cabinet des Curiosités.</p>
+      <a href="/trouvailles" class="btn">Voir les trouvailles</a>
+    </div>
+  </section>
+
+  <!-- VALEURS -->
   <section class="section">
     <div class="wrap">
       <div class="grid-head reveal"><span class="eyebrow">Ce qui me guide</span><h2>Mes engagements</h2></div>
       <div class="values">
-        {values.map((v) => (
+        {valeurs.map((v) => (
           <div class="value reveal"><div class="rule"></div><div class="num">{v.n}</div><h3>{v.t}</h3><p>{v.p}</p></div>
         ))}
       </div>
     </div>
   </section>
-
-  <section class="about-film" aria-labelledby="film-title">
-    <div class="about-film__image">
-      <img src="/assets/van-open.jpg" alt="Le van du Cabinet des Curiosités ouvert au milieu d’une sélection d’objets" loading="lazy" />
-    </div>
-    <div class="about-film__veil"></div>
-    <div class="about-film__content reveal">
-      <span class="about-film__play" aria-hidden="true">▶</span>
-      <span class="eyebrow">Le Cabinet en images</span>
-      <h2 id="film-title">Entrez dans<br />mon univers.</h2>
-      <p>Je veux vous montrer la chine telle que je la vis : les gestes, les rencontres et cette émotion qui décide de tout.</p>
-      <small>Film de présentation · bientôt</small>
-    </div>
-  </section>
-
 </Layout>
