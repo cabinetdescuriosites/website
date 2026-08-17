@@ -1119,11 +1119,11 @@ body.inner .hdr{min-height:86px;padding-block:14px}
 }
 
 /* =========================== À PROPOS — récit en chapitres =========================== */
-.story{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;background:var(--cream)}
+.story{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;background:var(--cream);border-top:1px solid var(--line)}
 .story--reverse .story__media{order:2}
 .story__media img{width:100%;height:100%;object-fit:cover;min-height:clamp(400px,46vw,660px)}
 .story__panel{position:relative;display:flex;flex-direction:column;justify-content:center;
-  padding:clamp(56px,6.6vw,116px) clamp(34px,5vw,92px);background:var(--tint)}
+  padding:clamp(56px,6.6vw,116px) clamp(34px,5vw,92px);background:var(--cream)}
 .story__num{position:absolute;top:clamp(30px,3.4vw,54px);right:clamp(32px,3.6vw,60px);
   font-family:var(--serif);font-size:clamp(3.2rem,5.4vw,6rem);line-height:1;color:rgba(99,80,59,.12)}
 .story__panel .eyebrow{display:block;margin-bottom:1.1em}
@@ -1136,26 +1136,30 @@ body.inner .hdr{min-height:86px;padding-block:14px}
 .story__facts dd{margin:0;font-size:.9rem;color:var(--ink);line-height:1.7}
 
 /* citation pleine largeur */
-.story-quote{background:var(--frame);color:var(--cream);padding-block:var(--sp-m);text-align:center}
+.story-quote{background:var(--cream);padding-block:var(--sp-m);text-align:center}
+.story-quote__inner{position:relative;max-width:820px}
+.story-quote__inner::before,.story-quote__inner::after{content:"";display:block;width:64px;height:1px;background:var(--gold);margin:0 auto}
+.story-quote__inner::before{margin-bottom:clamp(28px,3vw,44px)}
+.story-quote__inner::after{margin-top:clamp(28px,3vw,44px)}
 .story-quote blockquote{margin:0;font-family:var(--serif);font-weight:300;font-style:normal;
-  font-size:var(--fs-h2);line-height:1.2;color:var(--cream)}
-.story-quote blockquote em{font-style:italic;color:var(--gold-2)}
+  font-size:var(--fs-h2);line-height:1.24;color:var(--frame)}
+.story-quote blockquote em{font-style:italic;color:var(--wine)}
 
-/* chapitre pleine image */
-.story-wide{position:relative;display:flex;align-items:center;min-height:clamp(560px,62vw,820px);overflow:hidden}
-.story-wide__image,.story-wide__veil{position:absolute;inset:0}
-.story-wide__image img{width:100%;height:100%;object-fit:cover}
-.story-wide__veil{background:linear-gradient(90deg,rgba(250,245,234,.95) 0%,rgba(250,245,234,.82) 34%,rgba(250,245,234,.1) 62%,transparent 78%)}
-.story-wide__inner{position:relative;z-index:2;width:100%}
-.story-wide__card{position:relative;max-width:min(560px,92%);padding-block:clamp(20px,3vw,40px)}
+/* chapitre 03 — l'image respire seule, le texte a son propre air */
+.story-wide{background:var(--cream);padding-block:var(--sp-m) 0}
+.story-wide__image{max-width:1180px;margin:0 auto;padding-inline:var(--gutter)}
+.story-wide__image img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.story-wide__veil{display:none}
+.story-wide__inner{padding-top:clamp(40px,4.6vw,72px)}
+.story-wide__card{position:relative;max-width:760px;margin:0 auto;text-align:center;padding-bottom:var(--sp-m)}
 .story-wide__card .eyebrow{display:block;margin-bottom:1.1em}
 .story-wide__card h2{font-family:var(--serif);font-weight:400;font-size:var(--fs-h2);line-height:1.12;margin-bottom:.7em}
 .story-wide__card h2 em{font-style:italic;color:var(--wine)}
-.story-wide__card p{color:var(--tobacco);max-width:46ch;margin-bottom:1.1em}
-.story-wide__card .story__num{top:-8px;right:auto;left:-4px;opacity:.5}
+.story-wide__card p{color:var(--muted);max-width:56ch;margin:0 auto 1.1em}
+.story-wide__card .story__num{position:static;display:block;font-size:clamp(2rem,3vw,2.6rem);color:rgba(99,80,59,.22);margin-bottom:.3em}
 
 /* Lyon — respiration finale */
-.story-lyon{background:var(--tint);padding-block:var(--sp-m);text-align:center}
+.story-lyon{background:var(--tint);padding-block:var(--sp-m);text-align:center;border-top:1px solid var(--line)}
 .story-lyon__inner{max-width:680px}
 .story-lyon .eyebrow{display:block;margin-bottom:1.2em}
 .story-lyon h2{font-family:var(--serif);font-weight:400;font-size:var(--fs-h2);line-height:1.1;margin-bottom:.7em}
