@@ -1,36 +1,85 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const wa = (msg: string) => `https://wa.me/33625371757?text=${encodeURIComponent(msg)}`;
+
+const motifs = [
+  { t: "Une question sur une pièce", p: "Dimensions, état, détail d’une photo : je vous réponds précisément.", href: "/trouvailles", cta: "Voir les trouvailles" },
+  { t: "Une recherche à me confier", p: "Décrivez-moi la pépite dont vous rêvez, je pars la chiner.", href: "/services#chiner", cta: "Personal Chineur" },
+  { t: "Un objet à transmettre", p: "Dépôt-vente ou vide-maison : parlons de ce que vous avez.", href: "/services#depot", cta: "Découvrir" },
+];
 ---
-<Layout title="Contact — Cabinet des Curiosités" active="contact" inner={true}>
-  <section class="contact-cinema" aria-labelledby="contact-title">
-    <div class="contact-cinema__image">
-      <img src="/assets/contact-correspondance-stefani-v1.webp" alt="Les mains tatouées de Stéfani écrivant un mot près d’un téléphone vintage" />
-    </div>
-    <div class="contact-cinema__veil"></div>
-    <div class="wrap contact-cinema__inner">
-      <div class="contact-cinema__card reveal">
-        <span class="eyebrow">Un échange direct</span>
-        <h1 id="contact-title">Une pièce a retenu votre regard.<br />Parlons-en simplement.</h1>
-        <p>Une question, un objet à me confier ou l’envie d’en savoir plus ? Je lis chaque message et je vous réponds personnellement.</p>
-        <div class="contact-cinema__links">
-          <a href="tel:0625371757">
-            <span>Échanger en direct</span>
-            <strong>06 25 37 17 57</strong>
-            <em aria-hidden="true">↗</em>
-          </a>
-          <a href="mailto:contact@brocaddict.fr">
-            <span>Écrire par email</span>
-            <strong>contact@brocaddict.fr</strong>
-            <em aria-hidden="true">↗</em>
-          </a>
-          <a href="https://instagram.com/brocaddict.cafe" target="_blank" rel="noopener noreferrer">
-            <span>Suivre les trouvailles</span>
-            <strong>@brocaddict.cafe</strong>
-            <em aria-hidden="true">↗</em>
-          </a>
-        </div>
+<Layout
+  title="Contact — Cabinet des Curiosités"
+  description="Écrire, appeler ou passer à l’atelier : Stéfani répond personnellement, sous 24 à 48 h. 107 rue Pierre Audry, Lyon 9ᵉ."
+  active="contact"
+  inner={true}
+>
+  <section class="inner-intro inner-intro--contact">
+    <div class="wrap inner-intro__inner">
+      <span class="eyebrow">Écrivons-nous</span>
+      <div class="inner-intro__grid">
+        <h1>Une pièce a retenu<br /><em>votre regard ?</em></h1>
+        <p>Une question, une recherche ou simplement l’envie d’en savoir plus : je lis chaque message et je réponds personnellement, sous 24 à 48 heures.</p>
       </div>
     </div>
-    <span class="contact-cinema__side">Objets · histoires · échanges</span>
+  </section>
+
+  <section class="contact-main">
+    <div class="wrap contact-main__grid">
+      <div class="contact-ways">
+        <a class="contact-way" href="tel:0625371757">
+          <span class="contact-way__label">Par téléphone</span>
+          <strong class="contact-way__value">06 25 37 17 57</strong>
+          <span class="contact-way__note">Le plus direct — j’adore échanger de vive voix</span>
+        </a>
+        <a class="contact-way" href={wa("Bonjour Stéfani, j’ai une question à propos du Cabinet.")} target="_blank" rel="noopener noreferrer">
+          <span class="contact-way__label">Sur WhatsApp</span>
+          <strong class="contact-way__value">Envoyer un message</strong>
+          <span class="contact-way__note">Pratique pour partager une photo</span>
+        </a>
+        <a class="contact-way" href="mailto:contact@brocaddict.fr">
+          <span class="contact-way__label">Par email</span>
+          <strong class="contact-way__value">contact@brocaddict.fr</strong>
+          <span class="contact-way__note">Pour les demandes détaillées</span>
+        </a>
+        <a class="contact-way" href="https://instagram.com/brocaddict.cafe" target="_blank" rel="noopener noreferrer">
+          <span class="contact-way__label">Sur Instagram</span>
+          <strong class="contact-way__value">@brocaddict.cafe</strong>
+          <span class="contact-way__note">Les trouvailles au fil des jours</span>
+        </a>
+      </div>
+
+      <aside class="contact-card">
+        <span class="contact-card__seal" aria-hidden="true">C<em>D</em>C</span>
+        <div class="contact-card__row">
+          <h2>L’atelier</h2>
+          <p>107 rue Pierre Audry<br />69009 Lyon</p>
+        </div>
+        <div class="contact-card__row">
+          <h2>Retrait sur rendez-vous</h2>
+          <p>Gratuit, et l’occasion de découvrir la pièce en vrai avant de l’emporter.</p>
+        </div>
+        <div class="contact-card__row">
+          <h2>Délai de réponse</h2>
+          <p>24 à 48 heures, toujours par moi-même.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="contact-motifs">
+    <div class="wrap">
+      <div class="grid-head"><span class="eyebrow">Vous venez pour</span><h2>Dites-moi ce qui vous amène.</h2></div>
+      <div class="contact-motifs__grid">
+        {motifs.map((m) => (
+          <a class="contact-motif" href={m.href}>
+            <h3>{m.t}</h3>
+            <p>{m.p}</p>
+            <span class="contact-motif__cta">{m.cta} <em aria-hidden="true">→</em></span>
+          </a>
+        ))}
+      </div>
+    </div>
   </section>
 </Layout>
