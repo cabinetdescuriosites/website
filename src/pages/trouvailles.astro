@@ -42,7 +42,6 @@ const cover = (p) => p.data.photos[0] ?? "/assets/placeholder.svg";
         {produits.map((p, i) => (
           <a href={`/trouvailles/${p.slug}`} class="pcard reveal" data-cat={catKey[p.data.categorie]} data-new={nouveautes.has(p.slug) ? "true" : undefined}>
             <div class="pcard__media">
-              <span class="pcard__idx">{String(i + 1).padStart(2, "0")}</span>
               <span class={`pcard__badge${badgeMod[p.data.statut] ? ` pcard__badge--${badgeMod[p.data.statut]}` : ""}`}>{p.data.statut}</span>
               <img class="pcard__primary" src={cover(p)} alt={p.data.titre} loading="lazy" />
             </div>
@@ -56,19 +55,18 @@ const cover = (p) => p.data.photos[0] ?? "/assets/placeholder.svg";
     </div>
   </section>
 
-  <section class="collection-note">
-    <div class="wrap collection-note__inner">
-      <figure class="collection-note__media reveal">
-        <img src="/assets/transmission-objet-stefani.webp" alt="Des mains confient délicatement un objet ancien en laiton" loading="lazy" />
-        <figcaption>Une nouvelle histoire pour chaque pépite</figcaption>
-      </figure>
-      <div class="collection-note__copy reveal">
-        <span class="eyebrow">Votre Personal Chineur</span>
-        <h2>La merveille que vous cherchez<br />n’est pas encore ici ?</h2>
-        <p>Décrivez-moi la pépite que vous avez en tête — une photo d’inspiration suffit. Je pars la chiner pour vous et je vous préviens dès qu’une trouvaille lui ressemble.</p>
+  <!-- PERSONAL CHINEUR — invitation sobre en fin de catalogue -->
+  <section class="chineur-note">
+    <div class="wrap chineur-note__inner">
+      <span class="chineur-note__seal" aria-hidden="true">C<em>D</em>C</span>
+      <span class="eyebrow">Votre Personal Chineur</span>
+      <h2>La merveille que vous cherchez<br /><em>n’est pas encore ici ?</em></h2>
+      <p>Décrivez-moi la pépite que vous avez en tête — une époque, une matière, une simple photo d’inspiration. Je pars la chiner pour vous, et je vous préviens dès qu’une trouvaille lui ressemble.</p>
+      <div class="chineur-note__actions">
         <a href="https://wa.me/33625371757?text=Bonjour%20St%C3%A9fani%2C%20j%27aimerais%20vous%20confier%20la%20recherche%20d%27un%20objet." class="btn btn--solid" target="_blank" rel="noopener noreferrer">Confier une recherche</a>
-        <small style="display:block;margin-top:14px"><a href="tel:0625371757">06 25 37 17 57</a> · <a href="mailto:contact@brocaddict.fr">contact@brocaddict.fr</a></small>
+        <a href="tel:0625371757" class="chineur-note__tel">06 25 37 17 57</a>
       </div>
     </div>
   </section>
+
 </Layout>
