@@ -44,21 +44,6 @@ const reperes = [
     </div>
   </section>
 
-  <!-- LE RÉCIT — un fil se dessine, un oiseau le descend -->
-  <div class="recit" id="recit">
-    <div class="recit__rail" aria-hidden="true">
-      <span class="recit__thread"></span>
-      <span class="recit__bird">
-        <svg viewBox="0 0 44 34" fill="none" stroke="currentColor" stroke-width="1.15"
-             stroke-linecap="round" stroke-linejoin="round">
-          <path d="M7 21c4-5 9-7 15-7 4 0 7 1 10 3l9-2-5 5c0 6-5 10-11 10-8 0-14-3-18-9Z" />
-          <path d="M15 15c1-6 6-11 12-13-2 5-2 9 0 13-4 2-8 2-12 0Z" fill="currentColor" fill-opacity=".16" />
-          <path d="M7 21 1 25M7 21l-5-2" />
-          <circle cx="31" cy="19" r=".9" fill="currentColor" stroke="none" />
-        </svg>
-      </span>
-    </div>
-
   <!-- CHAPITRE 01 — L'ENFANCE -->
   <section class="chap">
     <div class="wrap chap__inner">
@@ -135,8 +120,6 @@ const reperes = [
     </div>
   </section>
 
-  </div><!-- /.recit -->
-
   <!-- AUJOURD'HUI — LYON, la seule image de la page -->
   <section class="lyon">
     <div class="lyon__media">
@@ -152,40 +135,6 @@ const reperes = [
       </div>
     </div>
   </section>
-
-  <script is:inline>
-    (() => {
-      const rail = document.querySelector('.recit__rail');
-      const recit = document.getElementById('recit');
-      if (!rail || !recit) return;
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        rail.classList.add('is-still');
-        return;
-      }
-      const thread = rail.querySelector('.recit__thread');
-      const bird = rail.querySelector('.recit__bird');
-      let ticking = false;
-
-      const place = () => {
-        ticking = false;
-        const r = recit.getBoundingClientRect();
-        const travel = rail.offsetHeight;          // le fil et l'oiseau parcourent la même longueur
-        const span = r.height - rail.offsetTop;    // sur laquelle on lit l'avancée du récit
-        // 0 quand le récit entre au tiers bas de l'écran, 1 quand il s'achève
-        const p = Math.min(1, Math.max(0, (window.innerHeight * 0.62 - r.top - rail.offsetTop) / span));
-        thread.style.transform = `scaleY(${p})`;
-        const sway = Math.sin(p * Math.PI * 3);
-        bird.style.transform =
-          `translate3d(${(sway * 7).toFixed(2)}px, ${(p * travel).toFixed(1)}px, 0) rotate(${(sway * 5).toFixed(2)}deg)`;
-        bird.style.opacity = p > 0.002 ? '1' : '0';
-      };
-
-      const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(place); } };
-      window.addEventListener('scroll', onScroll, { passive: true });
-      window.addEventListener('resize', onScroll);
-      place();
-    })();
-  </script>
 
   <!-- VALEURS -->
   <section class="engagements">
