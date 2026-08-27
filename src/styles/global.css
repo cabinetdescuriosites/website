@@ -540,9 +540,11 @@ body.inner .hdr{min-height:86px;padding-block:14px}
 .home-intro{position:relative;display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:auto auto 1fr;column-gap:clamp(24px,3.3vw,56px);background:
   radial-gradient(circle at 92% 12%,rgba(168,111,42,.1),transparent 26%),
   linear-gradient(135deg,#F7EDDF 0%,#F2E2CF 100%);padding:clamp(92px,10vw,150px) var(--gutter);overflow:hidden}
-.home-intro__media{position:relative;z-index:1;grid-column:1/7;grid-row:1/4;width:100%;overflow:hidden}
-.home-intro__media img{width:100%;height:100%;min-height:clamp(650px,62vw,900px);object-fit:cover;object-position:center 44%;filter:saturate(.94) sepia(.025) contrast(1.025);transition:transform 1.2s var(--ease)}
-.home-intro__media:hover img{transform:scale(1.025)}
+.home-intro__media{position:relative;z-index:1;grid-column:1/7;grid-row:1/4;width:100%;aspect-ratio:4/5;align-self:start;overflow:hidden}
+.home-intro__media>img{width:100%;height:100%;object-fit:cover;object-position:center;filter:saturate(.94) sepia(.025) contrast(1.025);transition:transform 1.2s var(--ease)}
+.home-intro__media:hover>img{transform:scale(1.018)}
+.home-intro__seal{position:absolute;z-index:3;right:clamp(18px,2.2vw,34px);top:clamp(18px,2.2vw,34px);width:clamp(96px,9vw,138px);aspect-ratio:1;padding:8px;border-radius:50%;background:rgba(248,240,227,.84);box-shadow:0 12px 34px rgba(55,34,22,.13);transform:rotate(7deg);backdrop-filter:blur(3px);pointer-events:none}
+.home-intro__seal img{width:100%;height:100%;display:block}
 .home-intro__caption{position:absolute;z-index:2;left:0;bottom:0;background:rgba(248,240,227,.95);padding:.9em 1.4em;font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;color:var(--frame)}
 .home-intro__detail{position:relative;z-index:2;grid-column:10/13;grid-row:1;margin:0 0 clamp(60px,7vw,108px);box-shadow:18px 18px 0 rgba(210,168,156,.22);transform:rotate(1deg)}
 .home-intro__detail::before{content:"";position:absolute;z-index:3;top:-9px;left:50%;width:clamp(48px,5vw,66px);height:18px;background:linear-gradient(90deg,rgba(210,174,132,.68),rgba(225,194,153,.82),rgba(204,166,124,.7));transform:translateX(-50%) rotate(-4deg);box-shadow:0 2px 4px rgba(64,40,25,.1);opacity:.92;pointer-events:none}
@@ -643,7 +645,8 @@ body.inner .hdr{min-height:86px;padding-block:14px}
 
 .home-chineur{display:grid;grid-template-columns:minmax(320px,.9fr) minmax(560px,1.7fr) minmax(250px,.72fr);min-height:340px;background:#f8efe2;border-block:1px solid rgba(139,104,65,.2)}
 .home-chineur__image{position:relative;min-height:340px;margin:0;overflow:hidden}
-.home-chineur__image img{width:100%;height:100%;object-fit:cover;object-position:center 57%;filter:saturate(.9) contrast(1.025)}
+.home-chineur__image img{width:100%;height:100%;object-fit:cover;object-position:center 54%;filter:saturate(.9) contrast(1.025)}
+.home-chineur__image figcaption{position:absolute;left:18px;bottom:18px;padding:.75em 1.05em;background:rgba(248,240,227,.9);font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:var(--frame);box-shadow:0 8px 24px rgba(55,34,22,.1)}
 .home-chineur__copy{padding:clamp(44px,5vw,76px);display:flex;flex-direction:column;justify-content:center}
 .home-chineur__copy .eyebrow{display:block;margin-bottom:14px;color:var(--wine)}
 .home-chineur__copy h2{font-size:clamp(2.6rem,3.5vw,4rem);line-height:.94;max-width:18ch;margin:0 0 .35em}
@@ -668,7 +671,7 @@ body.inner .hdr{min-height:86px;padding-block:14px}
   .home-service__copy{min-height:410px}
   .home-intro{grid-template-columns:1.08fr .92fr;grid-template-rows:auto 1fr;padding:80px var(--gutter) 110px}
   .home-intro__media{grid-column:1;grid-row:1/3}
-  .home-intro__media img{min-height:680px}
+  .home-intro__media>img{min-height:0}
   .home-intro__detail{grid-column:2;grid-row:1;width:60%;justify-self:end;margin-bottom:56px}
   .home-intro__panel{grid-column:2;grid-row:2;padding-left:clamp(18px,3vw,38px)}
   .home-hero__content{width:100%;padding-bottom:240px}
@@ -708,7 +711,8 @@ body.inner .hdr{min-height:86px;padding-block:14px}
   .home-intro{display:grid;grid-template-columns:1fr;grid-template-rows:auto auto;padding:52px 18px 86px}
     .home-intro__caption{left:10px;bottom:10px}
   .home-intro__media{grid-column:1;grid-row:1}
-  .home-intro__media img{height:auto;min-height:0;aspect-ratio:4/5;object-position:center 45%}
+  .home-intro__media>img{height:100%;min-height:0;aspect-ratio:auto;object-position:center}
+  .home-intro__seal{width:92px;right:14px;top:14px;padding:6px}
   .home-intro__detail{grid-column:1;grid-row:1;width:46%;align-self:end;justify-self:end;margin:0 -2px -38px 0;border:8px solid var(--cream-2)}
   .home-intro__panel{grid-column:1;grid-row:2;padding:0;margin-top:84px}
   .home-intro__copy h2{font-size:var(--fs-h2-m)}
@@ -975,7 +979,7 @@ body.inner .hdr{min-height:86px;padding-block:14px}
 }
 .home-hero__image img{filter:sepia(.02) saturate(1.01) contrast(1.04) brightness(.98)!important}
 .home-care__still>img{filter:sepia(.05) saturate(.93) contrast(1.01) brightness(1.09)!important}
-.home-intro__media img{filter:sepia(.025) saturate(.96) contrast(.99) brightness(1.1)!important}
+.home-intro__media>img{filter:sepia(.025) saturate(.96) contrast(.99) brightness(1.1)!important}
 
 /* lien mail sous le bouton du bloc Personal Chineur */
 /* rituel de la chine (colonne gauche du bloc coulisses) */
@@ -1098,21 +1102,24 @@ body.inner .hdr{min-height:86px;padding-block:14px}
 }
 
 /* =========================== À PROPOS — récit en chapitres =========================== */
-.story{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;background:var(--cream);border-top:1px solid var(--line)}
-.story--reverse .story__media{order:2}
-.story__media img{width:100%;height:100%;object-fit:cover;min-height:clamp(400px,46vw,660px)}
-.story__panel{position:relative;display:flex;flex-direction:column;justify-content:center;
-  padding:clamp(56px,6.6vw,116px) clamp(34px,5vw,92px);background:var(--cream)}
-.story__num{position:absolute;top:clamp(30px,3.4vw,54px);right:clamp(32px,3.6vw,60px);
-  font-family:var(--serif);font-size:clamp(3.2rem,5.4vw,6rem);line-height:1;color:rgba(99,80,59,.12)}
-.story__panel .eyebrow{display:block;margin-bottom:1.1em}
-.story__panel h2{font-family:var(--serif);font-weight:400;font-size:var(--fs-h2);line-height:1.12;margin-bottom:.7em}
-.story__panel h2 em{font-style:italic;color:var(--wine)}
-.story__panel p{color:var(--muted);max-width:50ch;margin-bottom:1.1em}
-.story__facts{margin:.9em 0 0;border-top:1px solid var(--line)}
-.story__facts div{padding:1em 0;border-bottom:1px solid var(--line)}
-.story__facts dt{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.5em}
-.story__facts dd{margin:0;font-size:.9rem;color:var(--ink);line-height:1.7}
+.chap{background:var(--cream);border-top:1px solid var(--line)}
+.chap--tint{background:var(--tint)}
+.chap__inner{display:grid;grid-template-columns:minmax(160px,230px) 1fr;
+  gap:clamp(26px,5vw,88px);padding-block:var(--sp-m)}
+.chap__label{position:relative}
+.chap__num{display:block;font-family:var(--serif);font-size:clamp(2.6rem,4.2vw,4.4rem);
+  line-height:1;color:rgba(99,80,59,.2);margin-bottom:.36em}
+.chap__label .eyebrow{display:block;line-height:1.9}
+.chap__body h2{font-family:var(--serif);font-weight:400;font-size:var(--fs-h2);line-height:1.12;margin-bottom:.7em}
+.chap__body h2 em{font-style:italic;color:var(--wine)}
+.chap__body p{color:var(--muted);max-width:60ch;margin-bottom:1.1em}
+.chap__body p:last-child{margin-bottom:0}
+.chap__parcours{list-style:none;margin:clamp(28px,3vw,44px) 0 0;padding:0;
+  border-top:1px solid var(--line);max-width:60ch}
+.chap__parcours li{position:relative;padding:.85em 0 .85em 1.9em;border-bottom:1px solid var(--line);
+  font-size:.9rem;color:var(--ink)}
+.chap__parcours li::before{content:"";position:absolute;left:.35em;top:1.55em;
+  width:6px;height:1px;background:var(--gold)}
 
 /* citation pleine largeur */
 .story-quote{background:var(--cream);padding-block:var(--sp-m);text-align:center}
@@ -1124,35 +1131,29 @@ body.inner .hdr{min-height:86px;padding-block:14px}
   font-size:var(--fs-h2);line-height:1.24;color:var(--frame)}
 .story-quote blockquote em{font-style:italic;color:var(--wine)}
 
-/* chapitre 03 — l'image respire seule, le texte a son propre air */
-.story-wide{background:var(--cream);padding-block:var(--sp-m) 0}
-.story-wide__image{max-width:1180px;margin:0 auto;padding-inline:var(--gutter)}
-.story-wide__image img{width:100%;aspect-ratio:3/2;object-fit:cover}
-.story-wide__veil{display:none}
-.story-wide__inner{padding-top:clamp(40px,4.6vw,72px)}
-.story-wide__card{position:relative;max-width:760px;margin:0 auto;text-align:center;padding-bottom:var(--sp-m)}
-.story-wide__card .eyebrow{display:block;margin-bottom:1.1em}
-.story-wide__card h2{font-family:var(--serif);font-weight:400;font-size:var(--fs-h2);line-height:1.12;margin-bottom:.7em}
-.story-wide__card h2 em{font-style:italic;color:var(--wine)}
-.story-wide__card p{color:var(--muted);max-width:56ch;margin:0 auto 1.1em}
-.story-wide__card .story__num{position:static;display:block;font-size:clamp(2rem,3vw,2.6rem);color:rgba(99,80,59,.22);margin-bottom:.3em}
-
-/* Lyon — respiration finale */
-.story-lyon{background:var(--tint);padding-block:var(--sp-m);text-align:center;border-top:1px solid var(--line)}
-.story-lyon__inner{max-width:680px}
-.story-lyon .eyebrow{display:block;margin-bottom:1.2em}
-.story-lyon h2{font-family:var(--serif);font-weight:400;font-size:var(--fs-h2);line-height:1.1;margin-bottom:.7em}
-.story-lyon h2 em{font-style:italic;color:var(--wine)}
-.story-lyon p{color:var(--muted);margin-bottom:2em}
+/* Aujourd'hui — bannière Lyon, seule image de la page */
+.lyon{background:var(--cream);border-top:1px solid var(--line);padding-bottom:var(--sp-m)}
+.lyon__media{position:relative;height:clamp(340px,44vw,560px);overflow:hidden}
+.lyon__media img{width:100%;height:100%;object-fit:cover;object-position:50% 58%}
+.lyon__media::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(43,32,22,.16),rgba(43,32,22,0) 42%)}
+.lyon__card{position:relative;max-width:660px;
+  margin-top:calc(-1 * clamp(70px,8vw,130px));background:var(--cream);
+  padding:clamp(34px,4.2vw,64px) clamp(28px,3.6vw,58px);
+  box-shadow:0 26px 64px rgba(60,44,28,.14)}
+.lyon__seal{position:absolute;top:clamp(20px,2.2vw,32px);right:clamp(22px,2.4vw,36px);
+  font-family:var(--serif);font-size:.82rem;letter-spacing:.3em;color:rgba(99,80,59,.34)}
+.lyon__seal em{font-style:italic;color:var(--gold)}
+.lyon .eyebrow{display:block;margin-bottom:1.1em}
+.lyon h2{font-family:var(--serif);font-weight:400;font-size:var(--fs-h2);line-height:1.1;margin-bottom:.7em}
+.lyon h2 em{font-style:italic;color:var(--wine)}
+.lyon p{color:var(--muted);margin-bottom:2em}
 
 @media(max-width:900px){
-  .story{grid-template-columns:1fr}
-  .story--reverse .story__media{order:0}
-  .story__media img{min-height:320px}
-  .story__num{font-size:3.4rem}
-  .story-wide{min-height:auto;padding-block:var(--sp-m)}
-  .story-wide__veil{background:linear-gradient(180deg,rgba(250,245,234,.9),rgba(250,245,234,.95))}
-  .story-quote blockquote,.story-lyon h2,.story-wide__card h2,.story__panel h2{font-size:var(--fs-h2-m)}
+  .chap__inner{grid-template-columns:1fr;gap:1.5rem}
+  .chap__num{font-size:2.6rem}
+  .lyon__card{margin-top:calc(-1 * clamp(40px,7vw,70px))}
+  .story-quote blockquote,.lyon h2,.chap__body h2{font-size:var(--fs-h2-m)}
 }
 
 /* =========================== PERSONAL CHINEUR — fin de catalogue =========================== */

@@ -10,7 +10,7 @@ const valeurs = [
 <Layout
   title="À propos — Cabinet des Curiosités"
   description="Une maman chineuse, vingt-trois ans de commerce, un déclic à New York : l’histoire du Cabinet des Curiosités, à Lyon."
-  image="/assets/apropos-maison-enfance.webp"
+  image="/assets/apropos-lyon-banniere-v1.webp"
   active="apropos"
   inner={true}
 >
@@ -29,16 +29,17 @@ const valeurs = [
   </section>
 
   <!-- CHAPITRE 01 — L'ENFANCE -->
-  <section class="story">
-    <div class="story__media">
-      <img src="/assets/apropos-maison-enfance.webp" alt="Intérieur des années 1970 : siphons alignés sur l’étagère, épingles à chapeaux sur le bahut, tableaux posés à même le sol" loading="lazy" />
-    </div>
-    <div class="story__panel">
-      <span class="story__num" aria-hidden="true">01</span>
-      <span class="eyebrow">Le commencement</span>
-      <h2>Une maison où l’âme des objets<br /><em>animait le quotidien.</em></h2>
-      <p>Baignée très tôt dans l’univers de la brocante par une maman chineuse et collectionneuse, j’ai grandi entourée des trouvailles des marchés, des foires et des vide-greniers.</p>
-      <p>Partout, les collections se télescopaient à merveille, d’une manière complètement hétéroclite : les siphons en haut de l’étagère, les épingles à chapeaux trônant fièrement sur le bahut, les tableaux posés à même le sol — donnant à une vulgaire plinthe une échappatoire à pensées des plus efficaces.</p>
+  <section class="chap">
+    <div class="wrap chap__inner">
+      <div class="chap__label">
+        <span class="chap__num" aria-hidden="true">01</span>
+        <span class="eyebrow">Le commencement</span>
+      </div>
+      <div class="chap__body">
+        <h2>Une maison où l’âme des objets<br /><em>animait le quotidien.</em></h2>
+        <p>Baignée très tôt dans l’univers de la brocante par une maman chineuse et collectionneuse, j’ai grandi entourée des trouvailles des marchés, des foires et des vide-greniers.</p>
+        <p>Partout, les collections se télescopaient à merveille, d’une manière complètement hétéroclite : les siphons en haut de l’étagère, les épingles à chapeaux trônant fièrement sur le bahut, les tableaux posés à même le sol — donnant à une vulgaire plinthe une échappatoire à pensées des plus efficaces.</p>
+      </div>
     </div>
   </section>
 
@@ -50,46 +51,55 @@ const valeurs = [
   </section>
 
   <!-- CHAPITRE 02 — LE MÉTIER -->
-  <section class="story story--reverse">
-    <div class="story__media">
-      <img src="/assets/apropos-table-brocante.webp" alt="Table de brocante couverte d’objets anciens : pichets émaillés, bougeoirs, réveil, vaisselle" loading="lazy" />
-    </div>
-    <div class="story__panel">
-      <span class="story__num" aria-hidden="true">02</span>
-      <span class="eyebrow">Vingt-trois ans de commerce</span>
-      <h2>Une vie professionnelle<br /><em>trépidante et riche.</em></h2>
-      <p>Vingt-trois années dans le retail, dont vingt pour la marque de prêt-à-porter Somewhere, font ce que je suis aujourd’hui. Cette maison m’a nourrie, m’a fait grandir, m’a fait évoluer poste après poste — d’adjointe de magasin jusqu’à responsable réseau.</p>
-      <p>De chacune de ces missions j’ai gardé une même obsession : le client. Toutes mes actions de terrain étaient tournées vers sa satisfaction et celle de mes équipes de vente.</p>
-      <dl class="story__facts">
-        <div><dt>Le parcours</dt><dd>Adjointe de magasin · Responsable de magasin · Superviseur de zone · Responsable régionale · Responsable réseau</dd></div>
-      </dl>
-    </div>
-  </section>
-
-  <!-- CHAPITRE 03 — NEW YORK -->
-  <section class="story-wide">
-    <div class="story-wide__image">
-      <img src="/assets/apropos-cafe-newyork.webp" alt="Intérieur new-yorkais baigné de lumière dorée, chaque espace habillé d’objets anciens" loading="lazy" />
-    </div>
-    <div class="story-wide__veil"></div>
-    <div class="wrap story-wide__inner">
-      <div class="story-wide__card">
-        <span class="story__num" aria-hidden="true">03</span>
-        <span class="eyebrow">New York · Broadway &amp; 19ᵉ rue</span>
-        <h2>Une vibration incroyable,<br /><em>dès les premiers pas.</em></h2>
-        <p>C’est là, avec ma meilleure amie, que tout s’est cristallisé. L’opulence d’objets, chaque espace habillé, tous les styles mélangés avec goût pour apporter une pincée de magie, de surprise et de nostalgie.</p>
-        <p>Un envoûtement chaleureux où mon œil était en alerte, de peur de passer à côté de l’objet coup de cœur tant convoité.</p>
+  <section class="chap">
+    <div class="wrap chap__inner">
+      <div class="chap__label">
+        <span class="chap__num" aria-hidden="true">02</span>
+        <span class="eyebrow">Vingt-trois ans de commerce</span>
+      </div>
+      <div class="chap__body">
+        <h2>Une vie professionnelle<br /><em>trépidante et riche.</em></h2>
+        <p>Vingt-trois années dans le retail, dont vingt pour la marque de prêt-à-porter Somewhere, font ce que je suis aujourd’hui. Cette maison m’a nourrie, m’a fait grandir, m’a fait évoluer poste après poste — d’adjointe de magasin jusqu’à responsable réseau.</p>
+        <p>De chacune de ces missions j’ai gardé une même obsession : le client. Toutes mes actions de terrain étaient tournées vers sa satisfaction et celle de mes équipes de vente.</p>
+        <ol class="chap__parcours" aria-label="Parcours professionnel">
+          <li>Adjointe de magasin</li>
+          <li>Responsable de magasin</li>
+          <li>Superviseur de zone</li>
+          <li>Responsable régionale</li>
+          <li>Responsable réseau</li>
+        </ol>
       </div>
     </div>
   </section>
 
-  <!-- LYON -->
-  <section class="story-lyon">
-    <div class="wrap story-lyon__inner">
-      <span class="eyebrow">Aujourd’hui</span>
-      <h2>Lyon,<br /><em>mon petit Paris coloré.</em></h2>
-      <p>J’y ai posé mes bagages il y a plus de dix ans. Après une vie professionnelle trépidante, j’ai eu l’opportunité d’opérer un virage à cent quatre-vingts degrés et de réaliser enfin mon rêve : créer mon site à moi, et faire vivre le Cabinet des Curiosités.</p>
-      <a href="/trouvailles" class="btn">Voir les trouvailles</a>
+  <!-- CHAPITRE 03 — NEW YORK -->
+  <section class="chap chap--tint">
+    <div class="wrap chap__inner">
+      <div class="chap__label">
+        <span class="chap__num" aria-hidden="true">03</span>
+        <span class="eyebrow">New York · Broadway &amp; 19ᵉ rue</span>
+      </div>
+      <div class="chap__body">
+        <h2>Une vibration incroyable,<br /><em>dès les premiers pas.</em></h2>
+        <p>C’est là, avec ma meilleure amie, que tout s’est cristallisé. L’opulence d’objets, chaque espace habillé, tous les styles mélangés avec goût pour apporter une pincée de magie, de surprise et de nostalgie.</p>
+        <p>Un envoûtement chaleureux où mon œil était en alerte, de peur de passer à côté de l’objet coup de cœur tant convoité. Je suis repartie avec une certitude : c’est ce métier-là que je voulais faire.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUJOURD'HUI — LYON, la seule image de la page -->
+  <section class="lyon">
+    <div class="lyon__media">
+      <img src="/assets/apropos-lyon-banniere-v1.webp" alt="Ruelle pavée des pentes lyonnaises au soleil rasant, façades ocre et objets anciens posés devant une porte" loading="lazy" />
+    </div>
+    <div class="wrap lyon__inner">
+      <div class="lyon__card">
+        <span class="lyon__seal" aria-hidden="true">C<em>D</em>C</span>
+        <span class="eyebrow">Aujourd’hui</span>
+        <h2>Lyon,<br /><em>mon petit Paris coloré.</em></h2>
+        <p>J’y ai posé mes bagages il y a plus de dix ans. Après une vie professionnelle trépidante, j’ai eu l’opportunité d’opérer un virage à cent quatre-vingts degrés et de réaliser enfin mon rêve : créer mon site à moi, et faire vivre le Cabinet des Curiosités.</p>
+        <a href="/trouvailles" class="btn btn--solid">Voir les trouvailles</a>
+      </div>
     </div>
   </section>
 
