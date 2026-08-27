@@ -17,7 +17,7 @@ const reperes = [
 <Layout
   title="À propos — Cabinet des Curiosités"
   description="Une maman chineuse, vingt-trois ans de commerce, un déclic à New York : l’histoire du Cabinet des Curiosités, à Lyon."
-  image="/assets/apropos-lyon-banniere-v1.webp"
+  image="/assets/apropos-lyon-etal.webp"
   active="apropos"
   inner={true}
 >
@@ -44,86 +44,96 @@ const reperes = [
     </div>
   </section>
 
-  <!-- CHAPITRE 01 — L'ENFANCE -->
-  <section class="chap">
-    <div class="wrap chap__inner">
-      <div class="chap__label">
-        <span class="chap__num" aria-hidden="true">01</span>
-        <span class="eyebrow">Le commencement</span>
+  <div class="journal">
+    <!-- PAGE 01 — L'ENFANCE -->
+    <section class="page">
+      <div class="wrap page__inner">
+        <figure class="page__illu">
+          <img src="/assets/journal-01-enfance.webp" alt="Illustration à l’aquarelle : un bahut couvert d’objets chinés, des siphons alignés sur l’étagère, des tableaux posés à même le sol" loading="lazy" />
+        </figure>
+        <div class="page__text">
+          <div class="page__chapitre"><b>Chapitre premier</b><i></i><span>Le commencement</span></div>
+          <h2>Une maison où l’âme des objets<br /><em>animait le quotidien.</em></h2>
+          <p>Baignée très tôt dans l’univers de la brocante par une maman chineuse et collectionneuse, j’ai grandi entourée des trouvailles des marchés, des foires et des vide-greniers.</p>
+          <p>Partout, les collections se télescopaient à merveille, d’une manière complètement hétéroclite : les siphons en haut de l’étagère, les épingles à chapeaux trônant fièrement sur le bahut, et les tableaux à même le sol qui habillaient les murs de leurs couleurs chatoyantes.</p>
+          <p class="page__note">Oui, posés à même le sol — et qui donnaient à une vulgaire plinthe une échappatoire à pensées des plus efficaces.</p>
+        </div>
       </div>
-      <div class="chap__body">
-        <h2>Une maison où l’âme des objets<br /><em>animait le quotidien.</em></h2>
-        <p>Baignée très tôt dans l’univers de la brocante par une maman chineuse et collectionneuse, j’ai grandi entourée des trouvailles des marchés, des foires et des vide-greniers.</p>
-        <p>Partout, les collections se télescopaient à merveille, d’une manière complètement hétéroclite : les siphons en haut de l’étagère, les épingles à chapeaux trônant fièrement sur le bahut, et les tableaux à même le sol qui habillaient les murs de leurs couleurs chatoyantes.</p>
-        <p>Oui, posés à même le sol — et qui donnaient à une vulgaire plinthe une échappatoire à pensées des plus efficaces.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CITATION -->
-  <section class="story-quote">
-    <div class="wrap story-quote__inner">
-      <blockquote>Chiner, mon passe-temps favori<br /><em>sans l’ombre d’un doute.</em></blockquote>
-    </div>
-  </section>
+    <!-- CITATION -->
+    <section class="story-quote">
+      <div class="wrap story-quote__inner">
+        <blockquote>Chiner, mon passe-temps favori<br /><em>sans l’ombre d’un doute.</em></blockquote>
+      </div>
+    </section>
 
-  <!-- CHAPITRE 02 — LE MÉTIER -->
-  <section class="chap">
-    <div class="wrap chap__inner">
-      <div class="chap__label">
-        <span class="chap__num" aria-hidden="true">02</span>
-        <span class="eyebrow">Vingt-trois ans de commerce</span>
+    <!-- PAGE 02 — SOMEWHERE -->
+    <section class="page page--flip">
+      <div class="wrap page__inner">
+        <figure class="page__illu">
+          <img src="/assets/journal-02-somewhere.webp" alt="Illustration à l’aquarelle : la devanture Somewhere, un carnet de notes et l’échelle des postes gravis, écrite à la main" loading="lazy" />
+        </figure>
+        <div class="page__text">
+          <div class="page__chapitre"><b>Chapitre deux</b><i></i><span>Vingt-trois ans de commerce</span></div>
+          <h2>Une vie professionnelle<br /><em>trépidante et riche.</em></h2>
+          <p>Vingt-trois années dans le retail, dont vingt pour la marque de prêt-à-porter Somewhere, font ce que je suis aujourd’hui. Cette maison m’a nourrie, m’a fait grandir, m’a fait évoluer poste après poste.</p>
+          <p>À travers les missions rattachées à chacun de ces postes, j’ai parfait mon expérience commerciale, managériale et de gestion.</p>
+          <ol class="page__parcours" aria-label="Parcours professionnel">
+            <li>Adjointe de magasin</li>
+            <li>Responsable de magasin</li>
+            <li>Superviseur de zone</li>
+            <li>Responsable régionale</li>
+            <li>Responsable réseau</li>
+          </ol>
+          <p class="page__note">À chaque mission, une même obsession : le client, et mes équipes de vente.</p>
+        </div>
       </div>
-      <div class="chap__body">
-        <h2>Une vie professionnelle<br /><em>trépidante et riche.</em></h2>
-        <p>Vingt-trois années dans le retail, dont vingt pour la marque de prêt-à-porter Somewhere, font ce que je suis aujourd’hui. Cette maison m’a nourrie, m’a fait grandir, m’a fait évoluer poste après poste — d’adjointe de magasin jusqu’à responsable réseau.</p>
-        <p>À travers les missions rattachées à chacun de ces postes, j’ai parfait mon expérience commerciale, managériale et de gestion. Et j’en ai gardé une même obsession : le client. Toutes mes actions de terrain étaient tournées vers sa satisfaction et celle de mes équipes de vente.</p>
-        <ol class="chap__parcours" aria-label="Parcours professionnel">
-          <li>Adjointe de magasin</li>
-          <li>Responsable de magasin</li>
-          <li>Superviseur de zone</li>
-          <li>Responsable régionale</li>
-          <li>Responsable réseau</li>
-        </ol>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CHAPITRE 03 — NEW YORK -->
-  <section class="chap chap--tint">
-    <div class="wrap chap__inner">
-      <div class="chap__label">
-        <span class="chap__num" aria-hidden="true">03</span>
-        <span class="eyebrow">New York · Broadway &amp; 19ᵉ rue</span>
-      </div>
-      <div class="chap__body">
-        <h2>Une vibration incroyable,<br /><em>dès les premiers pas.</em></h2>
-        <p>C’est là, avec ma meilleure amie, que tout s’est cristallisé. L’opulence d’objets, chaque espace habillé, tous les styles mélangés avec goût pour apporter une pincée de magie, de surprise et de nostalgie.</p>
-        <p>Un envoûtement chaleureux où mon œil était en alerte, de peur de passer à côté de l’objet coup de cœur tant convoité. Je suis repartie de là avec une certitude : c’est ce métier-là que je voulais faire.</p>
-      </div>
-    </div>
-  </section>
+    <!-- PLANCHE PHOTO — LA BOUTIQUE -->
+    <figure class="planche planche--left">
+      <img src="/assets/apropos-boutique-photo.webp" alt="Devanture de brocante au soleil : miroirs anciens, chaises paillées et cadres dorés posés sur le trottoir" loading="lazy" />
+      <figcaption>Pousser la porte, et voir ce qui dort là depuis cinquante ans.</figcaption>
+    </figure>
 
-  <!-- CHAPITRE 04 — POURQUOI CE PROJET -->
-  <section class="chap">
-    <div class="wrap chap__inner">
-      <div class="chap__label">
-        <span class="chap__num" aria-hidden="true">04</span>
-        <span class="eyebrow">Pourquoi ce projet</span>
+    <!-- PAGE 03 — NEW YORK -->
+    <section class="page page--tint">
+      <div class="wrap page__inner">
+        <figure class="page__illu">
+          <img src="/assets/journal-03-newyork.webp" alt="Illustration à l’aquarelle : l’angle de Broadway et de la 19ᵉ rue à New York, une boutique d’antiquités et un polaroïd épinglé" loading="lazy" />
+        </figure>
+        <div class="page__text">
+          <div class="page__chapitre"><b>Chapitre trois</b><i></i><span>New York · Broadway &amp; 19ᵉ rue</span></div>
+          <h2>Une vibration incroyable,<br /><em>dès les premiers pas.</em></h2>
+          <p>C’est là, avec ma meilleure amie, que tout s’est cristallisé. L’opulence d’objets, chaque espace habillé, tous les styles mélangés avec goût pour apporter une pincée de magie, de surprise et de nostalgie.</p>
+          <p>Un envoûtement chaleureux où mon œil était en alerte, de peur de passer à côté de l’objet coup de cœur tant convoité.</p>
+          <p class="page__note">Je suis repartie de là avec une certitude : c’est ce métier-là que je voulais faire.</p>
+        </div>
       </div>
-      <div class="chap__body">
-        <h2>Un virage à cent quatre-vingts degrés,<br /><em>et enfin mon rêve.</em></h2>
-        <p>Je n’ai eu de cesse de chercher des petites pépites, des perles rares, des objets de curiosité pour donner à mon chez-moi ce petit air vintage si cher à mon cœur. Ce que je faisais pour moi, je le fais désormais pour vous.</p>
-        <p>Le projet a mûri plus de trois ans, en commençant par constituer un stock assez large et assez profond pour proposer une vraie sélection. Puis mon licenciement, fin 2019, a tout précipité : je me suis dit que ça y est, c’était maintenant que je devais me lancer.</p>
-        <p>Aujourd’hui, chaque objet mis en ligne passe entre mes mains : chiné, nettoyé, photographié, décrit — et confié à qui saura lui donner une suite.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- AUJOURD'HUI — LYON, la seule image de la page -->
+    <!-- PAGE 04 — POURQUOI CE PROJET -->
+    <section class="page page--flip">
+      <div class="wrap page__inner">
+        <figure class="page__illu">
+          <img src="/assets/journal-04-projet.webp" alt="Illustration à l’aquarelle : un camion chargé de meubles chinés, des cartons prêts à partir, un carnet ouvert sur la liste des choses à faire" loading="lazy" />
+        </figure>
+        <div class="page__text">
+          <div class="page__chapitre"><b>Chapitre quatre</b><i></i><span>Pourquoi ce projet</span></div>
+          <h2>Un virage à cent quatre-vingts degrés,<br /><em>et enfin mon rêve.</em></h2>
+          <p>Je n’ai eu de cesse de chercher des petites pépites, des perles rares, des objets de curiosité pour donner à mon chez-moi ce petit air vintage si cher à mon cœur. Ce que je faisais pour moi, je le fais désormais pour vous.</p>
+          <p>Le projet a mûri plus de trois ans, en commençant par constituer un stock assez large et assez profond pour proposer une vraie sélection. Puis mon licenciement, fin 2019, a tout précipité.</p>
+          <p class="page__note">Je me suis dit : ça y est, c’est maintenant que je dois me lancer.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- AUJOURD'HUI — LYON -->
   <section class="lyon">
     <div class="lyon__media">
-      <img src="/assets/apropos-lyon-banniere-v1.webp" alt="Ruelle pavée des pentes lyonnaises au soleil rasant, façades ocre et objets anciens posés devant une porte" loading="lazy" />
+      <img src="/assets/apropos-lyon-etal.webp" alt="Étal de brocante au soleil dans une rue pavée en pente, à Lyon : réveils anciens, carafes en cristal et cadres dorés" loading="lazy" />
     </div>
     <div class="wrap lyon__inner">
       <div class="lyon__card">
