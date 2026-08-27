@@ -1101,25 +1101,55 @@ body.inner .hdr{min-height:86px;padding-block:14px}
     transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
 
-/* =========================== À PROPOS — récit en chapitres =========================== */
-.chap{background:var(--cream);border-top:1px solid var(--line)}
-.chap--tint{background:var(--tint)}
-.chap__inner{display:grid;grid-template-columns:minmax(160px,230px) 1fr;
-  gap:clamp(26px,5vw,88px);padding-block:var(--sp-m)}
-.chap__label{position:relative}
-.chap__num{display:block;font-family:var(--serif);font-size:clamp(2.6rem,4.2vw,4.4rem);
-  line-height:1;color:rgba(99,80,59,.2);margin-bottom:.36em}
-.chap__label .eyebrow{display:block;line-height:1.9}
-.chap__body h2{font-family:var(--serif);font-weight:400;font-size:var(--fs-h2);line-height:1.12;margin-bottom:.7em}
-.chap__body h2 em{font-style:italic;color:var(--wine)}
-.chap__body p{color:var(--muted);max-width:60ch;margin-bottom:1.1em}
-.chap__body p:last-child{margin-bottom:0}
-.chap__parcours{list-style:none;margin:clamp(28px,3vw,44px) 0 0;padding:0;
-  border-top:1px solid var(--line);max-width:60ch}
-.chap__parcours li{position:relative;padding:.85em 0 .85em 1.9em;border-bottom:1px solid var(--line);
-  font-size:.9rem;color:var(--ink)}
-.chap__parcours li::before{content:"";position:absolute;left:.35em;top:1.55em;
-  width:6px;height:1px;background:var(--gold)}
+/* =========================== À PROPOS — le journal =========================== */
+/* le papier : un grain très léger, posé une seule fois sur tout le récit */
+.journal{position:relative;background:var(--cream)}
+.journal::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)' opacity='.05'/%3E%3C/svg%3E")}
+.journal > *{position:relative}
+
+/* une page du journal : l'illustration d'un côté, l'écriture de l'autre */
+.page{border-top:1px solid var(--line)}
+.page--tint{background:rgba(232,216,190,.5)}
+.page__inner{display:grid;grid-template-columns:1.08fr 1fr;align-items:center;
+  gap:clamp(30px,4.4vw,76px);padding-block:var(--sp-m)}
+.page--flip .page__inner{grid-template-columns:1fr 1.08fr}
+.page--flip .page__illu{order:2}
+.page__illu{position:relative;margin:0}
+/* posées à la main : le blanc de l'aquarelle se fond dans le papier */
+.page__illu img{width:100%;height:auto;display:block;mix-blend-mode:multiply;
+  transform:rotate(-1.1deg)}
+.page--flip .page__illu img{transform:rotate(1deg)}
+.page__illu figcaption{margin-top:.9em;font-family:var(--script);font-size:1.32rem;
+  line-height:1.5;color:var(--tobacco);opacity:.75;text-align:center}
+
+.page__chapitre{display:flex;align-items:baseline;gap:.85em;margin-bottom:1.5em}
+.page__chapitre b{font-family:var(--script);font-weight:400;font-size:1.6rem;color:var(--gold);line-height:1}
+.page__chapitre i{flex:1;height:1px;background:var(--line);font-style:normal}
+.page__chapitre span{font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+.page__text h2{font-family:var(--serif);font-weight:400;font-size:var(--fs-h2);line-height:1.12;margin-bottom:.7em}
+.page__text h2 em{font-style:italic;color:var(--wine)}
+.page__text p{color:var(--muted);max-width:52ch;margin-bottom:1.1em}
+.page__text p:last-of-type{margin-bottom:0}
+
+/* l'annotation dans la marge, écrite à la main */
+.page__note{position:relative;margin-top:clamp(26px,3vw,40px);padding-left:clamp(18px,2vw,30px);
+  border-left:1px solid rgba(168,111,42,.4);
+  font-family:var(--script);font-size:1.42rem;line-height:1.6;color:var(--tobacco);
+  max-width:34ch;transform:rotate(-.7deg)}
+
+.page__parcours{list-style:none;margin:clamp(24px,2.6vw,36px) 0 0;padding:0;max-width:44ch}
+.page__parcours li{position:relative;padding:.6em 0 .6em 1.7em;font-size:.88rem;color:var(--ink);
+  border-bottom:1px dotted rgba(43,33,21,.28)}
+.page__parcours li:last-child{border-bottom:0}
+.page__parcours li::before{content:"";position:absolute;left:.25em;top:1.25em;width:7px;height:1px;background:var(--gold)}
+
+/* la photo collée en pleine largeur, avec sa légende manuscrite */
+.planche{position:relative;margin:0;border-top:1px solid var(--line)}
+.planche img{width:100%;height:clamp(300px,38vw,480px);object-fit:cover;display:block}
+.planche figcaption{padding:1.1em var(--gutter) 0;font-family:var(--script);font-size:1.5rem;
+  color:var(--tobacco);text-align:right;opacity:.8}
+.planche--left figcaption{text-align:left}
 
 /* citation pleine largeur */
 .story-quote{background:var(--cream);padding-block:var(--sp-m);text-align:center}
@@ -1171,12 +1201,13 @@ body.inner .hdr{min-height:86px;padding-block:14px}
 .engagement p{color:rgba(248,240,227,.72);font-size:.95rem;line-height:1.75}
 
 @media(max-width:900px){
-  .chap__inner{grid-template-columns:1fr;gap:1.5rem}
-  .chap__num{font-size:2.6rem}
+  .page__inner{grid-template-columns:1fr;gap:2rem}
+  .page--flip .page__illu{order:0}
+  .page__note{transform:none}
   .lyon__card{margin-top:calc(-1 * clamp(40px,7vw,70px))}
   .reperes__grid{grid-template-columns:repeat(2,1fr);gap:clamp(24px,5vw,40px)}
   .engagements__grid{grid-template-columns:1fr;gap:2rem}
-  .story-quote blockquote,.lyon h2,.chap__body h2{font-size:var(--fs-h2-m)}
+  .story-quote blockquote,.lyon h2,.page__text h2{font-size:var(--fs-h2-m)}
 }
 
 /* =========================== PERSONAL CHINEUR — fin de catalogue =========================== */
