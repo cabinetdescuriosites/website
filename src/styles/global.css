@@ -1131,6 +1131,14 @@ body.inner .hdr{min-height:86px;padding-block:14px}
   font-size:var(--fs-h2);line-height:1.24;color:var(--frame)}
 .story-quote blockquote em{font-style:italic;color:var(--wine)}
 
+/* repères chiffrés — le parcours en un coup d'œil */
+.reperes{background:var(--cream-2);border-top:1px solid var(--line);padding-block:var(--sp-s)}
+.reperes__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,3vw,48px)}
+.repere{position:relative;padding-left:clamp(16px,1.6vw,24px);border-left:1px solid var(--line)}
+.repere strong{display:block;font-family:var(--serif);font-weight:400;
+  font-size:clamp(2.4rem,3.6vw,3.4rem);line-height:1;color:var(--gold);margin-bottom:.32em}
+.repere span{display:block;font-size:.82rem;line-height:1.6;color:var(--muted);max-width:19ch}
+
 /* Aujourd'hui — bannière Lyon, seule image de la page */
 .lyon{background:var(--cream);border-top:1px solid var(--line);padding-bottom:var(--sp-m)}
 .lyon__media{position:relative;height:clamp(340px,44vw,560px);overflow:hidden}
@@ -1149,10 +1157,25 @@ body.inner .hdr{min-height:86px;padding-block:14px}
 .lyon h2 em{font-style:italic;color:var(--wine)}
 .lyon p{color:var(--muted);margin-bottom:2em}
 
+/* engagements — la page se referme sur un bloc chaud et foncé */
+.engagements{background:var(--frame);color:var(--cream);padding-block:var(--sp-m);position:relative;overflow:hidden}
+.engagements::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(208,161,94,.55),transparent)}
+.engagements .grid-head .eyebrow{color:var(--gold-2)}
+.engagements .grid-head h2{color:var(--cream)}
+.engagements__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,56px)}
+.engagement{position:relative;padding-top:clamp(22px,2.4vw,32px);border-top:1px solid rgba(250,245,234,.24)}
+.engagement__num{font-family:var(--serif);font-size:1.05rem;color:var(--gold-2)}
+.engagement h3{font-family:var(--serif);font-weight:400;font-size:1.45rem;line-height:1.25;
+  margin:.4em 0 .5em;color:var(--cream)}
+.engagement p{color:rgba(248,240,227,.72);font-size:.95rem;line-height:1.75}
+
 @media(max-width:900px){
   .chap__inner{grid-template-columns:1fr;gap:1.5rem}
   .chap__num{font-size:2.6rem}
   .lyon__card{margin-top:calc(-1 * clamp(40px,7vw,70px))}
+  .reperes__grid{grid-template-columns:repeat(2,1fr);gap:clamp(24px,5vw,40px)}
+  .engagements__grid{grid-template-columns:1fr;gap:2rem}
   .story-quote blockquote,.lyon h2,.chap__body h2{font-size:var(--fs-h2-m)}
 }
 
