@@ -6,6 +6,13 @@ const valeurs = [
   { n: "02", t: "Choisir avec conviction", p: "Une pièce qui remue quelque chose vaut mieux que dix objets simplement jolis. Chaque choix doit pouvoir être défendu et raconté." },
   { n: "03", t: "Transmettre vraiment", p: "Chaque trouvaille est décrite avec sincérité, racontée avec ce que l’on sait d’elle, puis préparée comme si elle était confiée en main propre." },
 ];
+
+const reperes = [
+  { n: "23", l: "ans de commerce, du terrain au réseau" },
+  { n: "20", l: "ans chez Somewhere, prêt-à-porter" },
+  { n: "05", l: "postes gravis un à un" },
+  { n: "10", l: "ans à Lyon, mon petit Paris" },
+];
 ---
 <Layout
   title="À propos — Cabinet des Curiosités"
@@ -28,6 +35,15 @@ const valeurs = [
     </div>
   </section>
 
+  <!-- REPÈRES -->
+  <section class="reperes">
+    <div class="wrap reperes__grid">
+      {reperes.map((r) => (
+        <div class="repere"><strong>{r.n}</strong><span>{r.l}</span></div>
+      ))}
+    </div>
+  </section>
+
   <!-- CHAPITRE 01 — L'ENFANCE -->
   <section class="chap">
     <div class="wrap chap__inner">
@@ -38,7 +54,8 @@ const valeurs = [
       <div class="chap__body">
         <h2>Une maison où l’âme des objets<br /><em>animait le quotidien.</em></h2>
         <p>Baignée très tôt dans l’univers de la brocante par une maman chineuse et collectionneuse, j’ai grandi entourée des trouvailles des marchés, des foires et des vide-greniers.</p>
-        <p>Partout, les collections se télescopaient à merveille, d’une manière complètement hétéroclite : les siphons en haut de l’étagère, les épingles à chapeaux trônant fièrement sur le bahut, les tableaux posés à même le sol — donnant à une vulgaire plinthe une échappatoire à pensées des plus efficaces.</p>
+        <p>Partout, les collections se télescopaient à merveille, d’une manière complètement hétéroclite : les siphons en haut de l’étagère, les épingles à chapeaux trônant fièrement sur le bahut, et les tableaux à même le sol qui habillaient les murs de leurs couleurs chatoyantes.</p>
+        <p>Oui, posés à même le sol — et qui donnaient à une vulgaire plinthe une échappatoire à pensées des plus efficaces.</p>
       </div>
     </div>
   </section>
@@ -60,7 +77,7 @@ const valeurs = [
       <div class="chap__body">
         <h2>Une vie professionnelle<br /><em>trépidante et riche.</em></h2>
         <p>Vingt-trois années dans le retail, dont vingt pour la marque de prêt-à-porter Somewhere, font ce que je suis aujourd’hui. Cette maison m’a nourrie, m’a fait grandir, m’a fait évoluer poste après poste — d’adjointe de magasin jusqu’à responsable réseau.</p>
-        <p>De chacune de ces missions j’ai gardé une même obsession : le client. Toutes mes actions de terrain étaient tournées vers sa satisfaction et celle de mes équipes de vente.</p>
+        <p>À travers les missions rattachées à chacun de ces postes, j’ai parfait mon expérience commerciale, managériale et de gestion. Et j’en ai gardé une même obsession : le client. Toutes mes actions de terrain étaient tournées vers sa satisfaction et celle de mes équipes de vente.</p>
         <ol class="chap__parcours" aria-label="Parcours professionnel">
           <li>Adjointe de magasin</li>
           <li>Responsable de magasin</li>
@@ -82,7 +99,23 @@ const valeurs = [
       <div class="chap__body">
         <h2>Une vibration incroyable,<br /><em>dès les premiers pas.</em></h2>
         <p>C’est là, avec ma meilleure amie, que tout s’est cristallisé. L’opulence d’objets, chaque espace habillé, tous les styles mélangés avec goût pour apporter une pincée de magie, de surprise et de nostalgie.</p>
-        <p>Un envoûtement chaleureux où mon œil était en alerte, de peur de passer à côté de l’objet coup de cœur tant convoité. Je suis repartie avec une certitude : c’est ce métier-là que je voulais faire.</p>
+        <p>Un envoûtement chaleureux où mon œil était en alerte, de peur de passer à côté de l’objet coup de cœur tant convoité. Je suis repartie de là avec une certitude : c’est ce métier-là que je voulais faire.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAPITRE 04 — POURQUOI CE PROJET -->
+  <section class="chap">
+    <div class="wrap chap__inner">
+      <div class="chap__label">
+        <span class="chap__num" aria-hidden="true">04</span>
+        <span class="eyebrow">Pourquoi ce projet</span>
+      </div>
+      <div class="chap__body">
+        <h2>Un virage à cent quatre-vingts degrés,<br /><em>et enfin mon rêve.</em></h2>
+        <p>Je n’ai eu de cesse de chercher des petites pépites, des perles rares, des objets de curiosité pour donner à mon chez-moi ce petit air vintage si cher à mon cœur. Ce que je faisais pour moi, je le fais désormais pour vous.</p>
+        <p>Le projet a mûri plus de trois ans, en commençant par constituer un stock assez large et assez profond pour proposer une vraie sélection. Puis mon licenciement, fin 2019, a tout précipité : je me suis dit que ça y est, c’était maintenant que je devais me lancer.</p>
+        <p>Aujourd’hui, chaque objet mis en ligne passe entre mes mains : chiné, nettoyé, photographié, décrit — et confié à qui saura lui donner une suite.</p>
       </div>
     </div>
   </section>
@@ -104,12 +137,12 @@ const valeurs = [
   </section>
 
   <!-- VALEURS -->
-  <section class="section">
+  <section class="engagements">
     <div class="wrap">
       <div class="grid-head reveal"><span class="eyebrow">Ce qui me guide</span><h2>Mes engagements</h2></div>
-      <div class="values">
+      <div class="engagements__grid">
         {valeurs.map((v) => (
-          <div class="value reveal"><div class="rule"></div><div class="num">{v.n}</div><h3>{v.t}</h3><p>{v.p}</p></div>
+          <div class="engagement reveal"><div class="engagement__num">{v.n}</div><h3>{v.t}</h3><p>{v.p}</p></div>
         ))}
       </div>
     </div>
