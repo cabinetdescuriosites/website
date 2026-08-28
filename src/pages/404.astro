@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const suggestions = (await getCollection("produits"))
+  .filter((p) => p.data.statut !== "Vendu")
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+---
+<Layout
+  title="Page introuvable — Cabinet des Curiosités"
+  description="Cette page n’existe pas ou a été déplacée. Revenez vers les trouvailles."
+  inner={true}
+>
+  <section class="inner-intro">
+    <div class="wrap inner-intro__inner">
+      <span class="eyebrow">Erreur 404</span>
+      <div class="inner-intro__grid">
+        <h1>Cette pièce<br /><em>a changé de place.</em></h1>
+        <p>La page que vous cherchez n’existe pas, ou elle a été déplacée. Peut-être l’objet est-il parti chez quelqu’un d’autre — c’est le propre des pièces uniques.</p>
+      </div>
+      <nav class="inner-intro__foot" aria-label="Où aller">
+        <a href="/trouvailles">Voir les trouvailles</a>
+        <a href="/services">Mes services</a>
+        <a href="/contact">Me contacter</a>
+      </nav>
+    </div>
+  </section>
+
+  {suggestions.length > 0 && (
+    <section class="section">
+      <div class="wrap">
+        <div class="grid-head"><span class="eyebrow">En attendant</span><h2>Trois pièces disponibles.</h2></div>
+        <div class="shop">
+          {suggestions.map((p) => (
+            <a href={`/trouvailles/${p.slug}`} class="pcard">
+              <div class="pcard__media">
+                <img class="pcard__primary" src={p.data.photos[0] ?? "/assets/placeholder.svg"} alt={p.data.titre} loading="lazy" />
+              </div>
+              <div class="pcard__body">
+                <div><div class="pcard__name">{p.data.titre}</div><div class="pcard__cat">{p.data.categorie}</div></div>
+                <div class="pcard__price">{p.data.prix}&nbsp;€</div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+</Layout>

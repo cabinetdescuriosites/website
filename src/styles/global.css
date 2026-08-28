@@ -450,9 +450,12 @@ body.inner .hdr{min-height:86px;padding-block:14px}
   .product-info{position:static;padding-top:0}
 }
 @media(max-width:560px){
+  .shop{grid-template-columns:repeat(2,1fr);gap:18px 14px}
+  .pcard__name{font-size:.95rem}
+  .pcard__cat,.pcard__price{font-size:.78rem}
   .product-page{padding-top:18px}
   .product-layout{gap:42px}
-  .product-info h1{font-size:var(--fs-h1-m)}
+  .product-info h1{font-size:2.6rem;line-height:1.02}
   .specs div{grid-template-columns:105px 1fr}
   .product-care__items>div{grid-template-columns:38px 1fr}
   .product-care__items p{grid-column:2}
