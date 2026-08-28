@@ -7,7 +7,9 @@
   --ink:#302116; --muted:#63503B; --gold:#A86F2A; --gold-2:#D0A15E; --tobacco:#553823;
   /* or lisible : contraste AA sur crème (5,97:1) et sur fond teinté (4,83:1) */
   --gold-text:#7E5218;
-  --rose:#A65F55; --rose-soft:#D2A89C; --wine:#6B3038; --bordeaux:#5C2830;
+  --rose:#A65F55; --rose-soft:#D2A89C; --wine:#6B3038;
+  /* fond des bandeaux d'appel : vert volet, 10,4:1 avec le crème */
+  --cta:#33412C;
   --line:rgba(43,33,21,.18); --line-light:rgba(250,245,234,.26);
   --serif:"Cormorant Garamond",Georgia,serif;
   --script:"Pinyon Script",cursive;
@@ -1057,7 +1059,7 @@ body.inner .hdr{min-height:86px;padding-block:14px}
 @media(max-width:900px){.svc__croquis{width:150px;opacity:.16}}
 
 
-.svc-contact{position:relative;background:var(--bordeaux);color:var(--cream);overflow:hidden;
+.svc-contact{position:relative;background:var(--cta);color:var(--cream);overflow:hidden;
   padding-block:var(--sp-m)}
 .svc-contact::before{content:"";position:absolute;inset:0;pointer-events:none;
   background:radial-gradient(105% 80% at 8% 0%,rgba(208,161,94,.16),transparent 60%)}
@@ -1323,7 +1325,7 @@ body.inner .hdr{min-height:86px;padding-block:14px}
 .contact-card h2{font-family:var(--sans);font-weight:400;font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-bottom:.8em}
 .contact-card p{margin:0;font-family:var(--serif);font-size:1.12rem;line-height:1.55;color:var(--ink)}
 
-.contact-motifs{position:relative;background:var(--bordeaux);color:var(--cream);padding-block:var(--sp-m);overflow:hidden}
+.contact-motifs{position:relative;background:var(--cta);color:var(--cream);padding-block:var(--sp-m);overflow:hidden}
 .contact-motifs::before{content:"";position:absolute;inset:0;pointer-events:none;
   background:radial-gradient(120% 90% at 15% 0%,rgba(208,161,94,.14),transparent 62%)}
 .contact-motifs>*{position:relative}
