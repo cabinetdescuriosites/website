@@ -613,7 +613,9 @@ body.inner .hdr{min-height:86px;padding-block:14px}
 .home-care__still>img{position:relative;width:min(70%,540px);aspect-ratio:4/5;object-fit:cover;object-position:center 46%;box-shadow:0 32px 90px rgba(20,24,15,.4),0 0 0 1px rgba(255,248,233,.12)}
 .home-care__caption{position:absolute;left:7%;bottom:8%;font-size:.61rem;letter-spacing:.21em;text-transform:uppercase;color:rgba(255,248,233,.78);writing-mode:vertical-rl}
 .home-care__copy{position:relative;isolation:isolate;overflow:hidden;padding:clamp(80px,9vw,160px) clamp(40px,8vw,140px);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;background:var(--cream)}
-.home-care__copy::before{content:"";position:absolute;z-index:-1;right:-17%;bottom:-21%;width:min(72%,490px);aspect-ratio:1;background:url("/assets/logo-badge.svg") center/contain no-repeat;opacity:.038;pointer-events:none}
+.home-care__copy::before{content:"";position:absolute;z-index:-1;right:-6%;bottom:-4%;width:min(66%,430px);aspect-ratio:3/2;
+  -webkit-mask:url("/assets/croquis/soin.webp") center/contain no-repeat;mask:url("/assets/croquis/soin.webp") center/contain no-repeat;
+  background:var(--tobacco);opacity:.17;pointer-events:none}
 .home-care__copy h2{font-size:var(--fs-h2-lg);line-height:1;margin:.3em 0 .45em;max-width:13ch}
 .home-care__copy>p{color:var(--muted);max-width:44ch}
 .home-care__steps{width:100%;margin:2.1em 0 2.2em;border-top:1px solid var(--line)}
@@ -1027,6 +1029,25 @@ body.inner .hdr{min-height:86px;padding-block:14px}
 .svc__facts dd{margin:0;font-size:.94rem;color:var(--ink)}
 .svc__panel .btn{align-self:flex-start}
 
+/* croquis à l'encre — une matière discrète, une couleur par service */
+.croquis{position:absolute;pointer-events:none;
+  -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+  -webkit-mask-size:contain;mask-size:contain;
+  -webkit-mask-position:center;mask-position:center}
+.svc__croquis{right:clamp(16px,2.6vw,48px);bottom:clamp(14px,2vw,34px);
+  width:clamp(140px,19vw,280px);aspect-ratio:3/2}
+.croquis[data-croquis="chiner"]{-webkit-mask-image:url("/assets/croquis/chiner.webp");mask-image:url("/assets/croquis/chiner.webp");
+  background:var(--gold);opacity:.34;aspect-ratio:1.22}
+.croquis[data-croquis="atelier"]{-webkit-mask-image:url("/assets/croquis/atelier.webp");mask-image:url("/assets/croquis/atelier.webp");
+  background:var(--tobacco);opacity:.28;aspect-ratio:1.43}
+.croquis[data-croquis="depot"]{-webkit-mask-image:url("/assets/croquis/depot.webp");mask-image:url("/assets/croquis/depot.webp");
+  background:var(--rose);opacity:.36;aspect-ratio:1.2}
+.croquis[data-croquis="vide-maison"]{-webkit-mask-image:url("/assets/croquis/vide.webp");mask-image:url("/assets/croquis/vide.webp");
+  background:var(--wine);opacity:.3;aspect-ratio:1.62}
+.croquis[data-croquis="soin"]{-webkit-mask-image:url("/assets/croquis/soin.webp");mask-image:url("/assets/croquis/soin.webp");
+  background:var(--tobacco);opacity:.19}
+@media(max-width:900px){.svc__croquis{width:150px;opacity:.16}}
+
 
 .svc-contact{background:var(--frame);color:var(--cream);padding-block:var(--sp-m);text-align:center;position:relative;overflow:hidden}
 .svc-contact::before{content:"";position:absolute;left:50%;top:clamp(30px,4vw,54px);transform:translateX(-50%);width:64px;height:1px;background:var(--gold-2);opacity:.7}
@@ -1041,7 +1062,9 @@ body.inner .hdr{min-height:86px;padding-block:14px}
 @media(max-width:900px){.svc-contact h2{font-size:var(--fs-h2-m)}}
 
 /* bloc services sur l'accueil */
-.home-svc{background:var(--tint);padding-block:var(--sp-l)}
+.home-svc{position:relative;overflow:hidden;background:var(--tint);padding-block:var(--sp-l)}
+.home-svc__croquis{left:clamp(-30px,-2vw,0px);top:clamp(24px,3vw,54px);
+  width:clamp(150px,20vw,300px);aspect-ratio:3/2}
 .home-svc__head{text-align:center;margin-bottom:clamp(44px,5.4vw,76px)}
 .home-svc__head .eyebrow{display:block;margin-bottom:1em}
 .home-svc__head h2{font-family:var(--serif);font-weight:400;font-size:var(--fs-h2);line-height:1.12}
