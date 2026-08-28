@@ -110,11 +110,32 @@ const services = [
   ))}
 
   <section class="svc-contact">
-    <div class="wrap svc-contact__inner">
-      <h2>Un projet en tête ?<br /><em>Parlons-en simplement.</em></h2>
-      <div class="svc-contact__links">
-        <a href="tel:0625371757" class="btn btn--solid">06 25 37 17 57</a>
-        <a href="mailto:contact@brocaddict.fr" class="btn">contact@brocaddict.fr</a>
+    <div class="wrap svc-contact__grid">
+      <div class="svc-contact__intro">
+        <span class="svc-contact__seal" aria-hidden="true">C<em>D</em>C</span>
+        <span class="eyebrow">Parlons-en</span>
+        <h2>Un projet<br /><em>en tête ?</em></h2>
+        <p class="svc-contact__hand">Racontez-le-moi simplement — je réponds moi-même, sous 24 à 48 heures.</p>
+      </div>
+      <div class="svc-contact__ways">
+        <a class="svc-way" href="tel:0625371757">
+          <span class="svc-way__label">Par téléphone</span>
+          <strong class="svc-way__value">06 25 37 17 57</strong>
+          <span class="svc-way__note">Le plus direct — j’adore échanger de vive voix</span>
+          <em class="svc-way__arrow" aria-hidden="true">→</em>
+        </a>
+        <a class="svc-way" href={wa("Bonjour Stéfani, j’ai un projet en tête et j’aimerais vous en parler.")} target="_blank" rel="noopener noreferrer">
+          <span class="svc-way__label">Sur WhatsApp</span>
+          <strong class="svc-way__value">Envoyer un message</strong>
+          <span class="svc-way__note">Pratique pour joindre une photo</span>
+          <em class="svc-way__arrow" aria-hidden="true">→</em>
+        </a>
+        <a class="svc-way" href="mailto:contact@brocaddict.fr">
+          <span class="svc-way__label">Par email</span>
+          <strong class="svc-way__value">contact@brocaddict.fr</strong>
+          <span class="svc-way__note">Pour les demandes détaillées</span>
+          <em class="svc-way__arrow" aria-hidden="true">→</em>
+        </a>
       </div>
     </div>
   </section>
