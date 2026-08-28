@@ -45,7 +45,7 @@ const ogImage = new URL(image, Astro.site);
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Pinyon+Script&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
 </head>
-<body class={inner ? "inner" : ""}>
+<body class={inner ? "inner" : ""} id="top">
   <div class="site">
     <Header active={active} />
     <slot />
@@ -54,28 +54,35 @@ const ogImage = new URL(image, Astro.site);
   </div>
 
   <script>
+    // Le menu hors-écran ne doit être ni focusable ni annoncé tant qu'il est fermé.
+    const mobileNav = window.matchMedia('(max-width:980px)');
+    const setMenu = (opened: boolean) => {
+      const nav = document.querySelector('.hdr__nav');
+      const toggle = document.querySelector('.hdr__toggle');
+      if (!nav) return;
+      nav.classList.toggle('open', opened);
+      const hidden = mobileNav.matches && !opened;
+      nav.toggleAttribute('inert', hidden);
+      if (hidden) nav.setAttribute('aria-hidden', 'true');
+      else nav.removeAttribute('aria-hidden');
+      toggle?.setAttribute('aria-expanded', String(opened));
+      toggle?.setAttribute('aria-label', opened ? 'Fermer le menu' : 'Ouvrir le menu');
+      document.body.classList.toggle('menu-open', opened);
+    };
+    const syncMenu = () => setMenu(document.querySelector('.hdr__nav')?.classList.contains('open') ?? false);
+    mobileNav.addEventListener('change', () => setMenu(false));
+    document.addEventListener('astro:page-load', syncMenu);
+    syncMenu();
+
     // Écouteurs globaux (document/window survivent aux View Transitions) — une seule fois.
     document.addEventListener('click', (e) => {
       const t = e.target as HTMLElement;
       const toggle = t.closest('.hdr__toggle') as HTMLButtonElement | null;
       if (toggle) {
-        const nav = document.querySelector('.hdr__nav');
-        const opened = nav?.classList.toggle('open') ?? false;
-        toggle.setAttribute('aria-expanded', String(opened));
-        toggle.setAttribute('aria-label', opened ? 'Fermer le menu' : 'Ouvrir le menu');
-        document.body.classList.toggle('menu-open', opened);
+        setMenu(!(document.querySelector('.hdr__nav')?.classList.contains('open') ?? false));
       }
-      if (t.closest('[data-menu-close]')) {
-        document.querySelector('.hdr__nav')?.classList.remove('open');
-        document.querySelector('.hdr__toggle')?.setAttribute('aria-expanded', 'false');
-        document.querySelector('.hdr__toggle')?.setAttribute('aria-label', 'Ouvrir le menu');
-        document.body.classList.remove('menu-open');
-      }
-      if (t.closest('.hdr__nav a')) {
-        document.querySelector('.hdr__nav')?.classList.remove('open');
-        document.querySelector('.hdr__toggle')?.setAttribute('aria-expanded', 'false');
-        document.querySelector('.hdr__toggle')?.setAttribute('aria-label', 'Ouvrir le menu');
-        document.body.classList.remove('menu-open');
+      if (t.closest('[data-menu-close]') || t.closest('.hdr__nav a')) {
+        setMenu(false);
       }
       // demo achat
       const demo = t.closest('[data-demo]') as HTMLElement | null;
@@ -119,10 +126,7 @@ const ogImage = new URL(image, Astro.site);
     });
     document.addEventListener('keydown', (e) => {
       if (e.key !== 'Escape') return;
-      document.querySelector('.hdr__nav')?.classList.remove('open');
-      document.querySelector('.hdr__toggle')?.setAttribute('aria-expanded', 'false');
-      document.querySelector('.hdr__toggle')?.setAttribute('aria-label', 'Ouvrir le menu');
-      document.body.classList.remove('menu-open');
+      setMenu(false);
     });
     (() => {
       const requested = new URLSearchParams(window.location.search).get('categorie');
