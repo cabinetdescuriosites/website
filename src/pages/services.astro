@@ -96,6 +96,7 @@ const services = [
       </div>
       <div class="svc__panel">
         <span class="svc__num" aria-hidden="true">{s.n}</span>
+        <span class="croquis svc__croquis" data-croquis={s.cle} aria-hidden="true"></span>
         <span class="eyebrow">{s.eyebrow}</span>
         <h2 set:html={s.titre} />
         {s.texte.map((t) => <p>{t}</p>)}
