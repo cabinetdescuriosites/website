@@ -53,7 +53,7 @@ collections:
         name: "photos"
         widget: "list"
         min: 1
-        hint: "La première photo est celle affichée dans la galerie."
+        hint: "Prévoir idéalement 4 à 5 photos : vue d’ensemble, marque ou signature, détails et imperfections. La première photo est celle affichée dans la galerie."
         field: { label: "Photo", name: "photo", widget: "image" }
       - { label: "Description", name: "body", widget: "markdown", hint: "Quelques phrases pour raconter l'objet, son charme, son histoire." }
       - { label: "État", name: "etat", widget: "string", required: false, hint: "Ex. : Très bon état, légère usure d'usage." }
