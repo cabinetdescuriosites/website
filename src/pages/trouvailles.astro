@@ -17,7 +17,12 @@ const nouveautes = new Set(parDate.slice(0, 6).map((p) => p.slug));
 const produits = varier(parDate);
 const cover = (p) => p.data.photos[0] ?? "/assets/placeholder.svg";
 ---
-<Layout title="Les Trouvailles — Cabinet des Curiosités" active="trouvailles" inner={true}>
+<Layout
+  title="Les Trouvailles — Cabinet des Curiosités"
+  description="La sélection en ligne du Cabinet : arts de la table, luminaires, petit mobilier, décoration et curiosités. Chaque pièce est unique, décrite et vendue en l'état."
+  active="trouvailles"
+  inner={true}
+>
   <section class="catalog-intro">
     <div class="wrap catalog-intro__inner">
       <div class="catalog-intro__top">
