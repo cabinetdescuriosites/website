@@ -44,11 +44,21 @@ const ogImage = new URL(image, Astro.site);
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Pinyon+Script&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script is:inline>
+    // Après une invitation ou une réinitialisation, on renvoie Stéphanie vers son espace.
+    window.netlifyIdentity?.on("init", (user) => {
+      if (!user) window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; });
+    });
+  </script>
 </head>
 <body class={inner ? "inner" : ""} id="top">
   <div class="site">
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
     <Header active={active} />
-    <slot />
+    <main id="contenu">
+      <slot />
+    </main>
     <Instagram />
     <Footer />
   </div>
