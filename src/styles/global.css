@@ -1295,8 +1295,10 @@ body.inner .hdr{min-height:86px;padding-block:14px}
   font-size:.9rem;color:var(--ink)}
 
 /* =========================== PERSONAL CHINEUR — fin de catalogue =========================== */
-.chineur-note{background:var(--tint);border-top:1px solid var(--line);padding-block:var(--sp-m);text-align:center}
-.chineur-note__inner{position:relative;max-width:660px}
+.chineur-note{background:var(--tint);border-top:1px solid var(--line);padding-block:var(--sp-m);text-align:center;overflow:hidden}
+.chineur-note__inner{position:relative;max-width:1240px;min-height:440px;display:grid;place-items:center}
+.chineur-note__content{position:relative;z-index:1;max-width:660px}
+.chineur-note__drawing{position:absolute;inset:50% 0 auto;width:100%;height:auto;transform:translateY(-50%);opacity:.36;pointer-events:none;mix-blend-mode:multiply}
 .chineur-note__seal{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(1.5rem,2.2vw,1.9rem);
   letter-spacing:.26em;color:var(--frame);opacity:.4;margin-bottom:1.6em}
 .chineur-note__seal em{font-style:normal;color:var(--gold)}
@@ -1307,7 +1309,17 @@ body.inner .hdr{min-height:86px;padding-block:14px}
 .chineur-note__actions{display:flex;align-items:center;justify-content:center;gap:clamp(18px,2.4vw,32px);flex-wrap:wrap}
 .chineur-note__tel{font-family:var(--serif);font-size:1.25rem;color:var(--frame);border-bottom:1px solid var(--gold);padding-bottom:.25em;transition:color var(--dur-hover) var(--ease)}
 .chineur-note__tel:hover{color:var(--gold)}
-@media(max-width:900px){.chineur-note h2{font-size:var(--fs-h2-m)}}
+@media(max-width:900px){
+  .chineur-note__inner{min-height:420px}
+  .chineur-note__drawing{width:112%;max-width:none;left:-6%;opacity:.26}
+  .chineur-note h2{font-size:var(--fs-h2-m)}
+}
+@media(max-width:680px){
+  .chineur-note{padding-bottom:clamp(110px,31vw,145px)}
+  .chineur-note__inner{display:block;min-height:0}
+  .chineur-note__content{max-width:580px;margin-inline:auto}
+  .chineur-note__drawing{top:auto;bottom:calc(clamp(110px,31vw,145px) * -1);left:50%;width:680px;max-width:none;transform:translateX(-50%);opacity:.24}
+}
 
 /* =========================== CONTACT =========================== */
 .contact-main{padding-block:var(--sp-m);background:var(--cream)}
@@ -1328,9 +1340,9 @@ body.inner .hdr{min-height:86px;padding-block:14px}
 .contact-card h2{font-family:var(--sans);font-weight:400;font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-bottom:.8em}
 .contact-card p{margin:0;font-family:var(--serif);font-size:1.12rem;line-height:1.55;color:var(--ink)}
 
-.contact-motifs{position:relative;background:linear-gradient(135deg,var(--cta),#E6D2B8);color:var(--cta-ink);padding-block:var(--sp-m);overflow:hidden}
+.contact-motifs{position:relative;background:rgba(232,216,190,.5);color:var(--cta-ink);padding-block:var(--sp-m);overflow:hidden}
 .contact-motifs::before{content:"";position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(120% 90% at 15% 0%,rgba(208,161,94,.14),transparent 62%)}
+  background:radial-gradient(120% 90% at 15% 0%,rgba(255,249,239,.3),transparent 62%)}
 .contact-motifs>*{position:relative}
 .contact-motifs .grid-head .eyebrow{color:var(--tobacco)}
 .contact-motifs .grid-head h2{color:var(--cta-ink)}
