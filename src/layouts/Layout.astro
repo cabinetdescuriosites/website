@@ -14,12 +14,17 @@ interface Props {
 const {
   title,
   description = "Cabinet des Curiosités — objets chinés, pièces uniques et curiosités sélectionnées avec soin à Lyon.",
-  image = "/assets/stefani-vase-lumiere-hero.webp",
+  image = "/assets/partage-cabinet.jpg",
   active = "",
   inner = false,
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL(image, Astro.site);
+// Toutes les images de partage sont produites au gabarit 1200x628 en JPEG.
+const partageStandard = image.startsWith("/assets/partage");
+const ogAlt = image.startsWith("/assets/partage/")
+  ? `${title.split(" — ")[0]} — Cabinet des Curiosités`
+  : "Des mains ouvrent un tiroir ancien garni de jumelles de théâtre, d’une montre de gousset et de petits objets chinés";
 ---
 <!doctype html>
 <html lang="fr">
@@ -36,11 +41,16 @@ const ogImage = new URL(image, Astro.site);
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonical} />
   <meta property="og:image" content={ogImage} />
+  {partageStandard && <meta property="og:image:type" content="image/jpeg" />}
+  {partageStandard && <meta property="og:image:width" content="1200" />}
+  {partageStandard && <meta property="og:image:height" content="628" />}
+  <meta property="og:image:alt" content={ogAlt} />
   <meta property="og:locale" content="fr_FR" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={ogImage} />
+  <meta name="twitter:image:alt" content={ogAlt} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Pinyon+Script&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />

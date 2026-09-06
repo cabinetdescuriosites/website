@@ -23,7 +23,7 @@ const similaires = all
 
 const metaDescription = `${(produit.body ?? "").trim().replace(/\s+/g, " ").slice(0, 140)}${(produit.body ?? "").trim().length > 140 ? "…" : ""} ${d.categorie} · ${d.epoque ?? "pièce ancienne"} · ${d.prix} € · ${d.statut}.`.trim();
 ---
-<Layout title={`${d.titre} — Cabinet des Curiosités`} description={metaDescription} image={photos[0]} active="trouvailles" inner={true}>
+<Layout title={`${d.titre} — Cabinet des Curiosités`} description={metaDescription} image={`/assets/partage/${produit.slug}.jpg`} active="trouvailles" inner={true}>
   <div class="wrap"><nav class="breadcrumb"><a href="/">Accueil</a> — <a href="/trouvailles">Les Trouvailles</a> — <span>{d.titre}</span></nav></div>
 
   <section class="product-page">
