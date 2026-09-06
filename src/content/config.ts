@@ -15,7 +15,7 @@ const produits = defineCollection({
     etat: z.string().optional(),
     dimensions: z.string().optional(),
     epoque: z.string().optional(),
-    livraison: z.string().default("Emballage soigné · France 8–12 € · Retrait Lyon possible"),
+    livraison: z.string().default("Emballage soigné · Frais de port confirmés avant la vente · Retrait à Lyon gratuit"),
     date: z.coerce.date(),
   }),
 });

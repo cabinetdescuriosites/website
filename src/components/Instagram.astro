@@ -5,16 +5,16 @@ const imgs = ["still-1.jpg", "verrerie.jpg", "curiosite.jpg", "still-2.jpg"];
   <div class="wrap">
     <div class="insta__h reveal">
       <span class="eyebrow">Sur Instagram</span>
-      <a class="insta__handle" href="https://instagram.com/brocaddict.cafe">@brocaddict.cafe</a>
+      <a class="insta__handle" href="https://instagram.com/brocaddict.cafe" target="_blank" rel="noopener noreferrer">@brocaddict.cafe</a>
     </div>
     <div class="insta__row reveal">
       {imgs.map((f) => (
-        <a class="c" href="https://instagram.com/brocaddict.cafe" aria-label="Voir sur Instagram"><img src={`/assets/${f}`} alt="" loading="lazy" /></a>
+        <a class="c" href="https://instagram.com/brocaddict.cafe" aria-label="Voir sur Instagram" target="_blank" rel="noopener noreferrer"><img src={`/assets/${f}`} alt="" loading="lazy" /></a>
       ))}
     </div>
-    <a class="insta__cta reveal" href="https://instagram.com/brocaddict.cafe">
+    <a class="insta__cta reveal" href="https://instagram.com/brocaddict.cafe" target="_blank" rel="noopener noreferrer">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-      Suivez nos trouvailles
+      Suivez mes trouvailles
     </a>
   </div>
 </section>
