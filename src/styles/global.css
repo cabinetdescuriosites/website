@@ -1219,7 +1219,7 @@ body.inner .hdr{min-height:86px;padding-block:14px}
 .planche--left figcaption{text-align:left}
 
 /* citation pleine largeur */
-.story-quote{background:var(--cream);padding-block:var(--sp-m);text-align:center}
+.story-quote{background:rgba(232,216,190,.5);padding-block:var(--sp-m);text-align:center}
 .story-quote__inner{position:relative;max-width:820px}
 .story-quote__inner::before,.story-quote__inner::after{content:"";display:block;width:64px;height:1px;background:var(--gold);margin:0 auto}
 .story-quote__inner::before{margin-bottom:clamp(28px,3vw,44px)}
