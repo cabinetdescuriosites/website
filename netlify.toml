@@ -5,3 +5,9 @@
 
 [build.environment]
   NODE_VERSION = "20"
+
+# Fiche renommée : le réveil Bayard est bleu ciel, pas vert amande
+[[redirects]]
+  from = "/trouvailles/reveil-bayard-vert-amande"
+  to = "/trouvailles/reveil-bayard-bleu-ciel"
+  status = 301

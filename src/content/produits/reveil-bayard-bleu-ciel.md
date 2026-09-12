@@ -1,5 +1,5 @@
 ---
-titre: "Réveil mécanique Bayard vert amande"
+titre: "Réveil mécanique Bayard bleu ciel"
 prix: 33
 categorie: "Curiosités"
 statut: "Disponible"
@@ -11,4 +11,4 @@ dimensions: "H. 10 × Ø 9,5 cm · 327 g"
 epoque: "Vintage"
 date: 2026-07-22
 ---
-Réveil mécanique Bayard en métal vert amande. Une petite pièce ronde au cadran lumineux et au charme très fifties.
+Réveil mécanique Bayard en métal bleu ciel. Une petite pièce ronde au cadran lumineux et au charme très fifties.
