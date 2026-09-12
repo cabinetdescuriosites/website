@@ -58,6 +58,9 @@ collections:
         name: "photos"
         widget: "list"
         min: 1
+        required: true
+        default: [""]
+        collapsed: false
         hint: "Prévoir idéalement 4 à 5 photos : vue d’ensemble, marque ou signature, détails et imperfections. La première photo est celle affichée dans la galerie."
         field: { label: "Photo", name: "photo", widget: "image" }
       - { label: "Description", name: "body", widget: "markdown", hint: "Quelques phrases pour raconter l'objet, son charme, son histoire." }
@@ -65,4 +68,4 @@ collections:
       - { label: "Dimensions", name: "dimensions", widget: "string", required: false, hint: "Ex. : H. 24 cm × Ø 14 cm" }
       - { label: "Époque", name: "epoque", widget: "string", required: false, hint: "Ex. : Milieu XXᵉ siècle" }
       - { label: "Livraison", name: "livraison", widget: "string", default: "Emballage soigné · Frais de port confirmés avant la vente · Retrait à Lyon gratuit" }
-      - { label: "Date d'ajout", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD", hint: "Sert à trier : les plus récentes apparaissent en premier." }
+      - { label: "Date d'ajout", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD", default: "{{now}}", hint: "Déjà remplie avec la date du jour. Sert à trier : les plus récentes apparaissent en premier." }
