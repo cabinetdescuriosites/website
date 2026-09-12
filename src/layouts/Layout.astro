@@ -21,8 +21,9 @@ const {
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL(image, Astro.site);
 // Toutes les images de partage sont produites au gabarit 1200x628 en JPEG.
-const partageStandard = image.startsWith("/assets/partage");
-const ogAlt = image.startsWith("/assets/partage/")
+const partageAuto = image.startsWith("/.netlify/images");
+const partageStandard = image.startsWith("/assets/partage") || partageAuto;
+const ogAlt = image.startsWith("/assets/partage/") || partageAuto
   ? `${title.split(" — ")[0]} — Cabinet des Curiosités`
   : "Des mains ouvrent un tiroir ancien garni de jumelles de théâtre, d’une montre de gousset et de petits objets chinés";
 ---

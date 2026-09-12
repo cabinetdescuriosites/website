@@ -1,6 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import { existsSync } from 'node:fs';
+import { photo, apercuPartage } from '../../utils/photo';
 
 export async function getStaticPaths() {
   const produits = await getCollection("produits");
@@ -21,21 +23,26 @@ const similaires = all
   .sort((a, b) => (b.data.categorie === d.categorie ? 1 : 0) - (a.data.categorie === d.categorie ? 1 : 0))
   .slice(0, 3);
 
+// Les 30 premières fiches ont un aperçu de partage fait main ; les nouvelles le reçoivent
+// automatiquement, recadré depuis leur première photo.
+const partageMain = `/assets/partage/${produit.slug}.jpg`;
+const partage = existsSync(`public${partageMain}`) ? partageMain : apercuPartage(photos[0]);
+
 const metaDescription = `${(produit.body ?? "").trim().replace(/\s+/g, " ").slice(0, 140)}${(produit.body ?? "").trim().length > 140 ? "…" : ""} ${d.categorie} · ${d.epoque ?? "pièce ancienne"} · ${d.prix} € · ${d.statut}.`.trim();
 ---
-<Layout title={`${d.titre} — Cabinet des Curiosités`} description={metaDescription} image={`/assets/partage/${produit.slug}.jpg`} active="trouvailles" inner={true}>
+<Layout title={`${d.titre} — Cabinet des Curiosités`} description={metaDescription} image={partage} active="trouvailles" inner={true}>
   <div class="wrap"><nav class="breadcrumb"><a href="/">Accueil</a> — <a href="/trouvailles">Les Trouvailles</a> — <span>{d.titre}</span></nav></div>
 
   <section class="product-page">
     <div class="wrap product-layout">
       <div class="product-gallery product-gallery--develop" data-product-gallery>
-        <img class="product-gallery__main" src={photos[0]} alt={d.titre} data-product-main />
+        <img class="product-gallery__main" src={photo(photos[0], 1400)} alt={d.titre} data-product-main />
         <span class="product-gallery__cap">Pièce unique · choisie par moi</span>
         {photos.length > 1 && (
           <div class="pd-thumbs">
             {photos.map((ph, i) => (
-              <button class={i === 0 ? "is-active" : undefined} data-product-thumb={ph} aria-label={`Voir la photo ${i + 1}`}>
-                <img src={ph} alt="" loading="lazy" />
+              <button class={i === 0 ? "is-active" : undefined} data-product-thumb={photo(ph, 1400)} aria-label={`Voir la photo ${i + 1}`}>
+                <img src={photo(ph, 240)} alt="" loading="lazy" />
               </button>
             ))}
           </div>
@@ -84,7 +91,7 @@ const metaDescription = `${(produit.body ?? "").trim().replace(/\s+/g, " ").slic
             <a href={`/trouvailles/${p.slug}`} class="pcard reveal">
               <div class="pcard__media photo-reveal">
                 <span class={`pcard__badge${badgeMod[p.data.statut] ? ` pcard__badge--${badgeMod[p.data.statut]}` : ""}`}>{p.data.statut}</span>
-                <img class="pcard__primary" src={cover(p)} alt={p.data.titre} loading="lazy" />
+                <img class="pcard__primary" src={photo(cover(p), 900)} alt={p.data.titre} loading="lazy" />
                 <span class="pcard__view">Voir la pièce <i>↗</i></span>
               </div>
               <div class="pcard__body"><div><div class="pcard__name">{p.data.titre}</div><div class="pcard__cat">{p.data.categorie}</div></div><div class="pcard__price">{p.data.prix}&nbsp;€</div></div>

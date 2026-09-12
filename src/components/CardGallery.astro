@@ -1,4 +1,5 @@
 ---
+import { photo } from '../utils/photo';
 // Photos d'un objet dans une carte : piste aimantée, flèches au survol, points.
 // Le comportement (flèches, points, glissé qui n'ouvre pas la fiche) vit dans Layout.astro.
 interface Props {
@@ -12,7 +13,7 @@ const multi = photos.length > 1;
 ---
 <a href={href} class="pcard__track" data-pcard-track aria-label={multi ? `${titre} — ${photos.length} photos` : titre}>
   {photos.map((ph, n) => (
-    <img src={ph} alt={n === 0 ? titre : `${titre}, photo ${n + 1}`} loading={eager && n === 0 ? undefined : "lazy"} draggable="false" />
+    <img src={photo(ph, 900)} alt={n === 0 ? titre : `${titre}, photo ${n + 1}`} loading={eager && n === 0 ? undefined : "lazy"} draggable="false" />
   ))}
 </a>
 {multi && (

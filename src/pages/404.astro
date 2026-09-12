@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import { photo } from '../utils/photo';
 
 const suggestions = (await getCollection("produits"))
   .filter((p) => p.data.statut !== "Vendu")
@@ -35,7 +36,7 @@ const suggestions = (await getCollection("produits"))
           {suggestions.map((p) => (
             <a href={`/trouvailles/${p.slug}`} class="pcard">
               <div class="pcard__media">
-                <img class="pcard__primary" src={p.data.photos[0] ?? "/assets/placeholder.svg"} alt={p.data.titre} loading="lazy" />
+                <img class="pcard__primary" src={photo(p.data.photos[0] ?? "/assets/placeholder.svg", 900)} alt={p.data.titre} loading="lazy" />
               </div>
               <div class="pcard__body">
                 <div><div class="pcard__name">{p.data.titre}</div><div class="pcard__cat">{p.data.categorie}</div></div>
