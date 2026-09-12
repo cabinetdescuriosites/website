@@ -16,6 +16,11 @@ backend:
 
 locale: fr
 
+# Son logo sur l'écran de connexion, et un lien « Voir le site » dans l'admin
+logo_url: /assets/logo-badge.svg
+site_url: https://cabinetdescuriosites.fr
+display_url: https://cabinetdescuriosites.fr
+
 media_folder: "public/assets/produits"
 public_folder: "/assets/produits"
 
