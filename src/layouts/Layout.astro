@@ -129,7 +129,7 @@ const ogAlt = image.startsWith("/assets/partage/")
       const nav = t.closest('[data-pcard-nav]') as HTMLButtonElement | null;
       if (nav) {
         e.preventDefault();
-        const track = nav.closest('.pcard__media')?.querySelector('[data-pcard-track]') as HTMLElement | null;
+        const track = nav.closest('[data-card-gallery]')?.querySelector('[data-pcard-track]') as HTMLElement | null;
         if (track) track.scrollBy({ left: Number(nav.dataset.pcardNav) * track.clientWidth, behavior: 'smooth' });
       }
       const thumb = t.closest('[data-product-thumb]') as HTMLButtonElement | null;
@@ -157,7 +157,7 @@ const ogAlt = image.startsWith("/assets/partage/")
     });
     // Galerie de carte : les points et les flèches suivent la photo affichée, au doigt comme à la flèche.
     const syncPcard = (track: HTMLElement) => {
-      const media = track.closest('.pcard__media');
+      const media = track.closest('[data-card-gallery]');
       if (!media) return;
       const count = track.children.length;
       const i = Math.round(track.scrollLeft / Math.max(1, track.clientWidth));

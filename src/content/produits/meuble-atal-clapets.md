@@ -5,6 +5,7 @@ categorie: "Petit mobilier"
 statut: "Disponible"
 photos:
   - "/assets/produits/meuble-atal-1.webp"
+  - "/assets/produits/meuble-atal-2.webp"
 etat: "Bon état."
 dimensions: "H. 106 × L. 79 × P. 32,5 cm · 10 compartiments"
 epoque: "Vintage"

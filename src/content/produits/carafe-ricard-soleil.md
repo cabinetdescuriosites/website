@@ -5,6 +5,7 @@ categorie: "Arts de la table"
 statut: "Disponible"
 photos:
   - "/assets/produits/carafe-ricard-1.webp"
+  - "/assets/produits/carafe-ricard-2.webp"
 etat: "Excellent état."
 dimensions: "Contenance 50 cl · 528 g"
 epoque: "Vintage"

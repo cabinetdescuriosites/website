@@ -5,6 +5,7 @@ categorie: "Curiosités"
 statut: "Disponible"
 photos:
   - "/assets/produits/jerrycan-bp-1.webp"
+  - "/assets/produits/jerrycan-bp-2.webp"
 etat: "Bon état."
 dimensions: "H. 28 × L. 34 × ép. 16 cm · 2,962 kg"
 epoque: "Années 1970"

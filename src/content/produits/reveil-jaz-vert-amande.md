@@ -5,6 +5,7 @@ categorie: "Curiosités"
 statut: "Disponible"
 photos:
   - "/assets/produits/reveil-jaz-vert-1.webp"
+  - "/assets/produits/reveil-jaz-vert-2.webp"
 etat: "Bon état, fonctionnel, verre intact ; traces d’usage et peinture écaillée par endroits."
 dimensions: "H. 11 × Ø 9 cm · 370 g"
 epoque: "Années 1970"

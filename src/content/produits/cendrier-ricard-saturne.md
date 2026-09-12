@@ -5,6 +5,7 @@ categorie: "Arts de la table"
 statut: "Disponible"
 photos:
   - "/assets/produits/cendrier-ricard-saturne-1.webp"
+  - "/assets/produits/cendrier-ricard-saturne-2.webp"
 etat: "Bon état, quelques traces d’usage."
 dimensions: "H. 5 × Ø 12 cm"
 epoque: "Années 1990"

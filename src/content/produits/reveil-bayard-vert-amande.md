@@ -5,6 +5,7 @@ categorie: "Curiosités"
 statut: "Disponible"
 photos:
   - "/assets/produits/reveil-bayard-vert-1.webp"
+  - "/assets/produits/reveil-bayard-vert-2.webp"
 etat: "Très bon état."
 dimensions: "H. 10 × Ø 9,5 cm · 327 g"
 epoque: "Vintage"

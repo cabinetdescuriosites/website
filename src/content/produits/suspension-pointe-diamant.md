@@ -5,6 +5,7 @@ categorie: "Luminaires"
 statut: "Disponible"
 photos:
   - "/assets/produits/suspension-pointe-diamant-1.webp"
+  - "/assets/produits/suspension-pointe-diamant-2.webp"
 etat: "Très bon état."
 dimensions: "H. 35 × Ø 33 cm · 5,9 kg"
 epoque: "Vintage"

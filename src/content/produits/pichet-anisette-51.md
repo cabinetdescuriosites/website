@@ -5,6 +5,7 @@ categorie: "Arts de la table"
 statut: "Disponible"
 photos:
   - "/assets/produits/pichet-anisette-51-1.webp"
+  - "/assets/produits/pichet-anisette-51-2.webp"
 etat: "Excellent état."
 dimensions: "H. 14 × L. 20 × l. 11 cm · 1 L · 380 g"
 epoque: "Années 1970"

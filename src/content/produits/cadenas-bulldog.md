@@ -5,6 +5,7 @@ categorie: "Curiosités"
 statut: "Disponible"
 photos:
   - "/assets/produits/cadenas-bulldog-1.webp"
+  - "/assets/produits/cadenas-bulldog-2.webp"
 etat: "Bon état."
 dimensions: "H. 6,5 × l. 4,5 cm · 76 g"
 epoque: "Vintage"

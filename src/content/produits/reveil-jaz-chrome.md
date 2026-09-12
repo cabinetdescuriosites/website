@@ -5,6 +5,7 @@ categorie: "Curiosités"
 statut: "Disponible"
 photos:
   - "/assets/produits/reveil-jaz-chrome-1.webp"
+  - "/assets/produits/reveil-jaz-chrome-2.webp"
 etat: "Très bon état."
 dimensions: "H. 12 × Ø 9,5 cm · 437 g"
 epoque: "Années 1950"

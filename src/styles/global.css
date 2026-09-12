@@ -192,7 +192,7 @@ body.inner .hdr{min-height:86px;padding-block:14px}
   transition:width var(--dur-hover) var(--ease),background var(--dur-hover) var(--ease)}
 .pcard__dots i.is-on{width:14px;background:var(--cream)}
 @media (hover:hover) and (pointer:fine){
-  .pcard--gallery:hover .pcard__nav{opacity:1}
+  .has-gallery:hover .pcard__nav{opacity:1}
   .pcard__nav:hover{background:var(--cream)}
 }
 @media (prefers-reduced-motion:reduce){.pcard__track{scroll-behavior:auto}}
@@ -614,6 +614,7 @@ body.inner .hdr{min-height:86px;padding-block:14px}
 .home-finds__headlink span{font-family:var(--serif);font-size:1rem;color:var(--gold-text)}
 .home-finds__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(58px,6vw,100px) clamp(28px,4vw,64px);align-items:start}
 .home-find{display:block}
+.home-find__meta{display:block;color:inherit}
 .home-find--1,.home-find--2,.home-find--3,.home-find--4,.home-find--5,.home-find--6{grid-column:auto;margin-top:0}
 .home-find__media{position:relative;overflow:hidden;background:var(--cream-2);transition:box-shadow var(--dur-hover) var(--ease)}
 .home-find__media img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform var(--dur-soft) var(--ease)}
@@ -1163,11 +1164,11 @@ body.inner .hdr{min-height:86px;padding-block:14px}
 
 /* 1 · La carte produit répond au regard (souris fine uniquement) */
 @media (hover:hover) and (pointer:fine){
-  .pcard:not(.pcard--gallery):hover .pcard__media img{transform:scale(1.03)}
+  .pcard:not(.has-gallery):hover .pcard__media img{transform:scale(1.03)}
   .pcard:hover .pcard__media{box-shadow:0 18px 40px rgba(54,36,24,.13)}
   .pcard:hover .pcard__name{color:var(--wine)}
   /* La sélection du moment répond exactement comme le catalogue */
-  .home-find:hover .home-find__media img{transform:scale(1.03)}
+  .home-find:not(.has-gallery):hover .home-find__media img{transform:scale(1.03)}
   .home-find:hover .home-find__media{box-shadow:0 18px 40px rgba(54,36,24,.13)}
   .home-find:hover .home-find__meta h3{color:var(--wine)}
   .home-svc__item:hover::after{width:100%}

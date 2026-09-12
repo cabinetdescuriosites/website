@@ -5,6 +5,7 @@ categorie: "Décoration"
 statut: "Disponible"
 photos:
   - "/assets/produits/vase-cristal-corolle-1.webp"
+  - "/assets/produits/vase-cristal-corolle-2.webp"
 etat: "Très bon état."
 dimensions: "H. 18 × Ø 14 cm · 1,151 kg"
 epoque: "Vintage"

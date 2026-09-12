@@ -5,6 +5,7 @@ categorie: "Arts de la table"
 statut: "Disponible"
 photos:
   - "/assets/produits/cendrier-ricard-1.webp"
+  - "/assets/produits/cendrier-ricard-2.webp"
 etat: "Excellent état."
 dimensions: "H. 4 × l. 12 cm · 359 g"
 epoque: "Années 1970"

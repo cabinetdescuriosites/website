@@ -5,6 +5,7 @@ categorie: "Arts de la table"
 statut: "Disponible"
 photos:
   - "/assets/produits/pichet-ricard-jaune-1.webp"
+  - "/assets/produits/pichet-ricard-jaune-2.webp"
 etat: "Excellent état."
 dimensions: "H. 15 × P. 20 × L. 11 cm · 1,5 L · 380 g"
 epoque: "Années 1970"

@@ -5,6 +5,7 @@ categorie: "Curiosités"
 statut: "Disponible"
 photos:
   - "/assets/produits/reveil-voyage-bayard-1.webp"
+  - "/assets/produits/reveil-voyage-bayard-2.webp"
 etat: "Très bon état."
 dimensions: "6 × 6 cm · 163 g"
 epoque: "Art déco"

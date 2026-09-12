@@ -5,6 +5,7 @@ categorie: "Arts de la table"
 statut: "Disponible"
 photos:
   - "/assets/produits/service-porcelaine-1.webp"
+  - "/assets/produits/service-porcelaine-2.webp"
 etat: "Très bon état."
 epoque: "Vintage"
 date: 2026-07-18

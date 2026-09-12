@@ -5,6 +5,7 @@ categorie: "Petit mobilier"
 statut: "Disponible"
 photos:
   - "/assets/produits/table-tam-tam-1.webp"
+  - "/assets/produits/table-tam-tam-2.webp"
 etat: "Bon état."
 dimensions: "H. 45,5 × Ø 66,5 cm · pied Ø 30,5 cm"
 epoque: "Années 1970"

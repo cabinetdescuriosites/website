@@ -5,6 +5,7 @@ categorie: "Curiosités"
 statut: "Disponible"
 photos:
   - "/assets/produits/cadenas-fth-unis-1.webp"
+  - "/assets/produits/cadenas-fth-unis-2.webp"
 etat: "Bon état."
 dimensions: "H. 8 × l. 5 cm · 91 g"
 epoque: "Vintage"

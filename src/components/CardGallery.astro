@@ -1,0 +1,30 @@
+---
+// Photos d'un objet dans une carte : piste aimantée, flèches au survol, points.
+// Le comportement (flèches, points, glissé qui n'ouvre pas la fiche) vit dans Layout.astro.
+interface Props {
+  href: string;
+  titre: string;
+  photos: string[];
+  eager?: boolean;
+}
+const { href, titre, photos, eager = false } = Astro.props;
+const multi = photos.length > 1;
+---
+<a href={href} class="pcard__track" data-pcard-track aria-label={multi ? `${titre} — ${photos.length} photos` : titre}>
+  {photos.map((ph, n) => (
+    <img src={ph} alt={n === 0 ? titre : `${titre}, photo ${n + 1}`} loading={eager && n === 0 ? undefined : "lazy"} draggable="false" />
+  ))}
+</a>
+{multi && (
+  <>
+    <button class="pcard__nav pcard__nav--prev" type="button" data-pcard-nav="-1" aria-label="Photo précédente" disabled>
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5" /></svg>
+    </button>
+    <button class="pcard__nav pcard__nav--next" type="button" data-pcard-nav="1" aria-label="Photo suivante">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5" /></svg>
+    </button>
+    <span class="pcard__dots" aria-hidden="true">
+      {photos.map((_, n) => <i class={n === 0 ? "is-on" : undefined}></i>)}
+    </span>
+  </>
+)}

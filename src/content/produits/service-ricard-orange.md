@@ -5,6 +5,7 @@ categorie: "Arts de la table"
 statut: "Disponible"
 photos:
   - "/assets/produits/service-ricard-orange-1.webp"
+  - "/assets/produits/service-ricard-orange-2.webp"
 etat: "Excellent état."
 dimensions: "Pichet 1,5 L"
 epoque: "Années 1970"
