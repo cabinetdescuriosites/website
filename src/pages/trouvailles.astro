@@ -44,18 +44,40 @@ const cover = (p) => p.data.photos[0] ?? "/assets/placeholder.svg";
         ))}
       </div>
       <div class="shop">
-        {produits.map((p, i) => (
-          <a href={`/trouvailles/${p.slug}`} class="pcard reveal" data-cat={catKey[p.data.categorie]} data-new={nouveautes.has(p.slug) ? "true" : undefined}>
-            <div class="pcard__media">
-              <span class={`pcard__badge${badgeMod[p.data.statut] ? ` pcard__badge--${badgeMod[p.data.statut]}` : ""}`}>{p.data.statut}</span>
-              <img class="pcard__primary" src={cover(p)} alt={p.data.titre} loading="lazy" />
-            </div>
-            <div class="pcard__body">
-              <div><div class="pcard__name">{p.data.titre}</div><div class="pcard__cat">{p.data.categorie}</div></div>
-              <div class={`pcard__price${p.data.statut === "Vendu" ? " sold" : ""}`}>{p.data.prix}&nbsp;€</div>
-            </div>
-          </a>
-        ))}
+        {produits.map((p) => {
+          const href = `/trouvailles/${p.slug}`;
+          const photos = p.data.photos.length ? p.data.photos : [cover(p)];
+          const multi = photos.length > 1;
+          return (
+            <article class={`pcard reveal${multi ? " pcard--gallery" : ""}`} data-cat={catKey[p.data.categorie]} data-new={nouveautes.has(p.slug) ? "true" : undefined}>
+              <div class="pcard__media">
+                <a href={href} class="pcard__track" data-pcard-track aria-label={multi ? `${p.data.titre} — ${photos.length} photos` : p.data.titre}>
+                  {photos.map((ph, n) => (
+                    <img src={ph} alt={n === 0 ? p.data.titre : `${p.data.titre}, photo ${n + 1}`} loading="lazy" draggable="false" />
+                  ))}
+                </a>
+                <span class={`pcard__badge${badgeMod[p.data.statut] ? ` pcard__badge--${badgeMod[p.data.statut]}` : ""}`}>{p.data.statut}</span>
+                {multi && (
+                  <>
+                    <button class="pcard__nav pcard__nav--prev" type="button" data-pcard-nav="-1" aria-label="Photo précédente" disabled>
+                      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 3 5 8l5 5" /></svg>
+                    </button>
+                    <button class="pcard__nav pcard__nav--next" type="button" data-pcard-nav="1" aria-label="Photo suivante">
+                      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5" /></svg>
+                    </button>
+                    <span class="pcard__dots" aria-hidden="true">
+                      {photos.map((_, n) => <i class={n === 0 ? "is-on" : undefined}></i>)}
+                    </span>
+                  </>
+                )}
+              </div>
+              <a href={href} class="pcard__body">
+                <div><div class="pcard__name">{p.data.titre}</div><div class="pcard__cat">{p.data.categorie}</div></div>
+                <div class={`pcard__price${p.data.statut === "Vendu" ? " sold" : ""}`}>{p.data.prix}&nbsp;€</div>
+              </a>
+            </article>
+          );
+        })}
       </div>
     </div>
   </section>
