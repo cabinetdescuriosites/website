@@ -4,7 +4,7 @@ import Layout from '../layouts/Layout.astro';
 const valeurs = [
   { n: "01", t: "Écouter ce que l’objet raconte", p: "Une forme, une matière, une trace laissée par le temps : la présence passe toujours avant la perfection." },
   { n: "02", t: "Choisir avec conviction", p: "Une pièce qui remue quelque chose vaut mieux que dix objets simplement jolis. Chaque choix doit pouvoir être défendu et raconté." },
-  { n: "03", t: "Transmettre vraiment", p: "Chaque trouvaille est décrite avec sincérité, racontée avec ce que l’on sait d’elle, puis préparée comme si elle était confiée en main propre." },
+  { n: "03", t: "Transmettre vraiment", p: "Chaque pièce est décrite avec précision, racontée avec ce que l’on sait d’elle, puis préparée comme si elle était remise en main propre." },
 ];
 
 const reperes = [
@@ -23,10 +23,10 @@ const reperes = [
 >
   <section class="inner-intro inner-intro--about">
     <div class="wrap inner-intro__inner">
-      <span class="eyebrow">Mon histoire</span>
+      <span class="eyebrow">L’histoire du Cabinet</span>
       <div class="inner-intro__grid">
         <h1>Il était une fois<br /><em>une passion.</em></h1>
-        <p>Puis un rêve, devenu l’une des plus belles réalisations qu’il m’ait été donné de vivre. Quelle sensation incroyable, que de jolies vibrations — et quelle joie immense que de pouvoir la partager.</p>
+        <p>Un regard formé dès l’enfance, trente ans de commerce et un déclic dans un café-brocante de New York : voici d’où vient l’exigence du Cabinet, et le plaisir de la partager.</p>
       </div>
       <div class="inner-intro__foot" aria-label="Repères">
         <span>Trésors des années 1920 à 1980</span>
@@ -56,7 +56,7 @@ const reperes = [
           <h2>Une maison où l’âme des objets<br /><em>animait le quotidien.</em></h2>
           <p>Baignée très tôt dans l’univers de la brocante par une maman chineuse et collectionneuse, j’ai grandi entourée des trouvailles des marchés, des foires et des vide-greniers.</p>
           <p>Partout, les collections se télescopaient à merveille, d’une manière complètement hétéroclite : les siphons en haut de l’étagère, les épingles à chapeaux trônant fièrement sur le bahut, et les tableaux à même le sol qui habillaient les murs de leurs couleurs chatoyantes.</p>
-          <p class="page__note">Oui, posés à même le sol — et qui donnaient à une vulgaire plinthe une échappatoire à pensées des plus efficaces.</p>
+          <p class="page__note">Un désordre joyeux qui apprend, très tôt, à regarder chaque objet pour ce qu’il est.</p>
         </div>
       </div>
     </section>
@@ -116,9 +116,9 @@ const reperes = [
         <div class="page__text">
           <div class="page__chapitre"><b>Chapitre quatre</b><i></i><span>Pourquoi ce projet</span></div>
           <h2>Un projet devenu<br /><em>vivant, vrai et concret.</em></h2>
-          <p>Je n’ai eu de cesse de chercher des petites pépites, des perles rares, des objets de curiosité pour donner à mon chez-moi ce petit air vintage si cher à mon cœur. Ce que je faisais pour moi, je le fais désormais pour vous.</p>
-          <p>Le projet a mûri et a eu besoin de temps pour devenir vivant, vrai et concret. J’ai patiemment constitué une sélection assez large et assez profonde pour lui donner une identité et pouvoir enfin la partager.</p>
-          <p class="page__note">Prendre le temps juste, pour donner au rêve une forme qui me ressemble.</p>
+          <p>Pendant des années, cette quête de pépites et de perles rares a façonné un intérieur, puis une méthode : chercher, comparer, ne retenir que le meilleur. Ce qui était un plaisir personnel est devenu une sélection à partager.</p>
+          <p>Le projet a mûri le temps qu’il faut pour devenir vivant, vrai et concret : une collection assez large et assez profonde pour avoir une identité, et une exigence constante sur l’état et l’authenticité de chaque pièce.</p>
+          <p class="page__note">Prendre le temps juste, pour donner au rêve une forme qui lui ressemble.</p>
         </div>
       </div>
     </section>
@@ -135,7 +135,7 @@ const reperes = [
         <span class="eyebrow">Aujourd’hui</span>
         <h2>Née à Montmartre,<br /><em>installée à Lyon.</em></h2>
         <p>Paris est mon point de départ : je suis née à Montmartre et j’en ai arpenté les rues — ou plutôt les ruelles. Puis j’ai posé mes bagages à Lyon, il y a plus de quinze ans. C’est ici que le Cabinet des Curiosités a pris vie, nourri par mes racines parisiennes et mon attachement à Lyon.</p>
-        <a href="/trouvailles" class="btn btn--solid">Voir les trouvailles</a>
+        <a href="/trouvailles" class="btn btn--solid">Découvrir la collection</a>
       </div>
     </div>
   </section>
@@ -143,7 +143,7 @@ const reperes = [
   <!-- VALEURS -->
   <section class="engagements">
     <div class="wrap">
-      <div class="grid-head reveal"><span class="eyebrow">Ce qui me guide</span><h2>Mes engagements</h2></div>
+      <div class="grid-head reveal"><span class="eyebrow">Ce qui guide chaque choix</span><h2>Les engagements du Cabinet</h2></div>
       <div class="engagements__grid">
         {valeurs.map((v) => (
           <div class="engagement reveal"><div class="engagement__num">{v.n}</div><h3>{v.t}</h3><p>{v.p}</p></div>

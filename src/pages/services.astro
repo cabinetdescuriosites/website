@@ -8,10 +8,10 @@ const services = [
     n: "01",
     cle: "chiner",
     eyebrow: "Chiner pour vous",
-    titre: "Je deviens votre<br /><em>Personal Chineur.</em>",
+    titre: "Votre<br /><em>Personal Chineur.</em>",
     texte: [
-      "Chiner… mon passe-temps favori, sans l’ombre d’un doute. Alors si vous avez toujours voulu un objet mais que, par manque de temps, de moyen ou pour tout autre chose, il n’a toujours pas pris place dans votre intérieur : je pars le chercher pour vous.",
-      "Décrivez-moi la pépite que vous avez en tête — une époque, une matière, une photo d’inspiration suffit. Je garde l’œil ouvert au fil de mes chines jusqu’à la dénicher.",
+      "Une lampe des années 50, un pichet publicitaire, la table basse aperçue dans un magazine : un objet précis vous manque, mais le temps ou les occasions font défaut pour le trouver. Le Cabinet part le chercher pour vous.",
+      "Décrivez la pièce : une époque, une matière, une photo d’inspiration suffisent. La recherche se poursuit au fil des chines, jusqu’à la trouvaille qui correspond vraiment.",
     ],
     tarif: "Selon le prix de l’objet et le temps de recherche",
     delai: "Variable — le temps qu’il faut pour trouver la bonne pièce",
@@ -26,8 +26,8 @@ const services = [
     eyebrow: "Atelier rénovation",
     titre: "Redonner une seconde vie<br /><em>à ce qui vous tient à cœur.</em>",
     texte: [
-      "Des ateliers intimistes de quelques heures, en tout petit groupe, pour apprendre à bichonner vos objets vous-même.",
-      "Et si vous préférez me le confier, je me ferai un plaisir de le pouponner de mes petites mains — du simple relooking à la restauration — afin qu’il redevienne le plus beau à vos yeux.",
+      "Des ateliers en tout petit groupe, quelques heures pour apprendre les gestes justes : nettoyer, réparer, patiner, et redonner à vos objets l’éclat qu’ils méritent.",
+      "Vous préférez confier la pièce ? Du simple relooking à la restauration complète, elle est prise en charge avec le même soin que les objets de la collection.",
     ],
     tarif: "Selon les travaux : du relooking à la restauration complète",
     delai: "Atelier de quelques heures · restauration sur devis",
@@ -42,8 +42,8 @@ const services = [
     eyebrow: "Dépôt-vente",
     titre: "Vos coups de cœur d’hier<br /><em>méritent un nouveau regard.</em>",
     texte: [
-      "Vous avez accumulé pas mal de trucs, bidules, machins et autres objets que vous avez aimés — mais qui ne sont plus, aujourd’hui, vos chouchous.",
-      "Pas de panique : le Cabinet s’occupe de tout. Mise en valeur, photographie, mise en vente de vos objets et de votre mobilier des années 1920 à 1980.",
+      "Ces belles pièces qui ne trouvent plus leur place chez vous méritent un nouveau regard. Le Cabinet prend tout en charge : sélection, mise en valeur, photographies et mise en vente de vos objets et de votre mobilier des années 1920 à 1980.",
+      "Vous êtes informé·e de chaque vente et réglé·e dès qu’elle est conclue. Une manière simple et élégante de transmettre ce que vous avez aimé.",
     ],
     tarif: "Commission de 30 % sur le prix de vente",
     delai: "Contrat de dépôt établi ensemble · paiement après la vente",
@@ -58,8 +58,8 @@ const services = [
     eyebrow: "Vide-maison",
     titre: "Un lieu à vider,<br /><em>des trésors à sauver.</em>",
     texte: [
-      "J’assure le débarras de vos maisons, appartements, greniers, caves et granges — qu’il s’agisse de petit, moyen ou gros volume.",
-      "Je peux également venir récupérer les objets anciens qui dorment chez vous, à l’intérieur comme à l’extérieur, et dont vous n’avez plus l’utilité.",
+      "Maison, appartement, grenier, cave ou grange : le Cabinet organise le débarras complet, quel que soit le volume, en prenant soin de tout ce qui peut encore vivre.",
+      "Les objets anciens qui dorment chez vous, à l’intérieur comme à l’extérieur, peuvent aussi être simplement récupérés, sans débarras complet.",
     ],
     tarif: "Forfait établi après estimation des objets récupérés",
     delai: "Date convenue ensemble · acompte de 30 % à la commande",
@@ -71,17 +71,17 @@ const services = [
 ];
 ---
 <Layout
-  title="Mes services — Cabinet des Curiosités"
-  description="Personal Chineur, atelier rénovation, dépôt-vente et vide-maison : quatre façons de faire vivre les objets anciens, avec Stéfani, à Lyon."
+  title="Services — Cabinet des Curiosités"
+  description="Personal Chineur, atelier rénovation, dépôt-vente et vide-maison : quatre façons de faire vivre les objets anciens, à Lyon."
   active="services"
   inner={true}
 >
   <section class="inner-intro inner-intro--services">
     <div class="wrap inner-intro__inner">
-      <span class="eyebrow">Mes services</span>
+      <span class="eyebrow">Les services</span>
       <div class="inner-intro__grid">
         <h1>Chiner, restaurer,<br /><em>transmettre.</em></h1>
-        <p>Au-delà de la boutique, j’accompagne vos objets à chaque étape de leur histoire : les chercher pour vous, les remettre en beauté, les vendre à votre place ou venir les sauver d’un grenier.</p>
+        <p>Au-delà de la boutique, le Cabinet accompagne vos objets à chaque étape de leur histoire : rechercher la pièce qui vous manque, restaurer celle qui compte, vendre celles dont vous vous séparez, ou vider un lieu avec soin.</p>
       </div>
       <nav class="inner-intro__foot" aria-label="Accès rapide aux services">
         {services.map((s) => <a href={`#${s.cle}`}>{s.n} · {s.eyebrow}</a>)}
@@ -115,13 +115,13 @@ const services = [
         <span class="svc-contact__seal" aria-hidden="true">C<em>D</em>C</span>
         <span class="eyebrow">Parlons-en</span>
         <h2>Un projet<br /><em>en tête ?</em></h2>
-        <p class="svc-contact__hand">Racontez-le-moi simplement — je réponds moi-même, sous 24 à 48 heures.</p>
+        <p class="svc-contact__hand">Décrivez-le simplement : réponse personnelle sous 24 à 48 heures.</p>
       </div>
       <div class="svc-contact__ways">
         <a class="svc-way" href="tel:+33625371757">
           <span class="svc-way__label">Par téléphone</span>
           <strong class="svc-way__value">06 25 37 17 57</strong>
-          <span class="svc-way__note">Le plus direct — j’adore échanger de vive voix</span>
+          <span class="svc-way__note">Le plus direct, de vive voix</span>
           <em class="svc-way__arrow" aria-hidden="true">→</em>
         </a>
         <a class="svc-way" href={wa("Bonjour Stéfani, j’ai un projet en tête et j’aimerais vous en parler.")} target="_blank" rel="noopener noreferrer">

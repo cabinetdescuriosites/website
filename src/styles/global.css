@@ -430,6 +430,7 @@ body.inner .hdr{min-height:86px;padding-block:14px}
   .split{grid-template-columns:1fr}
   .split--rev .split__media{order:0}
   .insta__row{grid-template-columns:repeat(3,1fr)}
+  .insta__row a.c:nth-child(n+7){display:none}
   .insta__follow{grid-column:1/-1;flex-direction:row;gap:18px}
   .ftop{grid-template-columns:1fr 1fr}
   .fbrand{grid-column:1/-1}
@@ -823,7 +824,7 @@ body.inner .hdr{min-height:86px;padding-block:14px}
   .insta{padding-block:68px}
   .insta__h{margin-bottom:30px}
   .insta__row{gap:12px}
-  .insta__row a.c:nth-child(n+3){display:none}
+  .insta__row a.c:nth-child(n+5){display:none}
   .insta__cta{margin-top:26px}
 }
 

@@ -4,14 +4,14 @@ import Layout from '../layouts/Layout.astro';
 const wa = (msg: string) => `https://wa.me/33625371757?text=${encodeURIComponent(msg)}`;
 
 const motifs = [
-  { t: "Une question sur une pièce", p: "Dimensions, état, détail d’une photo : je vous réponds précisément.", href: "/trouvailles", cta: "Voir les trouvailles" },
-  { t: "Une recherche à me confier", p: "Décrivez-moi la pépite dont vous rêvez, je pars la chiner.", href: "/services#chiner", cta: "Personal Chineur" },
+  { t: "Une question sur une pièce", p: "Dimensions, état, détail d’une photo : une réponse précise, photos à l’appui.", href: "/trouvailles", cta: "Voir la collection" },
+  { t: "Une recherche à confier", p: "Décrivez la pièce dont vous rêvez, le Cabinet la recherche pour vous.", href: "/services#chiner", cta: "Personal Chineur" },
   { t: "Un objet à transmettre", p: "Dépôt-vente ou vide-maison : parlons de ce que vous avez.", href: "/services#depot", cta: "Découvrir" },
 ];
 ---
 <Layout
   title="Contact — Cabinet des Curiosités"
-  description="Écrire, appeler ou passer à l’atelier : Stéfani répond personnellement, sous 24 à 48 h. 16 rue de l’Arbre Sec, 69001 Lyon."
+  description="Une question sur une pièce, une recherche à confier, un objet à transmettre : réponse personnelle sous 24 à 48 h. Retrait sur rendez-vous à Lyon."
   active="contact"
   inner={true}
 >
@@ -20,7 +20,7 @@ const motifs = [
       <span class="eyebrow">Écrivons-nous</span>
       <div class="inner-intro__grid">
         <h1>Une pièce a retenu<br /><em>votre regard ?</em></h1>
-        <p>Une question, une recherche ou simplement l’envie d’en savoir plus : je lis chaque message et je réponds personnellement, sous 24 à 48 heures.</p>
+        <p>Une question sur un objet, une recherche à confier ou un projet à évoquer : chaque message reçoit une réponse personnelle, sous 24 à 48 heures.</p>
       </div>
     </div>
   </section>
@@ -31,7 +31,7 @@ const motifs = [
         <a class="contact-way" href="tel:+33625371757">
           <span class="contact-way__label">Par téléphone</span>
           <strong class="contact-way__value">06 25 37 17 57</strong>
-          <span class="contact-way__note">Le plus direct — j’adore échanger de vive voix</span>
+          <span class="contact-way__note">Le plus direct, de vive voix</span>
         </a>
         <a class="contact-way" href={wa("Bonjour Stéfani, j’ai une question à propos du Cabinet.")} target="_blank" rel="noopener noreferrer">
           <span class="contact-way__label">Sur WhatsApp</span>
@@ -43,17 +43,17 @@ const motifs = [
           <strong class="contact-way__value">contact@cabinetdescuriosites.com</strong>
           <span class="contact-way__note">Pour les demandes détaillées</span>
         </a>
-        <a class="contact-way" href="https://instagram.com/brocaddict.cafe" target="_blank" rel="noopener noreferrer">
+        <a class="contact-way" href="https://www.instagram.com/cabinet.curiosites.lyon/" target="_blank" rel="noopener noreferrer">
           <span class="contact-way__label">Sur Instagram</span>
-          <strong class="contact-way__value">@brocaddict.cafe</strong>
-          <span class="contact-way__note">Les trouvailles au fil des jours</span>
+          <strong class="contact-way__value">@cabinet.curiosites.lyon</strong>
+          <span class="contact-way__note">Nouveautés et coulisses de la sélection</span>
         </a>
       </div>
 
       <aside class="contact-card">
         <span class="contact-card__seal" aria-hidden="true">C<em>D</em>C</span>
         <div class="contact-card__row">
-          <h2>L’atelier</h2>
+          <h2>Le Cabinet</h2>
           <p>16 rue de l’Arbre Sec<br />69001 Lyon</p>
         </div>
         <div class="contact-card__row">
@@ -62,7 +62,7 @@ const motifs = [
         </div>
         <div class="contact-card__row">
           <h2>Délai de réponse</h2>
-          <p>24 à 48 heures, toujours par moi-même.</p>
+          <p>24 à 48 heures, avec une réponse personnelle.</p>
         </div>
       </aside>
     </div>
@@ -70,7 +70,7 @@ const motifs = [
 
   <section class="contact-motifs">
     <div class="wrap">
-      <div class="grid-head"><span class="eyebrow">Vous venez pour</span><h2>Dites-moi ce qui vous amène.</h2></div>
+      <div class="grid-head"><span class="eyebrow">Vous venez pour</span><h2>Ce qui vous amène.</h2></div>
       <div class="contact-motifs__grid">
         {motifs.map((m) => (
           <a class="contact-motif" href={m.href}>
